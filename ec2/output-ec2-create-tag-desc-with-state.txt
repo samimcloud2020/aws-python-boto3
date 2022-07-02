@@ -1,0 +1,13 @@
+C:\Users\user\PycharmProjects\aws\venv\Scripts\python.exe C:/Users/user/PycharmProjects/aws/describe-ec2.py
+the instance id are i-0de3301d023bb1523
+the instance state are terminated
+the instance id are i-049f6910fb63eb029
+the instance state are terminated
+the instance id are i-0f6a78b5dd1a73240
+the instance state are terminated
+the instance id are i-0d47a14bc4d641cbb
+the instance state are running
+the instance id are i-05d9ba07af86efbdd
+the instance state are running
+
+Process finished with exit code 0
