@@ -1,2 +1,13 @@
+C:\Users\user\PycharmProjects\aws\venv\Scripts\python.exe C:/Users/user/PycharmProjects/aws/ec2-stop.py
 i-014f56f307de7bb2a
-{'CurrentState': {'Code': 80, 'Name': 'stopped'}, 'InstanceId': 'i-014f56f307de7bb2a', 'PreviousState': {'Code': 80, 'Name': 'stopped'}}
+{'CurrentState': {'Code': 0, 'Name': 'pending'}, 'InstanceId': 'i-014f56f307de7bb2a', 'PreviousState': {'Code': 80, 'Name': 'stopped'}}
+Start : Sat Jul  2 21:17:41 2022
+End : Sat Jul  2 21:19:01 2022
+i-014f56f307de7bb2a
+{'CurrentState': {'Code': 64, 'Name': 'stopping'}, 'InstanceId': 'i-014f56f307de7bb2a', 'PreviousState': {'Code': 16, 'Name': 'running'}}
+Start : Sat Jul  2 21:19:02 2022
+End : Sat Jul  2 21:20:22 2022
+i-014f56f307de7bb2a
+{'CurrentState': {'Code': 48, 'Name': 'terminated'}, 'InstanceId': 'i-014f56f307de7bb2a', 'PreviousState': {'Code': 80, 'Name': 'stopped'}}
+
+Process finished with exit code 0
