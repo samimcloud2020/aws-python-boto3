@@ -1,0 +1,5 @@
+C:\Users\user\PycharmProjects\aws\venv\Scripts\python.exe C:/Users/user/PycharmProjects/aws/ec2-resource.py
+All insid i-0ed631d326c0027d0 & insttype t2.micro & state {'Code': 48, 'Name': 'terminated'} & launchtime 2022-07-03 08:42:29+00:00 & state terminated
+Filter insid i-0ed631d326c0027d0 & insttype t2.micro & state {'Code': 48, 'Name': 'terminated'} & launchtime 2022-07-03 08:42:29+00:00 & state terminated
+
+Process finished with exit code 0
