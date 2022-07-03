@@ -1,0 +1,7 @@
+C:\Users\user\PycharmProjects\aws\venv\Scripts\python.exe C:/Users/user/PycharmProjects/aws/describe-ec2.py
+2022-07-03 07:15:34 UTC+0000
+2022-07-03 12:45:34 IST+0530
+the instance id is i-0f780f64468851ff1 and instance state  terminated & AZ is us-east-1b & inst Type is t2.micro & launch time 2022-07-03 06:56:00+00:00
+the instance id is i-0d7153284691f6a8b and instance state  terminated & AZ is us-east-1b & inst Type is t2.micro & launch time 2022-07-03 06:56:00+00:00
+
+Process finished with exit code 0
