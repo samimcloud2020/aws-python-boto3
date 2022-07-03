@@ -1,0 +1,123 @@
+C:\Users\user\PycharmProjects\aws\venv\Scripts\python.exe C:/Users/user/PycharmProjects/aws/ec2-resource.py
+the insid i-0a569bcc9731478e7 & insttype t2.micro & state {'Code': 48, 'Name': 'terminated'} & launchtime 2022-07-03 07:27:36+00:00
+the insid i-012c03b2572dee577 & insttype t2.micro & state {'Code': 48, 'Name': 'terminated'} & launchtime 2022-07-03 07:27:59+00:00
+
+Process finished with exit code 0
+
+
+
+
+
+import boto3
+
+ec2 = boto3.resource('ec2')
+instance = ec2.Instance('id')
+Parameters
+id (string) -- The Instance's id identifier. This must be set.
+These are the resource's available identifiers:
+
+id
+These are the resource's available attributes:
+
+ami_launch_index
+architecture
+block_device_mappings
+boot_mode
+capacity_reservation_id
+capacity_reservation_specification
+client_token
+cpu_options
+ebs_optimized
+elastic_gpu_associations
+elastic_inference_accelerator_associations
+ena_support
+enclave_options
+hibernation_options
+hypervisor
+iam_instance_profile
+image_id
+instance_id
+instance_lifecycle
+instance_type
+ipv6_address
+kernel_id
+key_name
+launch_time
+licenses
+maintenance_options
+metadata_options
+monitoring
+network_interfaces_attribute
+outpost_arn
+placement
+platform
+platform_details
+private_dns_name
+private_dns_name_options
+private_ip_address
+product_codes
+public_dns_name
+public_ip_address
+ramdisk_id
+root_device_name
+root_device_type
+security_groups
+source_dest_check
+spot_instance_request_id
+sriov_net_support
+state
+state_reason
+state_transition_reason
+subnet_id
+tags
+tpm_support
+usage_operation
+usage_operation_update_time
+virtualization_type
+vpc_id
+These are the resource's available references:
+
+classic_address
+image
+key_pair
+network_interfaces
+placement_group
+subnet
+vpc
+These are the resource's available actions:
+
+attach_classic_link_vpc()
+attach_volume()
+console_output()
+create_image()
+create_tags()
+delete_tags()
+describe_attribute()
+detach_classic_link_vpc()
+detach_volume()
+get_available_subresources()
+load()
+modify_attribute()
+monitor()
+password_data()
+reboot()
+reload()
+report_status()
+reset_attribute()
+reset_kernel()
+reset_ramdisk()
+reset_source_dest_check()
+start()
+stop()
+terminate()
+unmonitor()
+These are the resource's available collections:
+
+volumes
+vpc_addresses
+These are the resource's available waiters:
+
+wait_until_exists()
+wait_until_running()
+wait_until_stopped()
+wait_until_terminated()
