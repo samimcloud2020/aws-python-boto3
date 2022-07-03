@@ -1,0 +1,21 @@
+C:\Users\user\PycharmProjects\aws\venv\Scripts\python.exe C:/Users/user/PycharmProjects/aws/ec2-resource-stop.py
+Pls print instance id ec2.Instance(id='i-0b84851fa3616fe8a')
+pls print snapshot id ec2.Snapshot(id='snap-0bd8aaa3ed4348cd8')
+Pls print instance id ec2.Instance(id='i-005ab9a99990de223')
+pls print snapshot id ec2.Snapshot(id='snap-04393222710479d1f')
+pls print array of snapshotids ['snap-0bd8aaa3ed4348cd8', 'snap-04393222710479d1f']
+
+Process finished with exit code 0
+
+
+
+
+
+Hello Snapshot created for all instances in us-east-1 region
+Inbox
+
+boto3 <no-reply@sns.amazonaws.com>
+9:52 PM (6 minutes ago)
+to me
+
+['snap-0bd8aaa3ed4348cd8', 'snap-04393222710479d1f']
