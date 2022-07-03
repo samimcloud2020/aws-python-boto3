@@ -1,0 +1,14 @@
+
+C:\Users\user\PycharmProjects\aws\venv\Scripts\python.exe C:/Users/user/PycharmProjects/aws/ec2.py
+i-012c03b2572dee577
+{'AmiLaunchIndex': 0, 'ImageId': 'ami-052efd3df9dad4825', 'InstanceId': 'i-012c03b2572dee577', 'InstanceType': 't2.micro', 'LaunchTime': datetime.datetime(2022, 7, 3, 7, 27, 59, tzinfo=tzutc()), 'Monitoring': {'State': 'disabled'}, 'Placement': {'AvailabilityZone': 'us-east-1b', 'GroupName': '', 'Tenancy': 'default'}, 'PrivateDnsName': 'ip-172-31-82-246.ec2.internal', 'PrivateIpAddress': '172.31.82.246', 'ProductCodes': [], 'PublicDnsName': '', 'State': {'Code': 0, 'Name': 'pending'}, 'StateTransitionReason': '', 'SubnetId': 'subnet-057065a18f6adc3c3', 'VpcId': 'vpc-0e9c53c6a0b14caaf', 'Architecture': 'x86_64', 'BlockDeviceMappings': [], 'ClientToken': 'cd62f543-2cc8-4f25-b77e-bf53b42ceb86', 'EbsOptimized': False, 'EnaSupport': True, 'Hypervisor': 'xen', 'NetworkInterfaces': [{'Attachment': {'AttachTime': datetime.datetime(2022, 7, 3, 7, 27, 59, tzinfo=tzutc()), 'AttachmentId': 'eni-attach-01a797505f57bf617', 'DeleteOnTermination': True, 'DeviceIndex': 0, 'Status': 'attaching', 'NetworkCardIndex': 0}, 'Description': '', 'Groups': [{'GroupName': 'default', 'GroupId': 'sg-016af9ba4c6cfaa57'}], 'Ipv6Addresses': [], 'MacAddress': '12:1e:e2:47:87:ad', 'NetworkInterfaceId': 'eni-077e52fe9ac4ef7df', 'OwnerId': '663380234130', 'PrivateDnsName': 'ip-172-31-82-246.ec2.internal', 'PrivateIpAddress': '172.31.82.246', 'PrivateIpAddresses': [{'Primary': True, 'PrivateDnsName': 'ip-172-31-82-246.ec2.internal', 'PrivateIpAddress': '172.31.82.246'}], 'SourceDestCheck': True, 'Status': 'in-use', 'SubnetId': 'subnet-057065a18f6adc3c3', 'VpcId': 'vpc-0e9c53c6a0b14caaf', 'InterfaceType': 'interface'}], 'RootDeviceName': '/dev/sda1', 'RootDeviceType': 'ebs', 'SecurityGroups': [{'GroupName': 'default', 'GroupId': 'sg-016af9ba4c6cfaa57'}], 'SourceDestCheck': True, 'StateReason': {'Code': 'pending', 'Message': 'pending'}, 'Tags': [{'Key': 'name', 'Value': 'server2'}], 'VirtualizationType': 'hvm', 'CpuOptions': {'CoreCount': 1, 'ThreadsPerCore': 1}, 'CapacityReservationSpecification': {'CapacityReservationPreference': 'open'}, 'MetadataOptions': {'State': 'pending', 'HttpTokens': 'optional', 'HttpPutResponseHopLimit': 1, 'HttpEndpoint': 'enabled', 'HttpProtocolIpv6': 'disabled', 'InstanceMetadataTags': 'disabled'}, 'EnclaveOptions': {'Enabled': False}, 'PrivateDnsNameOptions': {'HostnameType': 'ip-name', 'EnableResourceNameDnsARecord': False, 'EnableResourceNameDnsAAAARecord': False}, 'MaintenanceOptions': {'AutoRecovery': 'default'}}
+Start : Sun Jul  3 12:58:00 2022
+End : Sun Jul  3 12:58:10 2022
+
+Process finished with exit code 0
+
+
+
+the instance id is i-0a569bcc9731478e7 and instance state  running & AZ is us-east-1b & inst Type is t2.micro & launch time 2022-07-03 07:27:36+00:00
+
+Process finished with exit code 0
