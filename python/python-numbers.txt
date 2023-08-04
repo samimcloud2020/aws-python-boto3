@@ -126,3 +126,5 @@ Unfortunately, most decimal fractions cannot be represented exactly as binary fr
 A consequence is that, in general, the decimal floating-point numbers you enter are only approximated 
 by the binary floating-point numbers actually stored in the machine.
 -----------------------------------------------------------------------------------------------------------------------------
+Remember, Python 3 performs true division by default!
+_____________________________________________________________________________________________________________________________
