@@ -67,6 +67,9 @@ print(x)
 
 str is the class  currently stored in the x, i.e. 110-10  is a string.
 --------------------------------------------------------------------------------------------
+##############Floating Point Arithmetic: Issues and Limitations¶#############################
+#######https://docs.python.org/2/tutorial/floatingpoint.html################################
+
 x=0.1+0.2-0.3 
 print(type(x))
 print(x)
