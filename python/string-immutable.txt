@@ -1,0 +1,36 @@
+name='sam'
+
+name[0]='p'     <------can not, as string is immutable.
+-----------------------------------------------------
+a= name[1:}    <----am
+
+name = 'p' + a    <----pam  , with help of concatenation
+--------------------------------------------------
+a ="z"
+a = 3 * a   <-----aaa
+-----------------------------------------------------
+a = '2' + '3'   <----23
+----------------------------------------------------
+x = "hello world"
+
+x =x.upper()    <----HELLO WORLD, upper() is a method
+
+x=x.lower()
+
+x=x.split()  < ----["hello", "world"]  make list 
+------------------------------------------------------
+x = "this is a string"
+x=x.split('i')
+print(x)
+
+['th', 's ', 's a str', 'ng']
+----------------------------------------------------
+1. Are strings mutable?
+
+Strings are not mutable! (meaning you can't use indexing to change individual elements of a string)
+
+2. How do I create comments in my code?
+
+You can use the hashtag # to create comments in your code
+----------------------------------------------------------------
+
