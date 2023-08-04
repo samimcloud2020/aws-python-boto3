@@ -1,0 +1,50 @@
+ordered seq , hold variety of object types.
+
+[ , , , ]
+
+list:
+used indexing and slicing.
+
+as it nested, variety of methods to call
+------------------------------------------------------------
+xyz = [ "samim", 34, 23.56]
+print(type(xyz))
+
+u=len(xyz)
+print(u)
+
+n=xyz[1:]
+print(n)
+
+
+<class 'list'>
+3
+[34, 23.56]
+-------------------------------------------------
+xyz = [ "samim", 34, 23.56]
+
+abc = ["one", "two", 4]
+
+zzz = xyz + abc
+print(zzz)
+
+
+['samim', 34, 23.56, 'one', 'two', 4]
+------------------------------------------------------
+
+xyz = [ "samim", 34, 23.56]
+
+xyz[0]="raja"
+print(xyz)
+
+
+['raja', 34, 23.56]
+-------------------------------------------
+
+xyz = [ "samim", 34, 23.56]
+
+xyz.append("mamu")
+print(xyz)
+
+['samim', 34, 23.56, 'mamu']
+------------------------------------------
