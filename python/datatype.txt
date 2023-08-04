@@ -1,0 +1,10 @@
+int    whole number 2 3 
+float  decimal     2.2 3.3
+str   ordered seq of chars     "hello"  "samim
+list  ordered seq of objects   [10, "samim", 200.3]
+dist  unordered key:value pairs   {"key1":"value1", "key2:"value2"}
+tup   ordered immutable seq of objects   (10, "samim", 200.3)
+set unordered seq of unique objects   {"a","b"}
+bool logical value   True False
+----------------------------------------------------------------------------
+  
