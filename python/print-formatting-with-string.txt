@@ -1,0 +1,86 @@
+Inject a variable into your string for printing.
+
+called string interpolation.
+----------------------------------------------------
+.format()
+
+OR
+
+f-strings
+------------------------ .format() --------------------------
+' something here {} then also {}'.format('something1','something2')
+-------------------------------------------------------------
+print('this is sam {}'.format('hero'))
+
+this is sam hero
+------------------------------------------------------------
+print('names are {} {} {}'.format('sam','ram','shyam'))
+
+names are sam ram shyam
+---------------------------------------------------------
+print('names are {2} {1} {0}'.format('sam','ram','shyam'))    < 0 index sam, 1 ram, 2 shyam
+
+names are shyam ram sam
+-------------------------------------------------------------
+print('names are {0} {0} {0}'.format('sam','ram','shyam'))
+
+names are sam sam sam
+---------------------------------------------------------
+print('names are {c} {a} {b}'.format(a='sam',b='ram',c='shyam'))
+
+names are shyam sam ram
+------------------------------------------
+result = 100 / 7
+print('the result is {}'.format(result))
+
+the result is 14.285714285714286
+----------------------------------------------
+result = 100 / 7
+print('the result is {r}'.format(r=result))
+
+the result is 14.285714285714286
+------------------{value:width.precision f }------------------------
+result = 100 / 7
+print('the result is {r:1.3f}'.format(r=result))
+
+the result is 14.286
+-----------------------------------------------------
+result = 100 / 7
+print('the result is {r:15.3f}'.format(r=result))
+
+the result is          14.286  <--------15 is width so here spaces placed.
+--------------------------------------------------------
+name = "samim"
+print("my name is {}".format(name))
+
+my name is samim
+-----------------------------------------------------
+name = "samim"
+print(f'my name is {name}')
+
+
+my name is samim
+-----------------------------------------------------
+name = "samim"
+age=45
+print(f'my name is {name} and age is {age}')
+
+my name is samim and age is 45
+--------------------------------------------------------
+name = "samim"
+age=45
+print(f'my name is {name} and age is {age}')
+
+print("my name is {} and age is {}".format(name,age))
+
+print("my name is {name} and age is {age}".format(name='raja',age='55'))
+
+
+
+
+my name is samim and age is 45
+my name is samim and age is 45
+my name is raja and age is 55
+--------------------------------------------------------------------
+
+
