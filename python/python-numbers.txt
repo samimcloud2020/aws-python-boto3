@@ -13,3 +13,57 @@ modulo or mod operator:
 2 ** 3 = 8
 2 + 10 * 10 + 3 =105
 (2 + 10) * (10 + 3) = 156
+---------------------------------------------------------------------
+name = "freeCodeCamp"
+
+score = 99.99
+
+lessons =  ["RWD", "JavaScript", "Databases", "Python"]
+
+person = {
+    "firstName": "John",
+    "lastName": "Doe",
+    "age": 28
+}
+
+langs = ("Python", "JavaScript", "Golang")
+
+basics = {"HTML", "CSS", "JavaScript"}
+
+print("The variable, name is of type:", type(name))
+print("The variable, score is of type:", type(score))
+print("The variable, lessons is of type:", type(lessons))
+print("The variable, person is of type:", type(person))
+print("The variable, langs is of type:", type(langs))
+print("The variable, basics is of type:", type(basics))
+
+
+
+-------------------------------------------------------------------------------
+The variable, name is of type: <class 'str'>
+The variable, score is of type: <class 'float'>
+The variable, lessons is of type: <class 'list'>
+The variable, person is of type: <class 'dict'>
+The variable, langs is of type: <class 'tuple'>
+The variable, basics is of type: <class 'set'>
+---------------------------------------------------------------------------------
+The type() function is a valuable built-in function of Python with which you can get the data type of a variable.
+----------------------------------------------------------------------------------------------------
+x =110-10
+print(type(x))
+print(x)
+
+<class 'int'>
+100
+
+int is the class of the value currently stored in the x, i.e. 100 is a whole number.
+-----------------------------------------------------------------------------------------
+x ='110-10'
+print(type(x))
+print(x)
+
+<class 'str'>
+110-10
+
+str is the class  currently stored in the x, i.e. 110-10  is a string.
+--------------------------------------------------------------------------------------------
