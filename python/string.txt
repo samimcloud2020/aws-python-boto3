@@ -59,3 +59,7 @@ h   e   l   l   o      w   o   r   l  d
 a='abcdefghijk'
 a[0:3]    <----abc   stop 3 but not include
 
+a[3:6]   <--def
+a[::]   <---abcdefghijk
+a[::2]   <---acegik
+--------------------------------------
