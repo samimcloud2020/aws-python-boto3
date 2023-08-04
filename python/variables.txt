@@ -1,0 +1,38 @@
+names can not start with number.
+
+my_dogs=2      ok
+1my_dogs=2     wrong
+
+-----------------------------------------
+no space will used in variable declaration , you can use _
+
+my dogs=2   wrong as space
+my_dogs=2   ok
+------------------------------------------------
+can not use : ''' " @ # $ % ^ & * < > - + ~ ,
+---------------------------------------------------
+avoid using words that has special meaning in python
+like str list
+------------------------------------------------------
+PEP8 that recommended that names are lowercase.
+-------------------------------------------------------
+The primary focus of PEP 8 is to improve the readability and consistency of Python code.
+PEP stands for Python Enhancement Proposal, and there are several of them.
+A PEP is a document that describes new features proposed for Python and documents aspects of Python,
+like design and style, for the community.
+-------------------------------------------------------------
+python uses dynamic typing.
+  reassign variables to different data types.
+
+  my_dogs=2                      <-------int
+  my_dogs=["samim", "somesh"]    <-------list
+
+  its right and same variable with different data types.
+---------------------------------------------------------------
+  in c++,
+  int my_dogs=1
+  my_dogs=["samim", "somesh"]
+
+  wrong
+  ---------------------------------------------------------------
+  
