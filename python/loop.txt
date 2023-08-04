@@ -1,0 +1,150 @@
+for x in "banana":
+  print(x)
+
+b
+a
+n
+a
+n
+a
+-------With the break statement we can stop the loop before it has looped through all the items:------------
+x = ["sam", 5.2, 90, "raja", "lisa"]
+
+for i in x:
+    print(i)
+    if i == "raja":
+        break
+
+
+sam
+5.2
+90
+raja
+----------------------------------------------------------------------------------------------
+x = ["sam", 5.2, 90, "raja", "lisa"]
+
+for i in x:
+    if i == "raja":  #when raja its break and not execute print
+        break
+    print(i)
+
+sam
+5.2
+90
+--------------------------------------------------------------------------------------------
+x = ["sam", 5.2, 90, "raja", "lisa"]
+
+for i in x:
+    if i == "raja":  #wwhen match as raja, continue loop till end
+        continue
+    print(i)
+
+sam
+5.2
+90
+lisa
+
+--------------------------------------------------------------------------------------
+x = ["sam", 5.2, 90, "raja", "lisa"]
+
+for i in x:
+    print(i)
+    if i == "somesh":
+        continue
+    else:
+        break
+
+
+
+sam
+------------------------------------------------------------------------------------------
+for x in range(6):
+  print(x)
+
+0
+1
+2
+3
+4
+5
+----------------------------------------------------------------------------------------
+for x in range(2, 6):
+  print(x)
+
+
+2
+3
+4
+5
+---------------------------------------------------------------------------------------
+for x in range(2, 30, 3):
+  print(x)
+
+2
+5
+8
+11
+14
+17
+20
+23
+26
+29
+---------------------------------------------------------------------------------------
+for x in range(6):
+  print(x)
+else:
+  print("Finally finished!")
+
+
+0
+1
+2
+3
+4
+5
+Finally finished!
+----------------------------------------------------------------------------
+for x in range(6):
+  if x == 3: 
+    break
+  print(x)
+else:
+  print("Finally finished!")
+
+
+0
+1
+2
+------------------------------------------------------------------------------
+adj = ["red", "big", "tasty"]
+fruits = ["apple", "banana", "cherry"]
+
+for x in adj:
+  for y in fruits:
+    print(x, y)
+
+
+red apple
+red banana
+red cherry
+big apple
+big banana
+big cherry
+tasty apple
+tasty banana
+tasty cherry
+------------------pass Statement-------------------------------------------------------
+for loops cannot be empty, but if you for some reason have a for loop with no content, put in the pass statement to avoid getting an error.
+
+
+for x in [0, 1, 2]:
+  pass
+
+
+not returned any error
+as for loop need statement inside but as no statement , it will error but pass help for no error
+--------------------------------------------------------------------------------------------------------
+
+
+
