@@ -1,0 +1,51 @@
+'hello'              ok
+"hello"              ok
+"i don't want"       ok
+----------------------------------
+either single or double quota
+-----------------------------------
+string: order seq
+using indexing and slicing we grab sub-section of string.
+
+
+indexing: allow to grab single char from string.
+uses [] notation after string or a variable assigned to a string.
+
+-------------------------------------
+h  e  l  l  o    <---string
+0  1  2  3  4    <---index
+0 -4 -3 -2 -1   <---reverse index
+indexing
+--------------------------------------
+slicing:
+grab a sub-section of a string.
+
+[start:stop:step]
+
+---------------------------------------
+start: numerical idex of slice start.
+stop: is index u will go upto (but not include)
+step: size of jump u take
+---------------------------------
+" i a'm going on run"      ok
+' i a'm going on run'      wrong
+---------------------------------------
+print('hello \nworld')
+
+hello
+world
+
+/n  new line
+-----------------------------------------
+print('hello \tworld')
+
+hello   world
+
+\t     tab
+----------------------------------------
+len('hello')
+
+5
+---------------------------------
+
+
