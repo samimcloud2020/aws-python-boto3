@@ -43,8 +43,93 @@ print(xyz)
 
 xyz = [ "samim", 34, 23.56]
 
-xyz.append("mamu")
+xyz.append("mamu")    <----appened at end
 print(xyz)
 
 ['samim', 34, 23.56, 'mamu']
 ------------------------------------------
+fruits = ['apple', 'banana', 'cherry']
+
+fruits.pop(1) #pop() , banana pop out from list
+
+print(fruits)
+
+
+['apple', 'cherry']
+---------------------------------------------
+xyz = [ "samim", 34, 23.56]
+xyz.pop()  # pop() , its pop by default from last
+print(xyz)
+
+['samim', 34]
+-----------------------------------------
+xyz = [ "samim", 34, 23.56]
+print(xyz)
+print("\nstart for loop:\n")
+
+for i in range(len(xyz)):     #range(3), means 0,1,2 (not 3)
+    xyz.pop()
+    print(xyz)
+    i+=1
+
+
+
+['samim', 34, 23.56]
+
+start for loop:
+
+['samim', 34]
+['samim']
+[]
+----------------------------------------------------
+xyz = [ "z", "a","e","k"]
+
+xyz.sort()
+print(xyz)
+
+
+['a', 'e', 'k', 'z']
+---------------------------------------------------
+xyz = [ "z", "a","e","k"]
+
+
+abc =xyz.sort()  #its not returned anything , so abc is None
+                 #None in python has no value
+print(type(abc))
+print(abc)
+
+<class 'NoneType'>
+None
+----------------------------------------------------
+xyz = [ "z", "a","e","k"]
+
+
+xyz.sort()  
+abc = xyz
+print(xyz)
+
+['a', 'e', 'k', 'z']
+---------------------------------------------------
+xyz = [ "z", "a","e","k"]
+
+
+xyz.reverse()  
+print(xyz)
+
+['k', 'e', 'a', 'z']
+-----------------------------------------------
+1. How do I index a nested list? For example if I want to grab 2 from [1,1,[1,2]]?
+
+You would just add another set of brackets for indexing the nested list, for example: my_list[2][1] .
+---------------------------------------------------
+xyz = [1,1,[1,2]]
+
+
+abc = xyz[2][1]  
+print(abc)
+
+
+2
+---------------------------------------------------------------
+
+
