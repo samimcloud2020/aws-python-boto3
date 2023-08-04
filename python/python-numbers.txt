@@ -67,3 +67,62 @@ print(x)
 
 str is the class  currently stored in the x, i.e. 110-10  is a string.
 --------------------------------------------------------------------------------------------
+x=0.1+0.2-0.3 
+print(type(x))
+print(x)
+
+
+<class 'float'>
+5.551115123125783e-17
+
+
+why o/p is not 0.0?
+-----------------------------------------------------------------------------------------------
+-----Another consequence is that since 0.1 is not exactly 1/10, summing ten values of 0.1 may not yield exactly 1.0, either:----
+sum=0.0
+print(type(sum))
+for i in range(10):
+    sum+=0.1
+    print(sum)
+
+<class 'float'>
+0.1
+0.2
+0.30000000000000004
+0.4
+0.5
+0.6
+0.7
+0.7999999999999999
+0.8999999999999999
+0.9999999999999999
+----------------------------------------------------------------------------------------------------
+from decimal import Decimal
+print(Decimal(2.675))
+
+2.67499999999999982236431605997495353221893310546875
+
+
+If you’re in a situation where you care which way your decimal halfway-cases are rounded, 
+you should consider using the decimal module. 
+Incidentally, the decimal module also provides a nice way to “see” the exact value that’s stored in any particular Python float.
+------------------------------------------------------------------------------------------------
+print(round(2.675, 2))
+
+2.67
+
+Since the decimal fraction 2.675 is exactly halfway between 2.67 and 2.68,
+you might expect the result here to be (a binary approximation to) 2.68.
+It’s not, because when the decimal string 2.675 is converted to a binary floating-point number, 
+it’s again replaced with a binary approximation, whose exact value is
+
+2.67499999999999982236431605997495353221893310546875
+------------------------------------------------------------------------------------------------------------------------------
+print( 0.1 + 0.2)
+
+0.30000000000000004
+---------------------------------------------------------------------------------------------------------------------------
+Unfortunately, most decimal fractions cannot be represented exactly as binary fractions. 
+A consequence is that, in general, the decimal floating-point numbers you enter are only approximated 
+by the binary floating-point numbers actually stored in the machine.
+-----------------------------------------------------------------------------------------------------------------------------
