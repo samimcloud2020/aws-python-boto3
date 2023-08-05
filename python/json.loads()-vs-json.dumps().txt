@@ -1,0 +1,83 @@
+json objects are surrounded by curly braces { }. They are written in key and value pairs.
+
+json.loads() takes in a string and returns a json object.
+
+json.dumps() takes in a json object and returns a string.
+-------------------------------------------------------------------
+  The keys in the dictionary can be any hashable object.
+  
+  In JSON, the keys are sequentially ordered and can be repeated. 
+  
+  In the dictionary, the keys cannot be repeated and must be distinct.
+--------------------------------------------------------------
+  string -------->json.loads()----------->dictionary(or say json object)
+
+  json object/dictionary----->json.dumps()----->string
+------------------------------------------------------------
+import json
+x =  '{ "name":"John", "age":30, "city":"New York"}'
+print(type(x))
+y = json.loads(x)
+print(type(y))
+print(y["age"])
+
+
+<class 'str'>
+<class 'dict'>
+30
+---------------------------------------------
+x =  '{ "name":"John", "age":30, "city":"New York"}'    <---this is string
+
+x =  { "name":"John", "age":30, "city":"New York"}      <----this is dict
+----------------------------------------------------------
+
+import json
+x =  { "name":"John", "age":30, "city":"New York"}
+print(type(x))
+print(x)
+
+y = json.dumps(x)
+print(type(y))
+print(y)
+
+
+<class 'dict'>
+{'name': 'John', 'age': 30, 'city': 'New York'}
+<class 'str'>
+{"name": "John", "age": 30, "city": "New York"}
+##################################################################################################################
+JSON stands for JavaScript Object Notation. JSON is a lightweight format for storing and transporting data.
+##################################################################################################################  
+JSON is just a format and neither a string nor an object. 
+  
+Normally, JSON string is used to exchange data.
+  
+However to access data,we have to parse or convert the JSON string into a javascript object.
+
+/*Lets say server want to send the variable 'a' which is a 
+ JSON String*/
+a = ‘{“name”:”HELLO”, “age”: 2000}’;
+
+/*When a client want to use this data,first it will have to 
+  convert 'JSON string' into an object.We can do that using 
+  JSON.parse().in javascript*/
+
+b = JSON.parse(a);
+
+/*Now b become an object and now it is ready to be used and it 
+looks like: {name:”HELLO”,age:2000}. Notice properties are not 
+quoted anymore like in JSON string above. */
+console.log(b["name"]); //this would display HELLO.
+-----------------------------------------------------------------------------------------------------------------------
+JSON is not string
+
+its a language for data exchange between multiple domains, JSON is basically a subset of YAML,
+that is also a way of exchange data between parties.
+
+Data exchange: Data exchange is the process of taking data structured under a source schema and transforming 
+it into data structured under a target schema so that the target data is an accurate representation of the source data. 
+For transforming data, definitely, you need a parser where you can justify whether the data schema is correct 
+or not for a computer program.
+-----------------------------------------------------------------------------------------------------------------------
+
+
