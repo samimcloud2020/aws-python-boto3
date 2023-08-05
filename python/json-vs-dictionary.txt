@@ -88,6 +88,7 @@ print(data)
 <class 'dict'>
 41.8157
 -------------------------------------------------------------------------------------
+https://datagy.io/convert-json-to-python-dictionary/
 $pip3 install urllib3==1.26.6 
 $pip3 install requests
 
