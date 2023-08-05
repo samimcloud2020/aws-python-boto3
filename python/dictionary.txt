@@ -7,7 +7,9 @@ easiest to grab objects by accessing key, where in list by indexing.
 dictionary:
   objects retrived by key.
   unordered and can not be sorted.
-
+  not immutable.
+string:
+  immutable.
 list:
   objects retrived by location.
   ordered seq can be indexed or slicing.
