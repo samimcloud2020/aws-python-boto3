@@ -109,13 +109,13 @@ import json
 import requests
 
 url = 'http://api.open-notify.org/iss-now.json'
-response = requests.get(url)
+response = requests.get(url) # requests.get(url)  to access url and get data and give to response
 print(type(response))
-text = response.text
+text = response.text    #its a json string
 print(type(text))
 print(text)
 
-print(json.loads(text))
+print(json.loads(text))  # convert json string to python dict
 
 
 <class 'requests.models.Response'>
@@ -123,7 +123,19 @@ print(json.loads(text))
 {"message": "success", "iss_position": {"longitude": "24.4627", "latitude": "-42.5216"}, "timestamp": 1691208321}
 {'message': 'success', 'iss_position': {'longitude': '24.4627', 'latitude': '-42.5216'}, 'timestamp': 1691208321}
 --------------------------------------------------------------
+This is quite a bit of code and thankfully there’s an easier way! 
+The requests library allows us to apply the .json() method to the response object to convert it to a dictionary.
 
+# Convert an API JSON Response to a Python Dictionary
+import requests   #no need here to import json library
 
+url = 'http://api.open-notify.org/iss-now.json'
+response = requests.get(url)  # got json string
+data = response.json()  # convert json string to python dict
 
+print(data)
 
+# Returns:
+# {'message': 'success', 'iss_position': {'latitude': '-45.0692', 'longitude': '-47.9368'}, 'timestamp': 1652720039}
+
+-------------------------------------------------------------------------------------
