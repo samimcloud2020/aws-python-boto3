@@ -1,0 +1,87 @@
+JSON exists as a string — 
+useful when you want to transmit data across a network.
+It needs to be converted to a native JavaScript object when you want to access the data.
+
+This is not a big issue — JavaScript provides a global JSON object that has methods available 
+for converting between the two.
+
+---------------------------------------------------------------------------------------------
+Note:
+Converting a string to a native object is called deserialization, 
+while converting a native object to a string so it can be transmitted across the network is called serialization.
+----------------------------------------------------------------------------------------------
+A JSON string can be stored in its own file, which is basically just a text file with an extension of .json, 
+and a MIME type of application/json.
+------------------------------------------------------------------------------------------------
+JSON is a string whose format very much resembles JavaScript object literal format. 
+You can include the same basic data types inside JSON as you can in a standard JavaScript object — 
+strings, numbers, arrays, booleans, and other object literals. 
+This allows you to construct a data hierarchy, like so:
+
+JSON:
+
+{
+  "squadName": "Super hero squad",
+  "homeTown": "Metro City",
+  "formed": 2016,
+  "secretBase": "Super tower",
+  "active": true,
+  "members": [
+    {
+      "name": "Molecule Man",
+      "age": 29,
+      "secretIdentity": "Dan Jukes",
+      "powers": ["Radiation resistance", "Turning tiny", "Radiation blast"]
+    },
+    {
+      "name": "Madame Uppercut",
+      "age": 39,
+      "secretIdentity": "Jane Wilson",
+      "powers": [
+        "Million tonne punch",
+        "Damage resistance",
+        "Superhuman reflexes"
+      ]
+    },
+    {
+      "name": "Eternal Flame",
+      "age": 1000000,
+      "secretIdentity": "Unknown",
+      "powers": [
+        "Immortality",
+        "Heat Immunity",
+        "Inferno",
+        "Teleportation",
+        "Interdimensional travel"
+      ]
+    }
+  ]
+}
+
+JS:
+superHeroes.homeTown;
+superHeroes["active"];
+superHeroes["members"][1]["powers"][2];   #to access the third superpower of the second hero listed in the members list
+---------------------------------------------------------------------------------
+Arrays as JSON:
+[
+  {
+    "name": "Molecule Man",
+    "age": 29,
+    "secretIdentity": "Dan Jukes",
+    "powers": ["Radiation resistance", "Turning tiny", "Radiation blast"]
+  },
+  {
+    "name": "Madame Uppercut",
+    "age": 39,
+    "secretIdentity": "Jane Wilson",
+    "powers": [
+      "Million tonne punch",
+      "Damage resistance",
+      "Superhuman reflexes"
+    ]
+  }
+]
+
+[0]["powers"][0]
+---------------------------------------------------------------------------------------------------
