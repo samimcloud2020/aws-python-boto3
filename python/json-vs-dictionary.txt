@@ -89,8 +89,20 @@ print(data)
 41.8157
 -------------------------------------------------------------------------------------
 https://datagy.io/convert-json-to-python-dictionary/
-$pip3 install urllib3==1.26.6 
-$pip3 install requests
+$mkdir my-function
+$cd my-function
+$ls
+lambda_function.py
+$mkdir package
+$pip3 install --target ./package urllib3==1.26.6 
+$pip3 install --target ./package requests
+$cd package
+$zip -r ../my_deployment_package.zip .
+$cd ..
+$zip my_deployment_package.zip lambda_function.py
+$ls
+my_deployment_package.zip    
+$ aws s3 cp my_deployment_package.zip s3://somesh123456/1.zip
 
 http://api.open-notify.org/iss-now.json
 
