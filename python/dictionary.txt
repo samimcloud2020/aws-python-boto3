@@ -1,0 +1,114 @@
+unordered mapping for storing objects.
+
+key-value pair.
+
+easiest to grab objects by accessing key, where in list by indexing.
+----------------------------------------------------------------------------
+dictionary:
+  objects retrived by key.
+  unordered and can not be sorted.
+
+list:
+  objects retrived by location.
+  ordered seq can be indexed or slicing.
+  also u can sortted out.
+------------------------------------------------------------------------
+dict1 = {"key1":"value1","key2":"value2"}
+
+print(dict1)
+
+x = dict1['key1']
+print(x)
+
+
+{'key1': 'value1', 'key2': 'value2'}
+value1
+-----------------------------------------------------------------------------------
+dictionary:
+   inside key-value , list, also nested dictionary.
+
+dict1 = {"k1":"v1","k2":[1,"sam",3.2],"k3":{"orange":20.3,"mango":40.78}}
+
+print(dict1)
+
+x = dict1['k1']
+print(x)
+
+
+{'k1': 'v1', 'k2': [1, 'sam', 3.2], 'k3': {'orange': 20.3, 'mango': 40.78}}
+v1
+-------------------------------------------
+dict1 = {"k1":"v1","k2":[1,"sam",3.2],"k3":{"orange":20.3,"mango":40.78}}
+
+print(dict1)
+
+
+x= dict1['k3']['mango']
+print(x)
+
+x = dict1['k2'][0]
+print(x)
+  
+
+{'k1': 'v1', 'k2': [1, 'sam', 3.2], 'k3': {'orange': 20.3, 'mango': 40.78}}
+40.78
+1
+-----------------------------------------------------------------------
+dict1 = {"k1":"v1","k2":[1,"sam",3.2],"k3":{"orange":20.3,"mango":40.78}}
+
+print(dict1)
+
+
+x= dict1['k3']['mango']
+print(x)
+
+x = dict1['k2'][1].upper()
+print(x)
+
+{'k1': 'v1', 'k2': [1, 'sam', 3.2], 'k3': {'orange': 20.3, 'mango': 40.78}}
+40.78
+SAM
+----------------------------------------------------------------------
+dict1 = {"k1":100,"k2":200}
+
+dict1['k3']=300
+print(dict1)
+
+
+{'k1': 100, 'k2': 200, 'k3': 300}
+-----------------------------------------------------------------------
+dict1 = {"k1":100,"k2":200}
+
+dict1['k1']=90000
+print(dict1)
+
+{'k1': 90000, 'k2': 200}
+-------------------------------------------------------------------
+dict1 = {"k1":100,"k2":200,"k3":300}
+
+x = dict1.keys()
+print(x)
+
+y = dict1.values()
+print(y)
+
+z = dict1.items()
+print(z)
+
+
+dict_keys(['k1', 'k2', 'k3'])
+dict_values([100, 200, 300])
+dict_items([('k1', 100), ('k2', 200), ('k3', 300)])   # in () as tuple
+----------------------------------------------------------------------------
+1. Do dictionaries keep an order? How do I print the values of the dictionary in order?
+
+Dictionaries are mappings and do not retain order! If you do want the capabilities of a dictionary 
+but you would like ordering as well, check out the ordereddict object.
+------------------------------------------------------------------------------
+
+
+
+
+
+  
+  
