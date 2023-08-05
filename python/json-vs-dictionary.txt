@@ -1,0 +1,128 @@
+The keys in JSON can be only strings. (only specify key with string)
+
+The keys in the dictionary can be any hashable object. (you specify key with list or dictionary also)
+--------------------------------------------------------------------
+In JSON, the keys are sequentially ordered and can be repeated. 
+
+In the dictionary, the keys cannot be repeated and must be distinct.
+-----------------------------------------------------------
+In Python, dictionary values are not accessible using the my_dict.key syntax.
+
+This is reserved for attributes of the dict class, such as dict.get and dict.update. 
+
+Dictionary values are only accessible via the my_dict[key] syntax.
+----------------------------------------------------------------------
+First of all there are 2 types of JSON:
+
+json data
+json string
+
+json data as we know is exactly like dictionary in python. 
+That means they work on hash maps.
+But we convert it to string before transferring the json data to somewhere else through the networks.
+
+So it will look something like this: json_data = {"data":"This will original"}
+
+After conversion it will look like this : '{"data":"This will original"}'
+--------------------------------------------------------------------------------------
+JSON stands for JS Object Notation. So it's a notation, a format - merely a set of rules defining how to represent data in text format.
+
+Python Dictionary is a class representing hash table data structure in Python. It just happens to look like JSON; it's much more than that.
+-----------------------------------------------------------------------------------------
+JSON cannot be an object. 
+
+JSON is a string format. 
+
+The data is only JSON when it is in a string format.
+
+When it is converted to a JavaScript variable, it becomes a JavaScript object.
+---------------------------------------------------------------------------------------
+json.load(), which loads a JSON file into a Python dictionary
+json.loads(), which loads a string representation of a JSON file into a Python dictionary
+
+import json
+
+json_data = '''
+{
+  "message": "success",
+  "iss_position": {
+    "latitude": "41.8157",
+    "longitude": "-138.3051"
+  },
+  "timestamp": 1652700632
+}
+'''
+print(type(json_data))
+
+data = json.loads(json_data)
+print(type(data))
+
+print(data)
+
+
+<class 'str'>   <-----json is json string
+<class 'dict'>  <---json.loads()   convert json string to python dictionary.
+{'message': 'success', 'iss_position': {'latitude': '41.8157', 'longitude': '-138.3051'}, 'timestamp': 1652700632}
+-----------------------------------------------------------------------------------------
+import json
+
+json_data = '''
+{
+  "message": "success",
+  "iss_position": {
+    "latitude": "41.8157",
+    "longitude": "-138.3051"
+  },
+  "timestamp": 1652700632
+}
+'''
+print(type(json_data))
+
+data = json.loads(json_data)
+print(type(data))
+data = data["iss_position"]['latitude']
+print(data)
+
+
+<class 'str'>
+<class 'dict'>
+41.8157
+-------------------------------------------------------------------------------------
+$pip3 install urllib3==1.26.6 
+$pip3 install requests
+
+http://api.open-notify.org/iss-now.json
+
+{
+"message": "success",
+"iss_position": {
+"longitude": "12.7327",
+"latitude": "-47.2502"
+},
+"timestamp": 1691208167
+}
+
+
+# Loading JSON Data from a Web API into a Python Dictionary
+import json
+import requests
+
+url = 'http://api.open-notify.org/iss-now.json'
+response = requests.get(url)
+print(type(response))
+text = response.text
+print(type(text))
+print(text)
+
+print(json.loads(text))
+
+
+<class 'requests.models.Response'>
+<class 'str'>
+{"message": "success", "iss_position": {"longitude": "24.4627", "latitude": "-42.5216"}, "timestamp": 1691208321}
+{'message': 'success', 'iss_position': {'longitude': '24.4627', 'latitude': '-42.5216'}, 'timestamp': 1691208321}
+--------------------------------------------------------------
+
+
+
+
