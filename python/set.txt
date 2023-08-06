@@ -1,0 +1,28 @@
+unordered collection of unique elements.
+
+one representative for same object.
+
+--------seen as dict but set not a key-value structure---------------------------------------------
+myset = set()
+print(type(myset))
+myset.add(1)
+myset.add(2)
+myset.add(2)   # as one representative for same object, its not added as , already present
+print(myset)
+
+<class 'set'>
+{1, 2}
+----------------------------------------------
+set1 = {1,1,1,2,2,2,3,3,3}
+print(type(set1))
+print(set(set1))
+
+<class 'set'>
+{1, 2, 3}
+--------------------------------------------
+string1 = 'Mississippi'
+print(set(string1))
+
+{'i', 's', 'p', 'M'}
+--------------------------
+
