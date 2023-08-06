@@ -1,0 +1,21 @@
+aws ec2 run-instances --generate-cli-skeleton input > ec2runinst.json
+
+aws ec2 describe-instances --generate-cli-skeleton input > ec2desinst.json
+cat ec2desint.json
+
+{
+    "Filters": [
+        {
+            "Name": "", 
+            "Values": [
+                ""
+            ]
+        }
+    ], 
+    "InstanceIds": [
+        ""
+    ], 
+    "DryRun": true, 
+    "MaxResults": 0, 
+    "NextToken": ""
+}
