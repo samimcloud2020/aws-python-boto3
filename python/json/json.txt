@@ -1,0 +1,80 @@
+import json
+
+# JSON string:
+# Multi-line string
+x = """{
+	"Name": "Jennifer Smith",
+	"Contact Number": 7867567898,
+	"Email": "jen123@gmail.com",
+	"Hobbies":["Reading", "Sketching", "Horse Riding"]
+	}"""
+print(type(x))
+# parse x:
+y = json.loads(x)
+print(type(y))
+# Print the data stored in y
+print(y)
+#####################################################################
+print('#################################################################')
+###############################################################
+a = {'Name': 'Jennifer Smith', 'Contact Number': 7867567898, 'Email': 'jen123@gmail.com', 'Hobbies': ['Reading', 'Sketching', 'Horse Riding']}
+print(type(a))
+
+b = json.dumps(a)
+print(type(b))
+print(b)
+
+
+
+
+<class 'str'>
+<class 'dict'>
+{'Name': 'Jennifer Smith', 'Contact Number': 7867567898, 'Email': 'jen123@gmail.com', 'Hobbies': ['Reading', 'Sketching', 'Horse Riding']}
+#################################################################
+<class 'dict'>
+<class 'str'>
+{"Name": "Jennifer Smith", "Contact Number": 7867567898, "Email": "jen123@gmail.com", "Hobbies": ["Reading", "Sketching", "Horse Riding"]}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+import json
+
+# JSON string:
+# Multi-line string
+x = """{
+	"Name": "Jennifer Smith",
+	"Contact Number": 7867567898,
+	"Email": "jen123@gmail.com",
+	"Hobbies":["Reading", "Sketching", "Horse Riding"]
+	}"""
+
+print(type(x))
+
+# parse x:
+y = json.loads(x)
+print(type(y))
+# Print the data stored in y
+print(y)
+print(y['Email'])  # as dict u access by key (key-value is dict)
+#####################################################################
+print('#################################################################')
+###############################################################
+a = {'Name': 'Jennifer Smith', 'Contact Number': 7867567898, 'Email': 'jen123@gmail.com', 'Hobbies': ['Reading', 'Sketching', 'Horse Riding']}
+
+print(type(a))
+
+b = json.dumps(a)
+print(type(b))
+print(b)
+print(b[1:7])   # u access string by index or slicing
+
+
+<class 'str'>
+<class 'dict'>
+{'Name': 'Jennifer Smith', 'Contact Number': 7867567898, 'Email': 'jen123@gmail.com', 'Hobbies': ['Reading', 'Sketching', 'Horse Riding']}
+jen123@gmail.com
+#################################################################
+<class 'dict'>
+<class 'str'>
+{"Name": "Jennifer Smith", "Contact Number": 7867567898, "Email": "jen123@gmail.com", "Hobbies": ["Reading", "Sketching", "Horse Riding"]}
+"Name"
+-----------------------------------------------------------------------------------------------------------------------------
