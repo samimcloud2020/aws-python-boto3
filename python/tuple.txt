@@ -1,0 +1,41 @@
+-----tuple are immutable but list not immutable-----------------
+tuple equivelent to list.
+
+key difference:   Immutability
+
+once an element in tuple, it can not be reassigned.
+
+syntax:
+(1,2,3)
+-------------------------------------------------
+t = (1,2,3)
+print(type(t))
+
+<class 'tuple'>
+----------------------------------------------
+t = ("sam",2, 3.4)
+print(type(t))
+print(t[0])
+
+<class 'tuple'>
+sam
+---------------------------------------
+t = ("a","a","b")
+print(type(t))
+print(t.count('a'))
+print(t.index('a'))
+
+<class 'tuple'>
+2
+0
+-----------'tuple' object does not support item assignment--------------------------------
+ = ("a","a","b")
+print(type(t))
+print(t.count('a'))
+print(t.index('a'))
+
+
+t[0] = "sam"      # u can not assign in tuple but in list you can.
+---------------------------------------------
+
+
