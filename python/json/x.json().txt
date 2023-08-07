@@ -20,8 +20,307 @@ def lambda_handler(event, context):
     print(type(url))
     print(url)
     if url.status_code == 200:
-        data = url.json()  # as url get output is json, so only .json() to get json data
+        data = url.json()
     else:
         print(f"The error code is {url.status_code}")
-    return data
-----------------------------------------------------------------------------------------------------------------
+    print(type(data))  # dict
+    print(type(data["articles"]))  #list
+    
+    for i in data["articles"]:
+        i = i["source"]
+        print(i)
+        
+-----------------------------------------------o/p: from lambda-------------------------------------------------------------------------------
+<class 'requests.models.Response'>
+<Response [200]>
+<class 'dict'>
+<class 'list'>
+
+{'id': None, 'name': 'BBC News'}
+{'id': None, 'name': 'New York Post'}
+{'id': None, 'name': 'The Indianapolis Star'}
+{'id': None, 'name': 'KTLA Los Angeles'}
+{'id': 'business-insider', 'name': 'Business Insider'}
+{'id': None, 'name': 'NDTV News'}
+{'id': None, 'name': 'SFGate'}
+{'id': None, 'name': 'FOX 11 Los Angeles'}
+{'id': 'cbs-news', 'name': 'CBS News'}
+{'id': None, 'name': 'KRON4'}
+{'id': None, 'name': 'Fox Business'}
+{'id': None, 'name': 'On Tap Sports Net'}
+{'id': None, 'name': 'Cointelegraph'}
+{'id': None, 'name': 'New York Post'}
+{'id': None, 'name': 'YouTube'}
+{'id': 'fortune', 'name': 'Fortune'}
+{'id': None, 'name': 'Yahoo Entertainment'}
+{'id': None, 'name': 'Yahoo Entertainment'}
+{'id': None, 'name': 'WLOS'}
+{'id': 'reuters', 'name': 'Reuters'}
+
+------------------------------------got from url: its json----------------------------------------------------------------------------
+{
+"status": "ok",
+"totalResults": 67,
+"articles": [
+{
+"source": {
+"id": null,
+"name": "BBC News"
+},
+"author": "https://www.facebook.com/bbcnews",
+"title": "Elon Musk says X will fund legal bills if users treated unfairly by bosses - BBC",
+"description": "Elon Musk says X will support those treated \"unfairly\" by bosses due to behaviour on Twitter - now X.",
+"url": "https://www.bbc.com/news/technology-66420177",
+"urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/160D0/production/_130502309_gettyimages-1550763049.jpg",
+"publishedAt": "2023-08-06T05:49:32Z",
+"content": "Elon Musk has said X, formerly known as Twitter, will pay the legal bills of anyone who is treated unfairly by their employer for their activity on his social media platform.\r\nOn Sunday, Mr Musk told… [+1051 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "New York Post"
+},
+"author": "Fox Business",
+"title": "Private jet took off without permission, leading to close call with JetBlue flight: NTSB - New York Post ",
+"description": "The incident occurred on Feb. 27, with a screen grab from JetBlue cockpit video showing the moment the Hop-A-Jet aircraft crossed the runway right in front of the flight.",
+"url": "https://nypost.com/2023/08/06/private-jet-took-off-without-permission-causing-close-call-with-jetblue-flight-at-boston-airport/",
+"urlToImage": "https://nypost.com/wp-content/uploads/sites/2/2023/08/newspress-collage-q4jt1vqpm-1691294702907.jpg?quality=75&strip=all&1691280644&w=1024",
+"publishedAt": "2023-08-06T04:24:00Z",
+"content": "The National Transportation Safety Board said in a final report released Thursday that the pilot of a charter jet took off from Boston Logan International Airport earlier this year without authorizat… [+2488 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "The Indianapolis Star"
+},
+"author": "IndyStar",
+"title": "Powerball numbers 8/5/23: Results for $124M lottery drawing jackpot - IndyStar",
+"description": null,
+"url": "https://www.indystar.com/story/news/2023/08/05/powerball-winning-numbers-8-5-23-august-5-2023-results-lottery-drawing-jackpot-power-ball-lotto/70530897007/",
+"urlToImage": null,
+"publishedAt": "2023-08-06T04:09:26Z",
+"content": null
+},
+{
+"source": {
+"id": null,
+"name": "KTLA Los Angeles"
+},
+"author": "Vivian Chow",
+"title": "Winning $82 million Super Lotto Plus ticket sold in Southern California - KTLA Los Angeles",
+"description": "Southern California’s newest millionaire was crowned Saturday night after one winning ticket hit all six numbers for the $82 million Super Lotto Plus jackpot. Saturday’s winning numbers were 17, 19, 23, 31, 33 with Mega number 14.  The winning ticket was sold…",
+"url": "https://ktla.com/news/local-news/winning-82-million-super-lotto-plus-ticket-drawn-in-southern-california/",
+"urlToImage": "https://ktla.com/wp-content/uploads/sites/4/2022/10/AdobeStock_413371417_Preview_Editorial_Use_Only.jpeg?w=1280",
+"publishedAt": "2023-08-06T04:08:38Z",
+"content": "Southern Californias newest millionaire was crowned Saturday night after one winning ticket hit all six numbers for the $82 million Super Lotto Plus jackpot.\r\nSaturdays winning numbers were 17, 19, 2… [+1153 chars]"
+},
+{
+"source": {
+"id": "business-insider",
+"name": "Business Insider"
+},
+"author": "Katherine Tangalakis-Lippert",
+"title": "Organized cargo theft has surged as thieves target Nike supply chain - Business Insider",
+"description": "Thieves stole over $44 million in retail cargo in Q2 of 2023, pilfering an average shipment value of $260,703, according to statistics from CargoNet.",
+"url": "https://www.businessinsider.com/organized-cargo-retail-theft-surged-thieves-target-nike-supply-chain-2023-8",
+"urlToImage": "https://i.insider.com/64cef8d6f5d4870019e26eac?width=1200&format=jpeg",
+"publishedAt": "2023-08-06T03:02:00Z",
+"content": "As the country began recovering from the coronavirus pandemic, smash-and-grab robberies made national headlines as high-profile incidents rocked California, with thieves targeting stores like Louis V… [+2607 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "NDTV News"
+},
+"author": null,
+"title": "\"Just Ripped It\": Twitter User Says Elon Musk Took Control Of His Account - NDTV",
+"description": "Mr Vaught was also informed by the Elon Musk-led social media company that he could alternatively switch to the account @musicfan or select another username from @musicmusic, @music123, or @musiclover.",
+"url": "https://www.ndtv.com/world-news/just-ripped-it-twitter-user-says-elon-musk-took-control-of-his-account-4273157",
+"urlToImage": "https://c.ndtvimg.com/2023-08/hg2cpdn_x_625x300_06_August_23.jpg",
+"publishedAt": "2023-08-06T02:43:21Z",
+"content": "\"That's incredibly disappointing,\" said a user.\r\nRecently, billionaire Elon Musk renamed the social media platform Twitter to X and unveiled a new logo- a stylized black-and-white version of the lett… [+2744 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "SFGate"
+},
+"author": "Katie Dowd",
+"title": "Calif. mall Target reportedly bans teens after 4 p.m. without an adult - SFGATE",
+"description": "The Target store in Bakersfield has banned teenagers from visiting the store without an adult after 4 p.m., multiple local media outlets reported.",
+"url": "https://www.sfgate.com/bayarea/article/calif-mall-target-bans-teens-18281150.php",
+"urlToImage": "https://s.hdnux.com/photos/01/33/76/71/24112710/3/rawImage.jpg",
+"publishedAt": "2023-08-06T02:12:52Z",
+"content": "The Target in the Valley Plaza Mall in Bakersfield, Calif.\r\nGoogle Street View\r\nThe Target store in Bakersfield has banned teenagers from visiting the store without an adult after 4 p.m., multiple lo… [+931 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "FOX 11 Los Angeles"
+},
+"author": "FOX 11",
+"title": "Striking hotel workers tackled while picketing outside Santa Monica hotel - FOX 11 Los Angeles",
+"description": "Cell phone video captured several striking hotel workers being restrained or tackled to the ground during a rally outside a Santa Monica hotel Saturday.",
+"url": "https://www.foxla.com/news/striking-hotel-workers-march-through-santa-monica",
+"urlToImage": "https://images.foxtv.com/static.foxla.com/www.foxla.com/content/uploads/2023/08/1280/720/snapshot-2-1.jpg?ve=1&tl=1",
+"publishedAt": "2023-08-06T00:45:50Z",
+"content": "SANTA MONICA, Calif. - Striking hotel workers clashed with security at a Santa Monica hotel Saturday, while picketing more than a month into a labor strike.\r\nOn Saturday, demonstrators marched from t… [+2416 chars]"
+},
+{
+"source": {
+"id": "cbs-news",
+"name": "CBS News"
+},
+"author": null,
+"title": "Mega Millions jackpot jumps to an estimated $1.55 billion, the third-largest in lottery history - CBS News",
+"description": "There has not been a Mega Millions jackpot winner since April 18.",
+"url": "https://www.cbsnews.com/news/mega-millions-jackpot-one-point-five-five-billion-dollars/",
+"urlToImage": "https://assets2.cbsnewsstatic.com/hub/i/r/2023/08/05/20db8344-ce30-47a8-8f59-9f646b9cfb8e/thumbnail/1200x630/6c645aaf3291433689e6019789843625/gettyimages-1576467270.jpg?v=523df724471d66f84598615fede8d33f",
+"publishedAt": "2023-08-06T00:11:00Z",
+"content": "The Mega Millions jackpot has risen to an estimated $1.55 billion — in what would mark the largest in the game's history — after no winning tickets were sold in Friday's drawing. If the estimate hold… [+2278 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "KRON4"
+},
+"author": "Aaron Tolentino",
+"title": "Popular matcha cafe in SF’s Mission District to close - KRON4",
+"description": "SAN FRANCISCO (KRON) — A popular cafe in the Mission District is closing after five years. Stonemill Matcha is closing its doors for good at the end of the month, the business announced on Instagram earlier this week. The cafe, located at 561 Valencia St., wi…",
+"url": "https://www.kron4.com/news/bay-area/popular-matcha-cafe-in-sfs-mission-district-to-close/",
+"urlToImage": "https://www.kron4.com/wp-content/uploads/sites/11/2022/08/1040x585-2021-0715-what-you-need-to-make-a-starbucks-matcha-latte-at-home-bab636-1.jpg?w=1280",
+"publishedAt": "2023-08-06T00:00:31Z",
+"content": "SAN FRANCISCO (KRON) — A popular cafe in the Mission District is closing after five years. Stonemill Matcha is closing its doors for good at the end of the month, the business announced on Instagram … [+1335 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "Fox Business"
+},
+"author": "Sarah Rumpf-Whitten",
+"title": "Judge denies Texas Pete's request to dismiss lawsuit that hot sauce is made in North Carolina, not Texas - Fox Business",
+"description": "A California judge said that she won't dismiss the false advertising case against the maker of North Carolina-based hot sauce Texas Pete.",
+"url": "https://www.foxbusiness.com/markets/judge-denies-texas-petes-request-dismiss-lawsuit-that-hot-sauce-made-north-carolina-not-texas",
+"urlToImage": "https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2022/10/0/0/texas-pete-hot-sauce.jpg?ve=1&tl=1",
+"publishedAt": "2023-08-05T23:13:27Z",
+"content": "A California court says it will not dismiss the false advertising lawsuit against the hot sauce maker from North Carolina-based Texas Pete.\r\nOn July 31, U.S. District Judge Maame Ewusi-Mensah Frimpon… [+2808 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "On Tap Sports Net"
+},
+"author": "Matt Berklan",
+"title": "Jerry Reinsdorf Group Buys Land Near United Center - On Tap Sports Net",
+"description": "Chicago Bulls and White Sox owner Jerry Reinsdorf purchased land near the United Center for a whopping $17.2 million.",
+"url": "https://ontapsportsnet.com/bulls/jerry-reinsdorf-land-purchase-near-united-center-plans-stadium-expansion",
+"urlToImage": "https://ontapsportsnet.com/.image/ar_1.91%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_1200/MTkyMDc2NDE0MDk3MzAyODY2/jerry-reinsdorf-chicago-white-sox-owner.jpg",
+"publishedAt": "2023-08-05T22:08:30Z",
+"content": "Chicago Bulls and White Sox majority owner and chairman Jerry Reinsdorf is adding to his growing portfolio. His latest asset is a plot of land by the United Center.\r\nAccording to The Real Deal, a rea… [+1393 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "Cointelegraph"
+},
+"author": "Ana Paula Pereira",
+"title": "Alchemix reports return of all stolen funds from Curve pools - Cointelegraph",
+"description": "Lending platform Alchemix has announced the return of all stolen funds by the Curve finance hacker.",
+"url": "https://cointelegraph.com/news/alchemix-reports-return-of-all-stolen-funds-from-curve-pools",
+"urlToImage": "https://images.cointelegraph.com/images/1200_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjMtMDgvMDI1ZjIwNGMtMzVjNS00YzQwLWE2NWYtMmQ3NzYxYTJiODRmLmpwZw==.jpg",
+"publishedAt": "2023-08-05T20:58:18Z",
+"content": "Lending platform Alchemix has announced the return of all stolen funds by the Curve finance hacker. The attack took place on July 30 and resulted in over $61 million in cryptocurrencies drained, incl… [+1934 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "New York Post"
+},
+"author": "Fox News",
+"title": "Atlanta Popeyes workers 'violently' attacked customer in the drive-thru after she attempted to correct her order: suit - New York Post ",
+"description": "The company that owns the restaurant and the people who allegedly attacked the woman are being sued.",
+"url": "https://nypost.com/2023/08/05/atlanta-popeyes-workers-violently-attacked-denetra-dawson-in-the-drive-thru-after-she-attempted-to-correct-her-order-suit/",
+"urlToImage": "https://nypost.com/wp-content/uploads/sites/2/2023/08/popeyes.jpg?quality=75&strip=all&w=1024",
+"publishedAt": "2023-08-05T20:29:00Z",
+"content": "A new lawsuit accuses employees at a Popeyes restaurant in Atlanta, Georgia, of attacking a woman in the drive-thru after she attempted to have her order corrected.\r\nThe incident allegedly happened i… [+2812 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "YouTube"
+},
+"author": null,
+"title": "Celebrating national chocolate chip cookie day with Chip City - PIX11 News",
+"description": "New York born business Chip City sends cookies to PIX11 for Dan and Hazel to try out",
+"url": "https://www.youtube.com/watch?v=GpGJoTzrhf4",
+"urlToImage": "https://i.ytimg.com/vi/GpGJoTzrhf4/maxresdefault.jpg",
+"publishedAt": "2023-08-05T19:54:43Z",
+"content": null
+},
+{
+"source": {
+"id": "fortune",
+"name": "Fortune"
+},
+"author": "Cristina Bodea, The Conversation",
+"title": "The Fed may have saved the economy by hiking rates for 18 months—and may have guaranteed crisis for emerging markets - Fortune",
+"description": "Monetary policy decisions in the U.S. have a ripple effect in low-income countries.",
+"url": "https://fortune.com/2023/08/05/fed-interest-rate-hikes-save-economy-financial-crisis-emerging-markets/",
+"urlToImage": "https://content.fortune.com/wp-content/uploads/2023/08/GettyImages-1258939387-e1691264837109.jpg?resize=1200,600",
+"publishedAt": "2023-08-05T19:48:00Z",
+"content": "The campaign to fight U.S. inflation by upping interest rates has been going on for a year and a half and its impacts are being felt around the world.On July 26, 2023, the Federal Reserve announced a… [+6110 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "Yahoo Entertainment"
+},
+"author": "Naureen S. Malik",
+"title": "Texas Power Prices to Surge 800% on Sunday Amid Searing Heat - Yahoo Finance",
+"description": "(Bloomberg) -- Texas power prices for Sunday surged more than 800% as searing heat pushes demand toward record levels and strains supplies on the state...",
+"url": "https://finance.yahoo.com/news/texas-power-prices-surge-800-191023828.html",
+"urlToImage": "https://s.yimg.com/ny/api/res/1.2/cGpYhzaJIZXXOvXq_V2rhw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTk-/https://media.zenfs.com/en/bloomberg_markets_842/3a6f6d076e6c39813470d171d949fd75",
+"publishedAt": "2023-08-05T19:10:23Z",
+"content": "(Bloomberg) -- Texas power prices for Sunday surged more than 800% as searing heat pushes demand toward record levels and strains supplies on the state grid.\r\nMost Read from Bloomberg\r\nElectricity pr… [+1693 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "Yahoo Entertainment"
+},
+"author": "Ronda Lee",
+"title": "Student loan borrowers brace for 'the wave' as payments restart - Yahoo Finance",
+"description": "With federal student loan payments resuming in October, many borrowers are wondering how they will be able to keep up.",
+"url": "https://finance.yahoo.com/news/student-loan-borrowers-brace-for-the-wave-as-payments-restart-175813853.html",
+"urlToImage": "https://s.yimg.com/ny/api/res/1.2/i8d5kJch0nAuAZkCQVe3iw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2023-02/e97c5040-b6a9-11ed-bd73-b24978592056",
+"publishedAt": "2023-08-05T17:58:13Z",
+"content": "During the pandemic, Shanna Hayes and her partner achieved some key financial strides despite both of them getting laid off at different times in the past three years. They paid off both of their car… [+9567 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "WLOS"
+},
+"author": "Associated Press",
+"title": "Hospital in rural NC with a declining population closes its doors - WLOS",
+"description": "A rural eastern North Carolina hospital has closed its doors, largely the result of what its operators described as a declining surrounding population that was",
+"url": "https://wlos.com/news/local/hospital-in-rural-nc-with-a-declining-population-closes-its-doors",
+"urlToImage": "https://wlos.com/resources/media/e908f23d-1849-4d19-837f-00b5dc1352fb-large16x9_6LLPKGMISSIONMENTALHEALTH.movframe2757.png",
+"publishedAt": "2023-08-05T17:22:27Z",
+"content": null
+},
+{
+"source": {
+"id": "reuters",
+"name": "Reuters"
+},
+"author": "Abhirup Roy",
+"title": "EV maker Lucid slashes prices of Air sedan as part of offer amid heating competition - Reuters",
+"description": "Electric vehicle maker Lucid <a href=\"https://www.reuters.com/markets/companies/LCID.O\" target=\"_blank\">(LCID.O)</a> cut prices of its Air luxury sedans by as much as $12,400 as part of an offer, it said on Saturday, amid rising competition in the U.S. EV ind…",
+"url": "https://www.reuters.com/business/autos-transportation/ev-maker-lucid-slashes-prices-air-sedan-part-offer-amid-heating-competition-2023-08-05/",
+"urlToImage": "https://www.reuters.com/resizer/bxgxPzYe-GtK6a6_eRztx_1p5ZQ=/848x444/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/X6BLPTQ37JOTRLVCNTJ3CLIUO4.jpg",
+"publishedAt": "2023-08-05T17:11:00Z",
+"content": "SAN FRANCISCO, Aug 5 (Reuters) - Electric vehicle maker Lucid (LCID.O) cut prices of its Air luxury sedans by as much as $12,400 as part of an offer, it said on Saturday, amid rising competition in t… [+1731 chars]"
+}
+]
+}
