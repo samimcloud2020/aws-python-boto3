@@ -117,3 +117,30 @@ line wise return
 ----------if file in other location in pc in linux env------------------------------------------------------
 r = open("filepath/file.txt")
 -----------------------------------------------------------------------------------
+with open("myfile.txt") as newfile.txt:
+  contents = newfile.txt.read()
+  print(contents)
+----------------------------------------------------------------------------------
+with open("myfile.txt", mode='r') as newfile.txt:
+  contents = newfile.txt.read()
+  print(contents)
+------------------------------------------------------------------------------------
+with open("myfile.txt", mode='w') as newfile.txt:
+  contents = newfile.txt.read()
+  print(contents)
+
+error: not readable
+-------------------------------------------------------------------------------
+mode='r' read only , 'w' write only (will override files or create new)
+'a' append only, 'r+' reading and writing, 'w+' writing and reading (overwrite existing files or create new)
+----------------------------------------------------------------------------
+with open("myfile.txt", mode='a') as f:
+  f.write('\nhello samim')
+  print(f.read())
+-----------------------------------------------------------------------
+with open("myfile.txt", mode='w') as f:
+  f.write('\nhello samim')
+
+with open("myfile.txt", mode='r') as f:
+  f.read()
+----------------------------------------------------------------------
