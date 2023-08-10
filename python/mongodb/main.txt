@@ -18,4 +18,47 @@ import pymongo
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 
 mydb = myclient["mydatabase"]
-=====================================================
+===========================================================================================================
+mkdir xxx
+cd xxx
+sudo apt install python3-venv
+python3 -m venv venv
+source venv/bin/activate
+python -m pip install pymongo[srv]==3.10.1
+
+also make use of a library called python-dotenv to load configuration
+
+python -m pip install python-dotenv==0.13.0
+
+-----p.py-----------------
+import datetime   # This will be needed later
+import os
+
+from dotenv import load_dotenv
+from pymongo import MongoClient
+
+# Load config from a .env file:
+load_dotenv()
+MONGODB_URI = os.environ['MONGODB_URI']
+
+# Connect to your MongoDB cluster:
+client = MongoClient(MONGODB_URI)
+
+# List all the databases in the cluster:
+for db_info in client.list_database_names():
+   print(db_info)
+
+-------------.env-------------------------
+(venv) root@SDOP_Ts:~/vvv# cat .env
+MONGODB_URI=mongodb+srv://samim:samim123@cluster0.eug2nqz.mongodb.net
+--------------------------
+Run an export (or set on Windows) command to set the environment variable each time you set up your session.
+Save the URI in a configuration file which should never be added to revision control.
+
+
+add .env to your .gitignore file if you're using git.
+--------------------------------------
+# Unix:
+export MONGODB_URI='mongodb+srv://yourusername:yourpasswordgoeshere@pythonquickstart-123ab.mongodb.net/test?retryWrites=true&w=majority'
+----------------------------------
+============================================================================================================
