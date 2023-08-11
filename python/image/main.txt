@@ -1,0 +1,10 @@
+359
+
+The documentation for Image.open says that it can accept a file-like object, so you should be able to pass in a io.BytesIO object created from the bytes object containing the encoded image:
+
+from PIL import Image
+import io
+
+image_data = ... # byte values of the image
+image = Image.open(io.BytesIO(image_data))
+image.show()
