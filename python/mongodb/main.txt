@@ -62,3 +62,262 @@ add .env to your .gitignore file if you're using git.
 export MONGODB_URI='mongodb+srv://yourusername:yourpasswordgoeshere@pythonquickstart-123ab.mongodb.net/test?retryWrites=true&w=majority'
 ----------------------------------
 ============================================================================================================
+
+Important: In MongoDB, a database is not created until it gets content!
+
+MongoDB waits until you have created a collection (table), with at least one document (record) before it actually creates the database (and collection).
+=============================================================
+(venv) root@SDOP_Ts:~/xxx# cat 1.py
+import datetime   # This will be needed later
+import os
+
+from dotenv import load_dotenv
+import  pymongo
+
+# Load config from a .env file:
+load_dotenv()
+MONGODB_URI = os.environ['MONGODB_URI']
+
+# Connect to your MongoDB cluster:
+client = pymongo.MongoClient(MONGODB_URI)
+
+mydb = client["mydatabase"]
+print(mydb)
+
+mycol = mydb["customers"]
+print("\n")
+print(mycol)
+mylist = [
+  { "name": "Amy", "address": "Apple st 652"},
+  { "name": "Hannah", "address": "Mountain 21"},
+  { "name": "Michael", "address": "Valley 345"},
+  { "name": "Sandy", "address": "Ocean blvd 2"},
+  { "name": "Betty", "address": "Green Grass 1"},
+  { "name": "Richard", "address": "Sky st 331"},
+  { "name": "Susan", "address": "One way 98"},
+  { "name": "Vicky", "address": "Yellow Garden 2"},
+  { "name": "Ben", "address": "Park Lane 38"},
+  { "name": "William", "address": "Central st 954"},
+  { "name": "Chuck", "address": "Main Road 989"},
+  { "name": "Viola", "address": "Sideway 1633"}
+]
+
+x = mycol.insert_many(mylist)
+
+#print list of the _id values of the inserted documents:
+print(x.inserted_ids)
+
+dblist = client.list_database_names()
+if "mydatabase" in dblist:
+      print("The database exists.")
+
+collist = mydb.list_collection_names()
+if "customers" in collist:
+      print("The collection exists.")
+
+
+
+(venv) root@SDOP_Ts:~/xxx# python3 1.py
+Database(MongoClient(host=['ac-jjmfelp-shard-00-00.wabixax.mongodb.net:27017', 'ac-jjmfelp-shard-00-01.wabixax.mongodb.net:27017', 'ac-jjmfelp-shard-00-02.wabixax.mongodb.net:27017'], document_class=dict, tz_aware=False, connect=True, authsource='admin', replicaset='atlas-ssy1yf-shard-0', ssl=True), 'mydatabase')
+
+
+Collection(Database(MongoClient(host=['ac-jjmfelp-shard-00-00.wabixax.mongodb.net:27017', 'ac-jjmfelp-shard-00-01.wabixax.mongodb.net:27017', 'ac-jjmfelp-shard-00-02.wabixax.mongodb.net:27017'], document_class=dict, tz_aware=False, connect=True, authsource='admin', replicaset='atlas-ssy1yf-shard-0', ssl=True), 'mydatabase'), 'customers')
+[ObjectId('64d5f0964e029a006607fb33'), ObjectId('64d5f0964e029a006607fb34'), ObjectId('64d5f0964e029a006607fb35'), ObjectId('64d5f0964e029a006607fb36'), ObjectId('64d5f0964e029a006607fb37'), ObjectId('64d5f0964e029a006607fb38'), ObjectId('64d5f0964e029a006607fb39'), ObjectId('64d5f0964e029a006607fb3a'), ObjectId('64d5f0964e029a006607fb3b'), ObjectId('64d5f0964e029a006607fb3c'), ObjectId('64d5f0964e029a006607fb3d'), ObjectId('64d5f0964e029a006607fb3e')]
+The database exists.
+The collection exists.
+=================================================================================================================
+(venv) root@SDOP_Ts:~/xxx# cat 1.py
+import datetime   # This will be needed later
+import os
+
+from dotenv import load_dotenv
+import  pymongo
+
+# Load config from a .env file:
+load_dotenv()
+MONGODB_URI = os.environ['MONGODB_URI']
+
+# Connect to your MongoDB cluster:
+client = pymongo.MongoClient(MONGODB_URI)
+
+mydb = client["mydatabase"]
+print(mydb)
+
+mycol = mydb["customers"]
+print("\n")
+print(mycol)
+
+mylist = [
+  { "_id": 1, "name": "John", "address": "Highway 37"},
+  { "_id": 2, "name": "Peter", "address": "Lowstreet 27"},
+  { "_id": 3, "name": "Amy", "address": "Apple st 652"},
+  { "_id": 4, "name": "Hannah", "address": "Mountain 21"},
+  { "_id": 5, "name": "Michael", "address": "Valley 345"},
+  { "_id": 6, "name": "Sandy", "address": "Ocean blvd 2"},
+  { "_id": 7, "name": "Betty", "address": "Green Grass 1"},
+  { "_id": 8, "name": "Richard", "address": "Sky st 331"},
+  { "_id": 9, "name": "Susan", "address": "One way 98"},
+  { "_id": 10, "name": "Vicky", "address": "Yellow Garden 2"},
+  { "_id": 11, "name": "Ben", "address": "Park Lane 38"},
+  { "_id": 12, "name": "William", "address": "Central st 954"},
+  { "_id": 13, "name": "Chuck", "address": "Main Road 989"},
+  { "_id": 14, "name": "Viola", "address": "Sideway 1633"}
+]
+
+x = mycol.insert_many(mylist)
+
+#print list of the _id values of the inserted documents:
+print(x.inserted_ids)
+
+
+dblist = client.list_database_names()
+if "mydatabase" in dblist:
+      print("The database exists.")
+
+collist = mydb.list_collection_names()
+if "customers" in collist:
+      print("The collection exists.")
+======================================================================================
+Collection(Database(MongoClient(host=['ac-jjmfelp-shard-00-00.wabixax.mongodb.net:27017', 'ac-jjmfelp-shard-00-01.wabixax.mongodb.net:27017', 'ac-jjmfelp-shard-00-02.wabixax.mongodb.net:27017'], document_class=dict, tz_aware=False, connect=True, authsource='admin', replicaset='atlas-ssy1yf-shard-0', ssl=True), 'mydatabase'), 'customers')
+
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+The database exists.
+The collection exists.
+=============================================================================
+(venv) root@SDOP_Ts:~/xxx# cat 1.py
+import datetime   # This will be needed later
+import os
+
+from dotenv import load_dotenv
+import  pymongo
+
+# Load config from a .env file:
+load_dotenv()
+MONGODB_URI = os.environ['MONGODB_URI']
+
+# Connect to your MongoDB cluster:
+client = pymongo.MongoClient(MONGODB_URI)
+
+mydb = client["mydatabase"]
+print(mydb)
+
+mycol = mydb["customers"]
+print("\n")
+print(mycol)
+
+
+
+x = mycol.find_one()
+
+print(x)
+
+
+dblist = client.list_database_names()
+if "mydatabase" in dblist:
+      print("The database exists.")
+
+collist = mydb.list_collection_names()
+if "customers" in collist:
+      print("The collection exists.")
+=================================================================
+(venv) root@SDOP_Ts:~/xxx# python3 1.py
+Database(MongoClient(host=['ac-jjmfelp-shard-00-00.wabixax.mongodb.net:27017', 'ac-jjmfelp-shard-00-02.wabixax.mongodb.net:27017', 'ac-jjmfelp-shard-00-01.wabixax.mongodb.net:27017'], document_class=dict, tz_aware=False, connect=True, authsource='admin', replicaset='atlas-ssy1yf-shard-0', ssl=True), 'mydatabase')
+
+
+Collection(Database(MongoClient(host=['ac-jjmfelp-shard-00-00.wabixax.mongodb.net:27017', 'ac-jjmfelp-shard-00-02.wabixax.mongodb.net:27017', 'ac-jjmfelp-shard-00-01.wabixax.mongodb.net:27017'], document_class=dict, tz_aware=False, connect=True, authsource='admin', replicaset='atlas-ssy1yf-shard-0', ssl=True), 'mydatabase'), 'customers')
+
+{'_id': ObjectId('64d5f0964e029a006607fb33'), 'name': 'Amy', 'address': 'Apple st 652'}
+The database exists.
+The collection exists.
+================================================================================
+(venv) root@SDOP_Ts:~/xxx# cat 1.py
+import datetime   # This will be needed later
+import os
+
+from dotenv import load_dotenv
+import  pymongo
+
+# Load config from a .env file:
+load_dotenv()
+MONGODB_URI = os.environ['MONGODB_URI']
+
+# Connect to your MongoDB cluster:
+client = pymongo.MongoClient(MONGODB_URI)
+
+mydb = client["mydatabase"]
+print(mydb)
+
+mycol = mydb["customers"]
+print("\n")
+print(mycol)
+
+for x in mycol.find():
+  print(x)
+
+
+dblist = client.list_database_names()
+if "mydatabase" in dblist:
+      print("The database exists.")
+
+collist = mydb.list_collection_names()
+if "customers" in collist:
+      print("The collection exists.")
+=======================================================================
+(venv) root@SDOP_Ts:~/xxx# python3 1.py
+Database(MongoClient(host=['ac-jjmfelp-shard-00-02.wabixax.mongodb.net:27017', 'ac-jjmfelp-shard-00-00.wabixax.mongodb.net:27017', 'ac-jjmfelp-shard-00-01.wabixax.mongodb.net:27017'], document_class=dict, tz_aware=False, connect=True, authsource='admin', replicaset='atlas-ssy1yf-shard-0', ssl=True), 'mydatabase')
+
+
+Collection(Database(MongoClient(host=['ac-jjmfelp-shard-00-02.wabixax.mongodb.net:27017', 'ac-jjmfelp-shard-00-00.wabixax.mongodb.net:27017', 'ac-jjmfelp-shard-00-01.wabixax.mongodb.net:27017'], document_class=dict, tz_aware=False, connect=True, authsource='admin', replicaset='atlas-ssy1yf-shard-0', ssl=True), 'mydatabase'), 'customers')
+{'_id': ObjectId('64d5f0964e029a006607fb33'), 'name': 'Amy', 'address': 'Apple st 652'}
+{'_id': ObjectId('64d5f0964e029a006607fb34'), 'name': 'Hannah', 'address': 'Mountain 21'}
+{'_id': ObjectId('64d5f0964e029a006607fb35'), 'name': 'Michael', 'address': 'Valley 345'}
+{'_id': ObjectId('64d5f0964e029a006607fb36'), 'name': 'Sandy', 'address': 'Ocean blvd 2'}
+{'_id': ObjectId('64d5f0964e029a006607fb37'), 'name': 'Betty', 'address': 'Green Grass 1'}
+{'_id': ObjectId('64d5f0964e029a006607fb38'), 'name': 'Richard', 'address': 'Sky st 331'}
+{'_id': ObjectId('64d5f0964e029a006607fb39'), 'name': 'Susan', 'address': 'One way 98'}
+{'_id': ObjectId('64d5f0964e029a006607fb3a'), 'name': 'Vicky', 'address': 'Yellow Garden 2'}
+{'_id': ObjectId('64d5f0964e029a006607fb3b'), 'name': 'Ben', 'address': 'Park Lane 38'}
+{'_id': ObjectId('64d5f0964e029a006607fb3c'), 'name': 'William', 'address': 'Central st 954'}
+{'_id': ObjectId('64d5f0964e029a006607fb3d'), 'name': 'Chuck', 'address': 'Main Road 989'}
+{'_id': ObjectId('64d5f0964e029a006607fb3e'), 'name': 'Viola', 'address': 'Sideway 1633'}
+{'_id': ObjectId('64d5f13802b646f850c2b1fb'), 'name': 'Amy', 'address': 'Apple st 652'}
+{'_id': ObjectId('64d5f13802b646f850c2b1fc'), 'name': 'Hannah', 'address': 'Mountain 21'}
+{'_id': ObjectId('64d5f13802b646f850c2b1fd'), 'name': 'Michael', 'address': 'Valley 345'}
+{'_id': ObjectId('64d5f13802b646f850c2b1fe'), 'name': 'Sandy', 'address': 'Ocean blvd 2'}
+{'_id': ObjectId('64d5f13802b646f850c2b1ff'), 'name': 'Betty', 'address': 'Green Grass 1'}
+{'_id': ObjectId('64d5f13802b646f850c2b200'), 'name': 'Richard', 'address': 'Sky st 331'}
+{'_id': ObjectId('64d5f13802b646f850c2b201'), 'name': 'Susan', 'address': 'One way 98'}
+{'_id': ObjectId('64d5f13802b646f850c2b202'), 'name': 'Vicky', 'address': 'Yellow Garden 2'}
+{'_id': ObjectId('64d5f13802b646f850c2b203'), 'name': 'Ben', 'address': 'Park Lane 38'}
+{'_id': ObjectId('64d5f13802b646f850c2b204'), 'name': 'William', 'address': 'Central st 954'}
+{'_id': ObjectId('64d5f13802b646f850c2b205'), 'name': 'Chuck', 'address': 'Main Road 989'}
+{'_id': ObjectId('64d5f13802b646f850c2b206'), 'name': 'Viola', 'address': 'Sideway 1633'}
+{'_id': 1, 'name': 'John', 'address': 'Highway 37'}
+{'_id': 2, 'name': 'Peter', 'address': 'Lowstreet 27'}
+{'_id': 3, 'name': 'Amy', 'address': 'Apple st 652'}
+{'_id': 4, 'name': 'Hannah', 'address': 'Mountain 21'}
+{'_id': 5, 'name': 'Michael', 'address': 'Valley 345'}
+{'_id': 6, 'name': 'Sandy', 'address': 'Ocean blvd 2'}
+{'_id': 7, 'name': 'Betty', 'address': 'Green Grass 1'}
+{'_id': 8, 'name': 'Richard', 'address': 'Sky st 331'}
+{'_id': 9, 'name': 'Susan', 'address': 'One way 98'}
+{'_id': 10, 'name': 'Vicky', 'address': 'Yellow Garden 2'}
+{'_id': 11, 'name': 'Ben', 'address': 'Park Lane 38'}
+{'_id': 12, 'name': 'William', 'address': 'Central st 954'}
+{'_id': 13, 'name': 'Chuck', 'address': 'Main Road 989'}
+{'_id': 14, 'name': 'Viola', 'address': 'Sideway 1633'}
+{'_id': ObjectId('64d5f19c3228c8b88948e928'), 'name': 'Amy', 'address': 'Apple st 652'}
+{'_id': ObjectId('64d5f19c3228c8b88948e929'), 'name': 'Hannah', 'address': 'Mountain 21'}
+{'_id': ObjectId('64d5f19c3228c8b88948e92a'), 'name': 'Michael', 'address': 'Valley 345'}
+{'_id': ObjectId('64d5f19c3228c8b88948e92b'), 'name': 'Sandy', 'address': 'Ocean blvd 2'}
+{'_id': ObjectId('64d5f19c3228c8b88948e92c'), 'name': 'Betty', 'address': 'Green Grass 1'}
+{'_id': ObjectId('64d5f19c3228c8b88948e92d'), 'name': 'Richard', 'address': 'Sky st 331'}
+{'_id': ObjectId('64d5f19c3228c8b88948e92e'), 'name': 'Susan', 'address': 'One way 98'}
+{'_id': ObjectId('64d5f19c3228c8b88948e92f'), 'name': 'Vicky', 'address': 'Yellow Garden 2'}
+{'_id': ObjectId('64d5f19c3228c8b88948e930'), 'name': 'Ben', 'address': 'Park Lane 38'}
+{'_id': ObjectId('64d5f19c3228c8b88948e931'), 'name': 'William', 'address': 'Central st 954'}
+{'_id': ObjectId('64d5f19c3228c8b88948e932'), 'name': 'Chuck', 'address': 'Main Road 989'}
+{'_id': ObjectId('64d5f19c3228c8b88948e933'), 'name': 'Viola', 'address': 'Sideway 1633'}
+The database exists.
+The collection exists.
+=======================================================================
