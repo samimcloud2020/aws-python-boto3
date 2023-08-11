@@ -1,6 +1,5 @@
-359
-
-The documentation for Image.open says that it can accept a file-like object, so you should be able to pass in a io.BytesIO object created from the bytes object containing the encoded image:
+The documentation for Image.open says that it can accept a file-like object,
+so you should be able to pass in a io.BytesIO object created from the bytes object containing the encoded image:
 
 from PIL import Image
 import io
@@ -8,3 +7,36 @@ import io
 image_data = ... # byte values of the image
 image = Image.open(io.BytesIO(image_data))
 image.show()
+==========================================================================================================
+mkdir efg
+cd efg
+nano lambda_function.py
+mkdir package
+pip3 install --target ./package pillow
+cd package
+zip -r ../my_deployment_package.zip .
+cd ..
+zip my_deployment_package.zip lambda_function.py
+ls
+aws s3 cp my_deployment_package.zip s3://somesh123456/pillow.zip
+=============================================================
+Read images with Pillow
+Perform basic image manipulation operations
+Use Pillow for image processing
+Use NumPy with Pillow for further processing
+Create animations using Pillow
+==============================================================
+Pillow and its predecessor, PIL, are the original Python libraries for dealing with images.
+============================================================
+If you want to deal with images directly by manipulating their pixels, then you can use NumPy and SciPy. 
+
+Other popular libraries for image processing are OpenCV, scikit-image, and Mahotas.
+=======================================================================
+from PIL import Image
+
+filename = "buildings.jpg"
+with Image.open(filename) as img:
+  img.load()
+  print(type(img))          #<class 'PIL.JpegImagePlugin.JpegImageFile'>
+  print(isinstance(img, Image.Image))   #True
+=============================================================================
