@@ -40,3 +40,9 @@ with Image.open(filename) as img:
   print(type(img))          #<class 'PIL.JpegImagePlugin.JpegImageFile'>
   print(isinstance(img, Image.Image))   #True
 =============================================================================
+[root@ip-172-31-4-143 imagework]# pip3 install --user --upgrade pip
+
+[root@ip-172-31-4-143 imagework]# pip3  install pyQt5
+
+[root@ip-172-31-4-143 imagework]# yum install  libGL
+
