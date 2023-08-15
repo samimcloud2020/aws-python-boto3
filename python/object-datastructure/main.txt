@@ -1,0 +1,26 @@
+number:
+int and float
+
+string:
+ordered seq of chars.
+
+list:
+order seq of objects. (mutable)
+
+tuple:
+order seq of objects. (immutable)
+
+dict:
+key-value pair thats unorderd.
+-------------------------------------------------------------------------------------
+reverse string
+s[::-1]
+----------------------------------------------
+s = "hello"
+get o.
+s[-1]
+
+or 
+
+s[4]
+-------------------------------------------------------------------------
