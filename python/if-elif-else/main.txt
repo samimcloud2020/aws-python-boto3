@@ -1,0 +1,33 @@
+if
+elif
+else
+---------------------------------------------------
+hungry = 'True'
+
+if hungry:
+  print('feed me')
+
+o/p: feed me
+---------------------------------------------
+hungry = 'False'
+
+if hungry:
+  print('feed me')
+else:
+  print('i am not hungry')
+
+o/p: i am not hungry
+---------------------------------------------
+loc = 'bank'
+
+if loc == 'auto':
+  print('auto shop')
+elif loc == 'bank':
+  print('got bank')
+elif loc == 'school':
+  print('its school')
+else:
+  print('not got')
+
+-----------------------------------------------------
+
