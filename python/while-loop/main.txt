@@ -1,0 +1,108 @@
+while loop continue to execute a block of code while some conditions remains true.
+
+while some_boolean_condition:
+  #do something
+------------------------------------------------------------------
+while some_boolean_condition:
+  #do something
+else:
+  #do something different
+------------------------------------------------------------------
+x = 0
+
+while x < 5:
+    print(f"The value of x is: {x}")
+    x = x + 1
+
+The value of x is: 0
+The value of x is: 1
+The value of x is: 2
+The value of x is: 3
+The value of x is: 4
+--------------------------------------------------
+x = 0
+
+while x < 5:
+    print(f"The value of x is: {x}")
+    x += 1
+    
+The value of x is: 0
+The value of x is: 1
+The value of x is: 2
+The value of x is: 3
+The value of x is: 4
+---------------------------------------------------------
+x = 0
+
+while x < 5:
+    print(f"The value of x is: {x}")
+
+o/p: Infinite Loop as while loop continues till satisfied condition is True.
+-------------------------------------------
+x = 0
+
+while x < 5:
+    print(f"The value of x is: {x}")
+    x += 1
+else:
+    print("x is now not less than 5")
+
+
+The value of x is: 0
+The value of x is: 1
+The value of x is: 2
+The value of x is: 3
+The value of x is: 4
+x is now not less than 5
+------------------------------------------------------
+break:
+  break out of the current closest  enclosing loop.
+continue:
+  Goes to the top  of the current closest  enclosing loop.
+pass:
+  does nothing at all.
+---------------------------------------------------------
+x = [1,2,3]
+
+for i in x:
+    pass   #do nothing at all
+print("end of my script")
+
+
+end of my script
+--------------------------------------------------------
+x = [1,2,3,4,5,6]
+
+for i in x:
+    if i == 3:
+        continue
+    print(i)
+
+
+1
+2
+4
+5
+6
+
+i = 1, print 1
+i = 2, print 2
+i = 3, continue  (means not print(i), goes top of closed enclosed loop (while here for loop)
+i = 4, print 4
+i = 5, print 5
+i = 6, print 6
+-------------------------------------------------------------
+x = [1,2,3,4,5,6]
+
+for i in x:
+    if i == 3:
+        break
+    print(i)
+
+1
+2
+
+i = 1, print 1
+i = 2, print 2
+i = 3, break out from current  enclosed loop ( which here for loop) and exit from it.
+------------------------------------------
