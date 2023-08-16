@@ -1,0 +1,187 @@
+for i in range(5):
+    print(i)
+
+0
+1
+2
+3
+4
+--------------------------------------------
+for i in range(2,5):    #range(start,stop,step)    and also range(10) means 0 to 9.
+    print(i)
+
+2
+3
+4
+---------------------------
+for i in range(0,10,2):
+    print(i)
+
+0
+2
+4
+6
+8
+----------------------------------------
+print(list(range(0,10,2)))    # basically range() is a generator
+
+
+[0, 2, 4, 6, 8]
+---------------------------------
+index_count = 0
+
+for i in "abcde":
+    print(f"index is {i} and index_count is {index_count}")
+    index_count += 1
+
+
+index is a and index_count is 0
+index is b and index_count is 1
+index is c and index_count is 2
+index is d and index_count is 3
+index is e and index_count is 4
+----------------------------------------------------------
+index_count = 0
+word = "abcde"
+for i in word:
+    print(f"index is {i} and access is {word[index_count]} and index_count {index_count}")
+    index_count += 1
+
+
+index is a and access is a and index_count 0
+index is b and access is b and index_count 1
+index is c and access is c and index_count 2
+index is d and access is d and index_count 3
+index is e and access is e and index_count 4
+-----------------------------------------------------------
+word = "abcde"
+for i in enumerate(word):  #indexing in form of Touple.
+    print(i)
+
+
+(0, 'a')
+(1, 'b')
+(2, 'c')
+(3, 'd')
+(4, 'e')
+
+-------------------------------------------
+word = "abcde"
+for a,b in enumerate(word):
+    print(a)
+    print(b)
+    print('\n')
+
+
+0
+a
+
+
+1
+b
+
+
+2
+c
+
+
+3
+d
+
+
+4
+e
+-----------------------------------------------
+list1 = [1,2,3]
+list2 = ['a','b','c']
+
+for i in zip(list1,list2):
+    print(i)
+
+
+(1, 'a')
+(2, 'b')
+(3, 'c')
+-----------------------------------------
+list1 = [1,2,3]
+list2 = ['a','b','c']
+list3 = [100,200,300]
+
+for i in zip(list1,list2,list3):
+    print(i)
+
+(1, 'a', 100)
+(2, 'b', 200)
+(3, 'c', 300)
+-------------------------------------
+list1 = [1,2,3,4,5,6,7,8,9]
+list2 = ['a','b','c']
+list3 = [100,200,300]
+
+for i in zip(list1,list2,list3):
+    print(i)
+
+(1, 'a', 100)
+(2, 'b', 200)
+(3, 'c', 300)
+---------------------------------------------
+list1 = [1,2,3,4,5,6,7,8,9]
+list2 = ['a','b','c']
+list3 = [100,200,300]
+
+print(list(zip(list1,list2,list3)))
+
+
+[(1, 'a', 100), (2, 'b', 200), (3, 'c', 300)]   <-----list with touples.
+-----------------------------------------------------
+'x' in ['x','y','z']    <----- True
+-----------------------------------------------------
+'w' in 'world'     <--------True
+------------------------------------------
+'key1' in {'key1':"value1"}    <------True
+----------------------------------------
+d = {"key1":345}
+
+345 in d.values()    <-------True
+------------------------------------------------
+d = {"key1":345}
+
+'key1' in d.keys()    <-------True
+--------------------------------------------------
+list = [1,2,3,4,5,6,7,8,9]
+print(len(list))
+print(min(list))
+print(max(list))
+
+
+9
+1
+9
+------------------------------------------------
+from random import shuffle
+
+list = [1,2,3,4,5,6]
+
+print(shuffle(list))
+---------------------------------------
+form random import randint
+
+num = randint(0,100)   <-----randomly any num bet 0 to 100
+print(num)
+----------------------------------------------
+result = input('Enter number a:') <------take input from user (input function always accept anything as STRING)
+print(result)
+print(type(result))   <-----its a string 
+
+# if u want to make int or float , then convert it.
+
+i = int(result)
+f = float(result)
+---------------------------------------------
+result1 = int(input('Enter a number a :')
+
+result2 = float(input('Enter a number a :')
+------------------------------------------------------------
+
+
+
