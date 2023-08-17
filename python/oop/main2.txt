@@ -1,0 +1,74 @@
+class Dog:
+    species = "Canis familiaris"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    # Instance method
+    def description(self):
+        return f"{self.name} is {self.age} years old"
+
+    # Another instance method
+    def speak(self, sound):
+        return f"{self.name} says {sound}"
+        
+miles1 = Dog("Miles", 4)
+miles2 = Dog("Miles", 4)
+
+print(miles1)
+print(miles2)
+
+
+miles = Dog("Miles", 4)
+print(miles.description()) # call function inside class
+
+print(miles.speak("Woof Woof"))   # call function inside class
+print(miles.speak("Bow Wow"))   # call function inside class
+
+miles.name = "samim"   #set the object value
+print(miles.description())
+
+
+
+<__main__.Dog object at 0x7f5d01466a10>   # the miles1 and miles2 not same. saved in two different memory location.
+<__main__.Dog object at 0x7f5d01466b50>   #miles2 or miles1 are Dog object saved in different memory location.
+Miles is 4 years old
+Miles says Woof Woof
+Miles says Bow Wow
+samim is 4 years old
+
+===========================================================================================================
+You can change what gets printed by defining a special instance method called .__str__().
+
+In the editor window, change the name of the Dog class’s .description() method to .__str__():
+
+============================================================================================================
+class Dog:
+    species = "Canis familiaris"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    # Instance method
+    #def description(self):
+        #return f"{self.name} is {self.age} years old"
+        
+    # Replace .description() with __str__()
+    def __str__(self):
+        return f"{self.name} is {self.age} years old"
+    # Another instance method
+    def speak(self, sound):
+        return f"{self.name} says {sound}"
+        
+
+miles = Dog("Miles", 4)
+print(miles)
+
+
+Miles is 4 years old
+=========================================================================================================
+Methods like .__init__() and .__str__() are called dunder methods because they begin and end with double underscores.
+There are many dunder methods that you can use to customize classes in Python.
+==========================================================================================================
