@@ -72,3 +72,139 @@ Miles is 4 years old
 Methods like .__init__() and .__str__() are called dunder methods because they begin and end with double underscores.
 There are many dunder methods that you can use to customize classes in Python.
 ==========================================================================================================
+class Dog:
+    species = "Canis familiaris"
+
+    def __init__(self, name, age, breed):
+        self.name = name
+        self.age = age
+        self.breed = breed
+    def speak(self, sound):
+        return f"{self.name} and {self.age} and {self.breed} and {sound}"
+        
+        
+miles = Dog("Miles", 4, "Jack Russell Terrier")
+buddy = Dog("Buddy", 9, "Dachshund")
+jack = Dog("Jack", 3, "Bulldog")
+jim = Dog("Jim", 5, "Bulldog")
+
+print(miles.speak("hi"))
+print(buddy.speak("hello"))
+print(jack.speak("hihi"))
+print(jim.speak("hellohello"))
+
+
+Miles and 4 and Jack Russell Terrier and hi
+Buddy and 9 and Dachshund and hello
+Jack and 3 and Bulldog and hihi
+Jim and 5 and Bulldog and hellohello
+===========================================================================================
+Using just the Dog class, you must supply a string for the sound argument of .speak() every time 
+you call it on a Dog instance:
+============================================================================================
+Passing a string to every call to .speak() is repetitive and inconvenient. Moreover, 
+the string representing the sound that each Dog instance makes should be determined by its .
+breed attribute, but here you have to manually pass the correct string to .speak() every time it’s called.
+
+You can simplify the experience of working with the Dog class by creating a child class for each breed of dog.
+This allows you to extend the functionality that each child class inherits, including specifying 
+a default argument for .speak().
+=================================================================================================
+class Dog:   #parent class
+    species = "Canis familiaris"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __str__(self):
+        return f"{self.name} is {self.age} years old"
+
+    def speak(self, sound):
+        return f"{self.name} says {sound}"
+        
+        
+class JackRussellTerrier(Dog): #child class
+    pass
+
+class Dachshund(Dog):    #child class
+    pass
+
+class Bulldog(Dog):      #child class
+    pass
+
+miles = JackRussellTerrier("Miles", 4)
+buddy = Dachshund("Buddy", 9)
+jack = Bulldog("Jack", 3)
+jim = Bulldog("Jim", 5)
+
+print(miles.species)
+
+print(buddy.name)
+
+print(jack)
+
+print(jim.speak("Woof"))
+
+
+
+
+Canis familiaris
+Buddy
+Jack is 3 years old
+Jim says Woof
+===============================================================================
+class Dog:   #parent class
+    species = "Canis familiaris"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __str__(self):
+        return f"{self.name} is {self.age} years old"
+
+    def speak(self, sound):
+        return f"{self.name} says {sound}"
+        
+        
+class JackRussellTerrier(Dog): #child class
+    pass
+
+class Dachshund(Dog):    #child class
+    pass
+
+class Bulldog(Dog):      #child class
+    pass
+
+miles = JackRussellTerrier("Miles", 4)
+buddy = Dachshund("Buddy", 9)
+jack = Bulldog("Jack", 3)
+jim = Bulldog("Jim", 5)
+
+print(miles.species)
+
+
+print(buddy.name)
+
+
+print(jack)
+
+print(jim.speak("Woof"))
+
+print(type(miles))  # as miles under  child class
+print(isinstance(miles, Dog))  # parent vs child is True
+print(isinstance(miles, Bulldog)) #child vs child diff loc memory so False
+
+
+
+Canis familiaris
+Buddy
+Jack is 3 years old
+Jim says Woof
+<class '__main__.JackRussellTerrier'>
+True
+False
+===========================================================================================
+
+
