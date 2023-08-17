@@ -1,0 +1,56 @@
+#Parent Class
+class User():
+    def __init__(self,name,age,gender):
+        self.name = name
+        self.age = age
+        self.gender = gender
+    def user_details(self):
+        print("The User Details: \n")
+        print("Name :" ,self.name)
+        print("Age :", self.age)
+        print("Gender : ", self.gender)
+p1 = User("samim",20,"male")
+#print(p1.name)
+#print(p1.user_details())
+
+
+#Child Class
+class Bank(User):
+    def __init__(self,name,age,gender):
+        super().__init__(name,age,gender)
+        self.balance = 0
+    def deposit(self,amount):
+        self.amount = amount
+        self.balance = self.balance + self.amount
+        print("The balance has been updated:Rs", self.balance)
+    def withdraw(self,amount):
+        self.amount = amount
+        if self.amount > self.balance:
+            print("Insufficient Funds | Balance Available Rs", self.balance)
+            print("You asked Withdraw Amount Rs", self.amount)
+        else:
+            self.balance = self.balance - self.amount
+            print("The balance has been updated Rs", self.balance)
+    def view(self):
+        self.user_details()
+        print(f"The Balance has been updated Rs", self.balance)
+        
+p2 = Bank("raja",50,"Male")
+print(p2.deposit(20000))
+print(p2.withdraw(25550))
+print(p2.view())
+        
+------------------------------------------------------------------------------------------------------
+The balance has been updated:Rs 20000
+
+Insufficient Funds | Balance Available Rs 20000
+You asked Withdraw Amount Rs 25550
+
+The User Details: 
+
+Name : raja
+Age : 50
+Gender :  Male
+The Balance has been updated Rs 20000
+
+--------------------------------------------------------------------
