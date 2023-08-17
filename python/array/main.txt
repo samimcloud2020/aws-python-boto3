@@ -1,0 +1,75 @@
+Note: Python does not have built-in support for Arrays, but Python Lists can be used instead.
+
+Arrays
+Note: This page shows you how to use LISTS as ARRAYS, however, to work with arrays in Python
+you will have to import a library, like the NumPy library.
+
+Arrays are used to store multiple values in one single variable:
+=======================================================================================
+An array can hold many values under a single name, and you can access the values by referring to an index number.
+
+===========================================================================================
+Array Methods
+Python has a set of built-in methods that you can use on lists/arrays.
+
+Method	Description
+append()	Adds an element at the end of the list
+clear()	Removes all the elements from the list
+copy()	Returns a copy of the list
+count()	Returns the number of elements with the specified value
+extend()	Add the elements of a list (or any iterable), to the end of the current list
+index()	Returns the index of the first element with the specified value
+insert()	Adds an element at the specified position
+pop()	Removes the element at the specified position
+remove()	Removes the first item with the specified value
+reverse()	Reverses the order of the list
+sort()	Sorts the list
+Note: Python does not have built-in support for Arrays, but Python Lists can be used instead.
+========================================================================================
+import array as arr    
+a = arr.array('i', [2, 4, 5, 6])    
+print("First element is:", a[0])    
+print("Second element is:", a[1])   
+print("Third element is:", a[2])  
+print("Forth element is:", a[3])  
+print("last element is:", a[-1])    
+print("Second last element is:", a[-2])    
+print("Third last element is:", a[-3])    
+print("Forth last element is:", a[-4])    
+print(a[0], a[1], a[2], a[3], a[-1],a[-2],a[-3],a[-4])  
+
+
+
+First element is: 2
+Second element is: 4
+Third element is: 5
+Forth element is: 6
+last element is: 6
+Second last element is: 5
+Third last element is: 4
+Forth last element is: 2
+2 4 5 6 6 5 4 2
+-----------------------------------------------------------------------------------------------
+import array as arr  
+number = arr.array('i', [1, 2, 3, 3, 4])  
+del number[2]                           # removing third element  
+print(number)                           # Output: array('i', [1, 2, 3, 4])  
+
+
+
+
+array('i', [1, 2, 3, 4])
+==========================================================================================
+import array as arr  
+
+a=arr.array('d',[1.1 , 2.1 ,3.1,2.6,7.8])  
+b=arr.array('d',[3.7,8.6])  
+c=arr.array('d')  
+c=a+b  
+print("Array c = ",c)  
+
+
+
+Array c =  array('d', [1.1, 2.1, 3.1, 2.6, 7.8, 3.7, 8.6])
+==========================================================================
+
