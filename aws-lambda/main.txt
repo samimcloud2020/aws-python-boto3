@@ -1,0 +1,122 @@
+======================Handler Details for Python===========================
+Note that the handler has to be name of the file followed by name of the function.
+
+In the above case, our file name is hellopython.py and name of the function is my_handler; 
+
+so the handler will be hellopython.my_handler.
+==============================================================================
+Now, let us understand the details of the Lambda function using the following sample code −
+
+def my_handler(event, context):
+   return "aws lambda in python using zip file"
+In the above code, the function name my_handler is having 2 params, event and context.
+==========================================================================
+=============Context Object in Python================================================
+Context object gives details like the name of the Lambda function, time remaining in milliseconds,
+request id, cloud watch group name, timeout details etc.
+
+Sr.No	Method Name & Description
+1	
+get_remaining_time_in_millis()
+
+This method gives the remaining time in milliseconds until the lambda function terminates the function
+
+Sr.No	Attribute & Description
+1	
+function_name
+
+This gives aws lambda function name
+
+2	
+function_version
+
+This gives the version of aws lambda function executing
+
+3	
+invoked_function_arn
+
+This will gives ARN details.
+
+4	
+memory_limit_in_mb
+
+This shows the memory limit added while creating lambda function
+
+5	
+aws_request_id
+
+This gives the aws request id.
+
+6	
+og_group_name
+
+This will give the name of the cloudwatch group name
+
+7	
+log_stream_name
+
+This will give the name of the cloudwatch log stream name where the logs are written.
+
+8	
+identity
+
+This will give details about amazon cognito identity provider when used with aws mobile sdk. Details given are as follows −
+
+identity.cognito_identity_id
+identity.cognito_identity_pool_id
+9	
+client_context
+
+This will details of the client application when used with aws mobile sdk. The details given are as follows −
+
+client_context.client.installation_id
+client_context.client.app_title
+client_context.client.app_version_name
+client_context.client.app_version_code
+client_context.client.app_package_name
+client_context.custom - it has dict of custom values from the mobile client app
+client_context.env - it has dict of environment details from the AWS Mobile SDK
+Let us see a working example in Python which outputs the context details. Observe the code given below −
+
+def my_handler(event, context):
+   print("Log stream name:", context.log_stream_name)
+   print("Log group name:",  context.log_group_name)
+   print("Request ID:",context.aws_request_id)
+   print("Mem. limits(MB):", context.memory_limit_in_mb)
+   print("Time remaining (MS):", context.get_remaining_time_in_millis())
+   return "aws lambda in python using zip file"
+=================================================================================
+======================Logging using Python===============================================
+To log info using Python, we can use print or logger function available. 
+Let us use the above example of context and check inCloudWatch 
+to see if the logs are printed. Observe the following code −
+
+def my_handler(event, context):
+   print("Log stream name:", context.log_stream_name)
+   print("Log group name:",  context.log_group_name)
+   print("Request ID:",context.aws_request_id)
+   print("Mem. limits(MB):", context.memory_limit_in_mb)
+   print("Time remaining (MS):", context.get_remaining_time_in_millis())
+   return "aws lambda in python using zip file"
+The output of this code in CloudWatch is as shown below −
+
+
+
+Observe the following example to understand about using logger to print logs to CloudWatch −
+
+import logging
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+def my_handler(event, context):
+   logger.info('Using logger to print messages to cloudwatch logs')
+   return "aws lambda in python using zip file"
+The output for this will be as shown in the screenshot given below −
+
+=============================================================================================
+=====================Error Handling in Python for Lambda function===========================
+In this section, let us see a working example which shows how to handler errors in Python.
+Observe the piece of code given here −
+
+def error_handler(event, context):
+   raise Exception('Error Occured!')
+==========================================================================================
