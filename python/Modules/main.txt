@@ -1,0 +1,126 @@
+What is a Module?
+Consider a module to be the same as a code library.
+
+A file containing a set of functions you want to include in your application.
+==================================================================================
+mymodule.py
+
+def greeting(name):
+  print("Hello, " + name)
+
+
+p1.py
+
+import mymodule
+
+mymodule.greeting("Jonathan")
+
+
+#python3 p1.py
+Hello, Jonathan
+==========================================================================================
+mymodule.py
+
+person1 = {
+  "name": "John",
+  "age": 36,
+  "country": "Norway"
+}
+
+
+p1.py
+
+import mymodule
+
+a = mymodule.person1["age"]
+print(a)
+
+
+#python3 p1.py
+36
+============================================================================================
+Naming a Module
+You can name the module file whatever you like, but it must have the file extension .py
+============================================================================================
+Re-naming a Module
+You can create an alias when you import a module, by using the as keyword:
+
+mymodule.py
+
+person1 = {
+  "name": "John",
+  "age": 36,
+  "country": "Norway"
+}
+
+
+p1.py
+import mymodule as mx
+
+a = mx.person1["age"]
+print(a)
+
+#python3 p1.py
+36
+=============================================================================================
+Built-in Modules
+There are several built-in modules in Python, which you can import whenever you like.
+
+p1.py
+import platform
+
+x = platform.system()
+print(x)
+
+#python3 p1.py
+linux
+===============================================================================================
+Using the dir() Function
+There is a built-in function to list all the function names (or variable names) in a module. The dir() function:
+p1.py
+import platform
+
+x = dir(platform)
+print(x)
+
+root@SDOP_Ts:~# python3 p1.py
+['_Processor', '_WIN32_CLIENT_RELEASES', '_WIN32_SERVER_RELEASES', '__builtins__', '__cached__', '__copyright__',
+'__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '__version__', '_comparable_version',
+'_component_re', '_default_architecture', '_follow_symlinks', '_get_machine_win32', '_ironpython26_sys_version_parser',
+'_ironpython_sys_version_parser', '_java_getprop', '_libc_search', '_mac_ver_xml', '_node', '_norm_version', 
+'_os_release_cache', '_os_release_candidates', '_os_release_line', '_os_release_unescape', '_parse_os_release',
+'_platform', '_platform_cache', '_pypy_sys_version_parser', '_sys_version', '_sys_version_cache', '_sys_version_parser',
+'_syscmd_file', '_syscmd_ver', '_uname_cache', '_unknown_as_blank', '_ver_output', '_ver_stages', 'architecture',
+'collections', 'freedesktop_os_release', 'functools', 'itertools', 'java_ver', 'libc_ver', 'mac_ver', 'machine', 
+'node', 'os', 'platform', 'processor', 'python_branch', 'python_build', 'python_compiler', 'python_implementation',
+'python_revision', 'python_version', 'python_version_tuple', 're', 'release', 'subprocess', 'sys', 'system',
+'system_alias', 'uname', 'uname_result', 'version', 'win32_edition', 'win32_is_iot', 'win32_ver']
+
+===============================================================================================================
+Note: The dir() function can be used on all modules, also the ones you create yourself.
+===============================================================================================================
+Import From Module
+You can choose to import only parts from a module, by using the from keyword.
+
+mymodule.py
+
+def greeting(name):
+  print("Hello, " + name)
+
+person1 = {
+  "name": "John",
+  "age": 36,
+  "country": "Norway"
+}
+
+
+p1.py
+
+from mymodule import person1    #Import only the person1 dictionary from the module:
+
+print (person1["age"])
+
+
+#python3 p1.py
+36
+========================================================================================================
