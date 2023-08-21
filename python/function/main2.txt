@@ -1,0 +1,98 @@
+list1 = [1,2,3]
+
+list1.append(4)
+
+print(list1)
+
+
+[1, 2, 3, 4]
+============================================================
+list1 = [1,2,3]
+
+list1.pop()
+
+print(list1)
+
+[1, 2]
+=========================================================
+def fun(name):
+  print(f"hello {name}")
+
+fun("samim")
+
+hello samim
+=====================================================
+def fun(name="raja"):  # force declare as said default value
+  print(f"hello {name}")
+
+fun()
+
+hello raja
+=====================================================
+def fun(num1,num2):
+    return num1+num2
+
+result = fun(1,2)
+print(result)
+
+3
+=====================================================
+def fun(num1,num2):
+    return num1+num2
+
+result1 = fun(1,2)
+print(result1)
+
+result2 = fun("hi","samim") # be careful on data type 
+print(result2)
+
+
+3
+hisamim
+==========================================================
+20 % 2 == 0
+
+True
+
+21 % 2 == 0
+
+False
+========================================================
+def fun(num):
+    result = num % 2 == 0
+    return result
+    
+x = fun(20)
+print(x)
+
+True
+=====================================================
+def fun(num):
+    result = num % 2 == 0
+    return result
+    
+x = fun(21)
+print(x)
+
+False
+==================================================
+def fun(num):
+    return num % 2 == 0
+    
+x = fun(21)
+print(x)
+
+False
+================================================
+def fun(list1):
+    list2 = []
+    for i in list1:
+        if i % 2 == 0:
+            list2.append(i)
+    return list2     # note this return after executing whole for Loop
+    
+x = fun([1,2,5,4,8,10])
+print(x)
+
+[2, 4, 8, 10]
+===================================================
