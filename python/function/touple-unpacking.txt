@@ -1,0 +1,29 @@
+list1 = [("google", 100), ("amazon",200), ("microsoft", 300)]
+
+for i,j in list1:
+    print(i,j)
+
+
+google 100
+amazon 200
+microsoft 300
+====================================================================
+list1 = [("google", 100), ("amazon",200), ("microsoft", 300)]
+
+def fun(list1):
+    count = 0
+    list2 = ''
+    for i,j in list1:
+        if j > count:
+            count = j
+            list2 = i
+        else:
+            pass
+    return (list2,count)
+    
+x = fun(list1)
+print(x)
+
+
+('microsoft', 300)
+===========================================================================
