@@ -47,4 +47,56 @@ print(x)
 This is 10 mango
 =======================================================================
 x = fun(10,20,30,fruit="apple",food="mango",eat="orange",100)   # wrong as all *args 1st the *kwargs
-=================================================================
+==============================touple as *args but return list===================================
+def myfunc(*args):
+    return list(args)
+
+x = myfunc(5,6,7,8)
+print(x)
+
+
+[5, 6, 7, 8]
+===============================================================
+def myfunc(*args):
+    list1 = []
+    for i in args:
+        if i % 2 == 0:
+            list1.append(i)
+        
+    print(list1)
+    return list1
+
+x = myfunc(5,6,7,8)
+print(x)
+
+
+[6, 8]
+[6, 8]
+================================================================
+def myfunc(*args):
+    args = str(args)
+    string1 = ''
+    print(string1)
+    for i in args:
+        if i.isupper() == True:
+            i = i.lower()
+            string1 = string1 + i
+        elif i.isupper() == False:
+            i = i.upper()
+            string1 = string1 + i
+        else:
+            pass
+    return string1
+        
+        
+            
+            
+x = myfunc("AbcGGHNDrr")
+print(x)
+print(type(x))
+
+
+('aBCgghndRR',)
+('aBCgghndRR',)
+<class 'str'>
+=======================================================================
