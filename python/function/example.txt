@@ -210,3 +210,29 @@ print(x)
 
 False
 ===============================================================
+def fun(letter):
+    string1 = ''
+    for i in letter:
+        string1 += i *3
+    return string1
+    
+x = fun("hello")
+print(x)
+
+
+hhheeellllllooo
+=============================check 0,0,7===========================
+def fun(list):
+    code = [0,0,7,'x']
+    for i in list:
+        if i == code[0]:
+            code.pop(0)
+    return len(code) == 1
+    
+x = fun([1,0,5,0,7,8,9])
+print(x)
+
+
+True
+====================================================================
+
