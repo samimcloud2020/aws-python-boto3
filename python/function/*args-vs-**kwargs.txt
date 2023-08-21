@@ -1,0 +1,50 @@
+============always return back touple=========================
+def fun(*args):    #any num of args # always return back touple
+    return(sum(args))  #args any num arguments
+    
+x = fun(40,60)
+print(x)
+
+
+100
+======================================================
+def fun(*xxx):    #any num of args
+    return(sum(xxx))  #args any num arguments
+    
+x = fun(40,60)
+print(x)
+
+
+100
+===============**kwargs    return back dict=================================
+def fun(**kwargs):    
+    print(kwargs)    # print dict
+    if "fruit" in kwargs:
+        print("This is {}".format(kwargs["fruit"]))
+    else:
+        print("not found")
+        
+x = fun(fruit="mango",vegie="apple")
+print(x)
+
+
+
+
+{'fruit': 'mango', 'vegie': 'apple'}
+This is mango
+==========================================================================
+def fun(*args,**kwargs):
+    print(args)
+    print(kwargs)
+    print("This is {} {}".format(args[0],kwargs["food"]))
+    
+x = fun(10,20,30,fruit="apple",food="mango",eat="orange")
+print(x)
+
+
+(10, 20, 30)              # touple
+{'fruit': 'apple', 'food': 'mango', 'eat': 'orange'}    # dict
+This is 10 mango
+=======================================================================
+x = fun(10,20,30,fruit="apple",food="mango",eat="orange",100)   # wrong as all *args 1st the *kwargs
+=================================================================
