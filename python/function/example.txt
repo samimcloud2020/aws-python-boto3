@@ -1,0 +1,212 @@
+def fun(a,b):
+    if a % 2 == 0 and b % 2 == 0:
+        #both a and b are even
+        if a <  b:
+            result = a
+        else:
+            result = b
+    else:
+        #one or both a and b are odd
+        if a > b:
+            result = a
+        else:
+            result = b
+    return result
+    
+x = fun(9,5)
+print(x)
+
+
+if both are even then result = lowest value
+if one or both odd then result = hight value
+===================same(LITTLE BEST)=======================================================
+def fun(a,b):
+    if a % 2 == 0 and b % 2 == 0:
+        #both a and b are even
+        result = min(a,b)
+    else:
+        #one or both a and b are odd
+        result = max(a,b)
+    return result
+    
+x = fun(9,5)
+print(x)
+=====================same (THE BEST)==================================================
+def fun(a,b):
+    if a % 2 == 0 and b % 2 == 0:
+        #both a and b are even
+        return min(a,b)
+    else:
+        #one or both a and b are odd
+        return max(a,b)
+    
+    
+x = fun(9,5)
+print(x)
+===============================================================================
+def fun(text):
+    wordlist = text.split()
+    print(wordlist)
+    
+    a = wordlist[0]
+    b = wordlist[1]
+    print(a)
+    print(b)
+    
+x = fun("samim sami")
+
+
+['samim', 'sami']
+samim
+sami
+============================================================
+def fun(text):
+    wordlist = text.split()
+    
+    return wordlist[0][0] == wordlist[1][0]
+    
+x = fun("samim sami")
+print(x)
+
+True
+===================================================
+def fun(text):
+    wordlist = text.split()
+    
+    return wordlist[0][0] == wordlist[1][0]
+    
+x = fun("samim aami")
+print(x)
+
+False
+==================================================
+def fun(text):
+    wordlist = text.lower().split()
+    
+    return wordlist[0][0] == wordlist[1][0]
+    
+x = fun("samim Sami")
+print(x)
+
+
+True
+===================================================
+def fun(text):
+    wordlist = text.upper().split()
+    
+    return wordlist[0][0] == wordlist[1][0]
+    
+x = fun("samim Sami")
+print(x)
+
+
+
+
+True
+======================================================
+def fun(a,b):
+    if a + b == 20:
+        return True
+    elif a == 20:
+        return True
+    elif b == 20:
+        return True
+    else:
+        return False
+        
+x = fun(20,30)
+print(x)
+
+
+
+True
+===================same as upperone==============================
+def fun(a,b):
+    return (a +b) == 20 or a == 20 or b == 20 
+    
+        
+x = fun(20,30)
+print(x)
+
+
+True
+==========================================================
+def fun(letter):
+    first = letter[0]
+    inbetween = letter[1:3]  # index 1 and 2
+    third = letter[3]
+    last = letter[3:]
+    return first + inbetween + third + last
+    
+x = fun("hi samim")
+print(x)
+
+hi samim
+===============================================================
+def fun(letter):
+    first = letter[0]
+    inbetween = letter[1:3]  # index 1 and 2
+    third = letter[3]
+    last = letter[3:]
+    return first.upper() + inbetween + third.upper() + last
+    
+x = fun("macdonald")
+print(x)
+
+
+MacDdonald
+=============================================================
+def fun(letter):
+    first_half = letter[:3]
+    second_half = letter[3:]
+    return first_half.capitalize() + second_half.capitalize()
+    
+x = fun("macdonald")
+print(x)
+
+
+MacDonald
+====================================================================
+def fun(letter):
+    wordlist = letter.split()
+    reverse_wordlist = wordlist[::-1]
+    return reverse_wordlist
+    
+x = fun("hello how are you")
+print(x)
+
+
+['you', 'are', 'how', 'hello']
+====================================================================
+def fun(letter):
+    wordlist = letter.split() # after split() its a list
+    print(type(wordlist))
+    wordlist = "----".join(wordlist)
+    return wordlist
+    
+x = fun("hello how are you")
+print(x)
+
+
+<class 'list'>
+hello----how----are----you
+=====================================================================
+def fun(letter):
+    wordlist = letter.split()
+    reverse_wordlist = wordlist[::-1]
+    return ' '.join(reverse_wordlist)
+    
+x = fun("hello how are you")
+print(x)
+
+
+you are how hello
+================abs  for absolute value=================================================
+def fun(n):
+    return (abs(100-n) <= 10) or (abs(200-n) <= 10)
+    
+x = fun(500)
+print(x)
+
+False
+===============================================================
