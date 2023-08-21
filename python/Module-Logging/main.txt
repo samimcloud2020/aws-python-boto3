@@ -51,4 +51,70 @@ logging.CRITICAL
 A serious error, indicating that the program itself may be unable to continue running.
 ============================================================================================================
 
-A serious error, indicating that the program itself may be unable to continue running.
+Debug: These are used to give Detailed information, typically of interest only when diagnosing problems.
+
+Info: These are used to confirm that things are working as expected
+
+Warning: These are used as an indication that something unexpected happened, or is indicative of some problem in the near future
+
+Error: This tells that due to a more serious problem, the software has not been able to perform some function
+
+Critical: This tells serious error, indicating that the program itself may be unable to continue running
+==============================================================================================================
+import logging
+name = 'GFG'
+logging.error('%s raised an error', name)
+
+
+ERROR:root:GFG raised an error
+=======================================================================================================
+# importing module
+import logging
+ 
+# Create and configure logger
+logging.basicConfig(filename="newfile.log",
+                    format='%(asctime)s %(message)s',
+                    filemode='w')
+ 
+# Creating an object
+logger = logging.getLogger()
+ 
+# Setting the threshold of logger to DEBUG
+logger.setLevel(logging.DEBUG)
+ 
+# Test messages
+logger.debug("Harmless debug Message")
+logger.info("Just an information")
+logger.warning("Its a Warning")
+logger.error("Did you try to divide by zero")
+logger.critical("Internet is down")
+
+
+
+
+The above code will generate a file with the provided name and if we open the file, the file contains the following data. 
+==========================================================================================================
+import logging
+
+logging.basicConfig(level=logging.DEBUG,
+					format='%(asctime)s - %(levelname)s - %(message)s')
+
+
+def perform_operation(value):
+	if value < 0:
+		raise ValueError("Invalid value: Value cannot be negative.")
+	else:
+		# Continue with normal execution
+		logging.info("Operation performed successfully.")
+
+
+try:
+	input_value = int(input("Enter a value: "))
+	perform_operation(input_value)
+except ValueError as ve:
+	logging.exception("Exception occurred: %s", str(ve))
+
+
+Enter a value: 40
+2023-08-21 08:04:48,536 - INFO - Operation performed successfully.
+===========================================================================================================
