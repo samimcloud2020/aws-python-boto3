@@ -1,0 +1,132 @@
+map(func, *iterables)
+
+While map() passes each element in the iterable through a function and returns the result of 
+all elements having passed through the function, 
+
+filter(), first of all, requires the function 
+to return boolean values (true or false) and then passes each element in the iterable through the function, 
+"filtering" away those that are false. It has the following syntax:
+
+filter(func, iterable)
+=================================================================
+A lambda function is a small anonymous function.
+
+A lambda function can take any number of arguments, but can only have one expression.
+
+Syntax
+lambda arguments : expression
+
+The expression is executed and the result is returned:
+
+x = lambda a, b : a * b
+print(x(5, 6))
+
+
+30
+====================================================================
+def square(nums):
+    return nums*2
+    
+list1 = [1,2,3,4,5]
+
+for i in  map(square,list1):
+    print(i)
+
+
+2
+4
+6
+8
+10
+============================================================
+def square(nums):
+    return nums*2
+    
+list1 = [1,2,3,4,5]
+
+x = list(map(square,list1))  # rerurn as list
+print(x)
+
+
+
+[2, 4, 6, 8, 10]
+================================================
+def splicer(word):
+    if len(word) % 2 == 0:
+        return 'EVEN'
+    else:
+        return word[0]
+string1 = ["Andy","samim","lisa"]
+x = list(map(splicer,string1))
+print(x)
+
+
+
+['EVEN', 's', 'EVEN']
+=========================================================
+def fun(nums):
+    return nums%2 == 0 #return Boolean value True / False to filter, then only filter work.
+    
+nums = [1,2,3,4,5,6]
+
+for i in filter(fun,nums):
+    print (i)
+
+
+2
+4
+6
+===========================================================
+def fun(nums):
+    return nums%2 == 0
+    
+nums = [1,2,3,4,5,6]
+
+x = list(filter(fun,nums))
+print(x)
+
+
+[2, 4, 6]
+============================================================
+square = lambda num: num ** 2    # input as num and return as num**2
+
+x = square(2)
+print(x)
+
+
+4
+==========================================================
+mynums = [1,2,3,4,5]
+
+x = list(map(lambda num: num ** 2,mynums))
+
+print(x)
+
+
+[1, 4, 9, 16, 25]
+==================================================================
+mynums = [1,2,3,4,5,6]
+
+x = list(filter(lambda num: num%2 == 0,mynums))
+
+print(x)
+
+
+[2, 4, 6]
+===============================================================
+list1 = ['andy','samim','lisa']
+
+x = list(map(lambda x: x[0],list1))
+print(x)
+
+
+['a', 's', 'l']
+=========================================================
+list1 = ['andy','samim','lisa']
+
+x = list(map(lambda x: x[::-1],list1))
+print(x)
+
+
+['ydna', 'mimas', 'asil']
+============================================================
