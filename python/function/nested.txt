@@ -1,0 +1,122 @@
+x = 50
+
+def printer():
+    x = 25   #x is local to fun only
+    return x
+    
+print(x)  #o/p 50
+
+y = printer()
+print(y)  #o/p is 25
+
+
+50
+25
+========================================================
+LEGB RULE:
+
+The LEGB rule is a kind of name lookup procedure, which determines the order in which Python looks up names.
+
+For example, if we access a name, then Python will look that name up sequentially in the 
+
+local, 
+enclosing,
+global, and
+built-in scope.
+===========================================================
+name = "THIS IS GLOBAL"
+
+def greet():
+    name = "samim"
+    
+    def hello():
+        print("hello " + name)
+        
+    hello()
+    
+greet()
+
+
+hello samim
+================================================================
+name = "THIS IS GLOBAL"
+
+def greet():
+    #name = "samim"
+    
+    def hello():
+        print("hello " + name)
+        
+    hello()
+    
+greet()
+
+
+hello THIS IS GLOBAL
+======================================================================
+#GLOBAL  G
+name = "THIS IS GLOBAL"
+
+def greet():
+    #ENCLOSING  E
+    name = "samim"
+    
+    def hello():
+        #LOCAL L
+        name = "lisa"
+        print("hello " + name)
+        
+    hello()
+    
+greet()
+
+
+hello lisa
+===================================================================
+#GLOBAL  G
+x = 50
+
+def greet():
+    #global
+    global x 
+    print(x)
+    
+    def hello():
+        #LOCAL L
+        x = 100
+        print(x)
+        
+    hello()
+    
+greet()
+
+print(x)
+
+
+50
+100
+50
+===========================================================================
+x = 50
+
+def greet(x):
+    #global
+    #global x 
+    print(x)
+    
+    def hello():
+        #LOCAL L
+        x = 100
+        print(x)
+        
+    hello()
+    
+x = greet(x)
+
+print(x)
+
+
+
+50
+100
+========================================================
