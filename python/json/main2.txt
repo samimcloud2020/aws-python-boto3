@@ -1,0 +1,59 @@
+import json
+
+json_string1 = '{"name": "samim","age":40}'
+print(type(json_string1))
+
+dict1 = json.loads(json_string1)
+print(dict1)
+print(type(dict1))
+
+
+<class 'str'>
+{'name': 'samim', 'age': 40}
+<class 'dict'>
+=============================================================
+import json
+
+dict1 = {"name": "samim","age":40}
+print(type(dict1))
+
+json_string1 = json.dumps(dict1)
+print(json_string1)
+print(type(json_string1))
+
+
+<class 'dict'>
+{"name": "samim", "age": 40}
+<class 'str'>
+=============================================================
+json object-------------json.load()------>dict
+1.json
+
+{"name": "samim","age":40}
+
+1.py
+
+
+import json
+with open("1.json",'r') as f:
+        data = json.load(f)
+print(data)
+print(type(data))
+
+
+
+
+root@SDOP_Ts:~/www# python3 1.py
+{'name': 'samim', 'age': 40}
+<class 'dict'>
+===================================================================
+dict------json.dump()------>json string and put in file
+
+
+import json
+dict1 = {"name":"sam","age":40} #dict
+
+with open("2.txt",'w') as  json_file:
+        json.dump(dict1,json_file)
+
+=====================================================================
