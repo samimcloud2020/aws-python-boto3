@@ -57,3 +57,47 @@ with open("2.txt",'w') as  json_file:
         json.dump(dict1,json_file)
 
 =====================================================================
+set() method is used to convert any of the iterable to sequence 
+of iterable elements with distinct elements, commonly called Set.
+
+
+import json
+
+with open("large-file.json",'r') as f:
+        dict1 = json.load(f)  #dict
+user_to_repos = {} #dict
+
+for record in dict1:
+        user=record["actor"]["login"]
+        repo=record["repo"]["name"]
+        if user not in user_to_repos:
+                user_to_repos[user]=set()
+        user_to_repos[user].add(repo)
+print(user_to_repos)
+
+
+==================less memory use========================================================
+pip3 install ijson
+
+
+import ijson
+
+user_to_repos = {}
+
+with open("large-file.json", "rb") as f:
+    for record in ijson.items(f, "item"):
+        user = record["actor"]["login"]
+        repo = record["repo"]["name"]
+        if user not in user_to_repos:
+            user_to_repos[user] = set()
+        user_to_repos[user].add(repo)
+print(user_to_repos)
+========================================================================================
+In the previous version, using the standard library, once the data is loaded we no longer to
+keep the file open. With this API the file has to stay open because the JSON parser is reading 
+from the file on demand, as we iterate over the records.
+
+The items() API takes a query string that tells you which part of the record to return. 
+In this case, "item" just means “each item in the top-level list we’re iterating over”;
+see the ijson documentation for more details.
+==============================================================================================
