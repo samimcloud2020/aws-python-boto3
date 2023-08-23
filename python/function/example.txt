@@ -235,4 +235,88 @@ print(x)
 
 True
 ====================================================================
+def fun(s):
+    lowercase = 0
+    uppercase = 0
+    for char in s:
+        if char.isupper() == True:
+            uppercase +=1
+        elif char.islower() == True:
+            lowercase +=1
+        else:
+            pass
+    print("The uppecase count {} and lowecase {}".format(uppercase,lowercase))
+
+fun("Samim Kumar Patel")
+
+
+The uppecase count 3 and lowecase 12
+============================================================
+def fun(s):
+    d = {"uppercase":0, "lowercase":0}
+    for char in s:
+        if char.isupper() == True:
+            d["uppercase"] +=1
+        elif char.islower() == True:
+            d["lowercase"] +=1
+        else:
+            pass
+    print(f" Uppercase count is {d['uppercase']}, lowercase count {d['lowercase']}")
+    
+
+fun("Samim Kumar Patel")
+
+
+Uppercase count is 3, lowercase count 12
+===============================================================
+def fun(list):
+    seen_list = []
+    for num in list:
+        if num not in seen_list:
+            seen_list.append(num)
+        else:
+            pass
+    return seen_list
+    
+x = fun([1,2,3,3,3,4,4,1,2,3])
+print(x)
+
+
+[1, 2, 3, 4]
+===========================================================
+def fun(list):
+    total = 1
+    for num in list:
+        total = total * num
+    return total
+       
+    
+x = fun([1,2,3,-4,5])
+print(x)
+
+
+-120
+==========================================================
+def fun(s):
+    s = s.replace(" ","")
+    return s
+       
+    
+x = fun("samim kumar")
+print(x)
+
+
+samimkumar
+=======================================================
+def fun(s):
+    s = s.replace(" ","") # replace white spaces
+    return s == s[::-1]   # compare string is reverse or not, return boolean
+       
+    
+x = fun("samim kumar")
+print(x)
+
+
+False
+=========================================================
 
