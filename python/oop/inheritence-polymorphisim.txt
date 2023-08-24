@@ -1,0 +1,110 @@
+======================inheritence=====================================
+class Animal():
+    def __init__(self):
+        print("i am Animal")
+    def whoami(self):
+        print("i am whoami")
+    def eat(self):
+        print("i am eat")
+        
+class Dog(Animal):    # inheritate Animal class
+    def __init__(self):
+        Animal.__init__(self)
+        print("i am dog")
+            
+#myanimal = Animal()
+#print(myanimal)
+#print(myanimal.whoami())
+#print(myanimal.eat())
+
+mydog = Dog()
+
+
+i am Animal
+i am dog
+====================================================
+class Animal():
+    def __init__(self):
+        print("i am Animal")
+    def whoami(self):
+        print("i am whoami")
+    def eat(self):
+        print("i am eat")
+        
+class Dog(Animal):    # inheritate Animal class
+    def __init__(self):
+        Animal.__init__(self)
+        print("i am dog")
+            
+#myanimal = Animal()
+#print(myanimal)
+#print(myanimal.whoami())
+#print(myanimal.eat())
+
+mydog = Dog()
+mydog.eat()
+mydog.whoami()
+
+
+
+i am Animal
+i am dog
+i am eat
+i am whoami
+=========================================================
+class Animal():
+    def __init__(self):
+        print("i am Animal")
+    def whoami(self):
+        print("i am whoami")
+    def eat(self):
+        print("i am eat")
+        
+class Dog(Animal):    # inheritate Animal class
+    def __init__(self):
+        Animal.__init__(self)
+        print("i am dog")
+    def whoami(self):
+        print("i override parent class method whoami and i am a dog")
+            
+#myanimal = Animal()
+#print(myanimal)
+#print(myanimal.whoami())
+#print(myanimal.eat())
+
+mydog = Dog()
+mydog.eat()
+mydog.whoami()
+
+
+i am Animal
+i am dog
+i am eat
+i override parent class method whoami and i am a dog
+=====================POLYMORPHISIM===================================
+#POLYMORPHISIM
+
+class Dog():
+    def __init__(self,name):
+        self.name = name
+    def speak(self):
+        return self.name  + "  dog wooh"
+        
+class Cat():
+    def __init__(self,name):
+        self.name = name
+    def speak(self):
+        return self.name + "   cat meow"
+
+mydog = Dog("sammy")
+print(mydog.speak())
+
+mycat = Cat("catty")
+print(mycat.speak())
+
+
+
+sammy  dog wooh
+catty   cat meow
+============================================================
+
