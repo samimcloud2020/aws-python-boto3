@@ -107,4 +107,31 @@ print(mycat.speak())
 sammy  dog wooh
 catty   cat meow
 ============================================================
+#POLYMORPHISIM
+class Animal():
+    def __init__(self,name):
+        self.name = name
+    def speak(self):
+        raise NotImplementedError('error')
+        
+class Dog(Animal):
+    def speak(self):
+        return self.name  + "  dog wooh"
+        
+class Cat(Animal):
+    def speak(self):
+        return self.name + "   cat meow"
+        
+myanimal = Animal("tiger")
+#print(myanimal.speak())
 
+mydog = Dog("sammy")
+print(mydog.speak())
+
+mycat = Cat("catty")
+print(mycat.speak())
+
+
+sammy  dog wooh
+catty   cat meow
+==========================================================
