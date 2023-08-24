@@ -1,0 +1,209 @@
+class Dog():
+    def __init__(self,mybreed):
+        self.breed = mybreed    #self.attribute_name
+        
+mydog = Dog(mybreed="hello")
+print(mydog)
+print(mydog.breed)
+
+
+
+<__main__.Dog object at 0x7f45ba642790>
+hello
+=============================================
+class Dog():
+    def __init__(self,breed):
+        self.breed = breed    #self.attribute_name
+        
+mydog = Dog(breed="hello")
+print(mydog)
+print(mydog.breed)
+
+
+<__main__.Dog object at 0x7fada84ba590>
+hello
+==============================================
+class Dog():
+    def __init__(self,breed,name,spots):
+        self.breed = breed    #self.attribute_name
+        self.name = name
+        self.spots = spots
+mydog = Dog(breed="hello", name="sam",spots=True)
+print(mydog)
+print(mydog.breed)
+print(mydog.name)
+print(mydog.spots)
+
+
+<__main__.Dog object at 0x7fc456e56750>
+hello
+sam
+True
+=================================================
+class Dog():
+    #class attribute
+    sam = "mamu"
+    def __init__(self,breed,name,spots):
+        self.breed = breed    #self.attribute_name
+        self.name = name
+        self.spots = spots
+mydog = Dog(breed="hello", name="sam",spots=True)
+print(mydog)
+print(mydog.breed)
+print(mydog.name)
+print(mydog.spots)
+print(mydog.sam)
+
+
+<__main__.Dog object at 0x7f5341ea2810>
+hello
+sam
+True
+mamu
+==================================================
+class Dog():
+    #class attribute
+    sam = "mamu"
+    def __init__(self,breed,name):
+        self.breed = breed    #self.attribute_name
+        self.name = name
+        
+    #operation/actions called methods
+    def bark(self):
+        print("WOOF")
+        
+mydog = Dog("hello","sammy")
+print(mydog)
+print(mydog.breed)
+print(mydog.name)
+print(mydog.sam)
+
+print(mydog.bark)
+print(mydog.bark())
+
+
+
+<__main__.Dog object at 0x7f53c914a690>
+hello
+sammy
+mamu
+<bound method Dog.bark of <__main__.Dog object at 0x7f53c914a690>>
+WOOF
+====================================================
+class Dog():
+    #class attribute
+    sam = "mamu"
+    def __init__(self,breed,name):
+        self.breed = breed    #self.attribute_name
+        self.name = name
+        
+    #operation/actions called methods
+    def bark(self):
+        print("WOOF my name is {}".format(self.name))
+        
+mydog = Dog("hello","sammy")
+print(mydog)
+print(mydog.breed)
+print(mydog.name)
+print(mydog.sam)
+
+print(mydog.bark)
+print(mydog.bark())
+
+
+<__main__.Dog object at 0x7f61aa90a650>
+hello
+sammy
+mamu
+<bound method Dog.bark of <__main__.Dog object at 0x7f61aa90a650>>
+WOOF my name is sammy
+=================================================
+class Dog():
+    #class attribute
+    sam = "mamu"
+    def __init__(self,breed,name):
+        self.breed = breed    #self.attribute_name
+        self.name = name
+        
+    #operation/actions called methods
+    def bark(self,num):
+        print("WOOF my name is {} & num is {}".format(self.name,num))
+        
+mydog = Dog("hello","sammy")
+print(mydog)
+print(mydog.breed)
+print(mydog.name)
+print(mydog.sam)
+
+print(mydog.bark)
+print(mydog.bark(10))
+
+
+<__main__.Dog object at 0x7f15f882a690>
+hello
+sammy
+mamu
+<bound method Dog.bark of <__main__.Dog object at 0x7f15f882a690>>
+WOOF my name is sammy & num is 10
+=============================================================
+class Circle():
+    #class object attribute
+    pi = 3.14
+    
+    def __init__(self,radius=1):
+        self.radius = radius
+        self.area1 = radius * radius * self.pi
+        self.area2 = radius * radius * Circle.pi
+    
+    #Method
+    def get_circum(self):
+        return self.radius * self.pi * 2
+        
+mycircle = Circle(10)
+print(mycircle.pi)
+print(mycircle.radius)
+
+print(mycircle.get_circum())
+
+print(mycircle.area1)
+print(mycircle.area2)
+
+
+3.14
+10
+62.800000000000004
+314.0
+314.0
+========================================================
+class Circle():
+    #class object attribute
+    pi = 3.14
+    
+    def __init__(self,radius=1):
+        self.radius = radius
+        self.area1 = radius * radius * self.pi
+        self.area2 = radius * radius * Circle.pi
+    
+    #Method
+    def get_circum(self):
+        return self.radius * Circle.pi * 2
+        
+mycircle = Circle(10)
+print(mycircle.pi)
+print(mycircle.radius)
+
+print(mycircle.get_circum())
+
+print(mycircle.area1)
+print(mycircle.area2)
+
+
+3.14
+10
+62.800000000000004
+314.0
+314.0
+=============================================================
+
+
+
