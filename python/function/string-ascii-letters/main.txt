@@ -1,0 +1,115 @@
+import string
+
+result = string.ascii_letters
+
+print(result)
+
+
+
+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+==============================================================
+import string
+
+def fun(s):
+    for char in s:
+        if char not in string.ascii_letters:
+            return False
+        else:
+            pass
+        
+    return True
+            
+x = fun("abcdRRt")
+print(x)
+
+y = fun("Geeks_for_geeks")
+print(y)
+
+
+True
+False
+=====================================================================
+import string
+
+def fun(s, alphabet=string.ascii_lowercase):
+    #create a set alphabet
+    alphabet = set(alphabet)
+    print(alphabet)
+    #remove space from string
+    s = s.replace(" ","")
+    print(s)
+    #conver string into lower
+    s = s.lower()
+    print(s)
+    #grab all unique letters from string
+    s = set(s)
+    print(s)
+    
+    return s == alphabet
+    
+x = fun("Samim Kumar Patel")
+print(x)
+
+y = fun("The quick brown fox jumps over the lazy dog")
+print(y)
+
+
+
+{'c', 'x', 'm', 'e', 'k', 'u', 'l', 'i', 'g', 'q', 'd', 'y', 'o', 'f', 'w', 'r', 'h', 'p', 'b', 's', 'n', 'z', 't', 'a', 'j', 'v'}
+SamimKumarPatel
+samimkumarpatel
+{'l', 'p', 's', 'm', 'e', 'k', 'u', 't', 'a', 'r', 'i'}
+False
+{'c', 'x', 'm', 'e', 'k', 'u', 'l', 'i', 'g', 'q', 'd', 'y', 'o', 'f', 'w', 'r', 'h', 'p', 'b', 's', 'n', 'z', 't', 'a', 'j', 'v'}
+Thequickbrownfoxjumpsoverthelazydog
+thequickbrownfoxjumpsoverthelazydog
+{'c', 'x', 'm', 'e', 'u', 'k', 'i', 'l', 'g', 'q', 'd', 'y', 'o', 'f', 'w', 'r', 'h', 'p', 'b', 's', 'n', 'z', 't', 'a', 'j', 'v'}
+True
+===========================================================================================================
+# Importing random to generate
+# random string sequence
+import random
+
+# Importing string library function
+import string
+
+def rand_pass(size):
+	
+	# Takes random choices from
+	# ascii_letters and digits
+	generate_pass = ''.join([random.choice(
+						string.ascii_letters + string.digits)
+						for n in range(size)])
+						
+	return generate_pass
+
+# Driver Code
+password = rand_pass(10)
+print(password)
+	
+	
+Y1bGkIFXbK
+================================================================================
+# Importing random to generate
+# random string sequence
+import random
+
+# Importing string library function
+import string
+
+def rand_pass(size, scope = string.ascii_letters + string.digits):
+	
+	# Takes random choices from ascii_letters and digits
+	generate_pass = ''.join([random.choice(scope)
+							for n in range(size)])
+						
+	return generate_pass
+
+# Driver Code
+password = rand_pass(10, 'Geeks3F0rgeeKs')
+print(password)
+
+
+
+segg3ee0Kg
+======================================================================================
