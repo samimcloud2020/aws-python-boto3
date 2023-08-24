@@ -134,4 +134,64 @@ print(mycat.speak())
 
 sammy  dog wooh
 catty   cat meow
-==========================================================
+=======================SPECIAL BUILT IN METHOD IN OOP===================================
+class Book():
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+    def __str__(self):
+        return f" {self.name } is {self.age}"
+
+mybook = Book("samim", 45)
+print(mybook)
+print(str(mybook))
+
+
+samim is 45
+ samim is 45
+===========================================================
+class Book():
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+    def __str__(self):
+        return f" {self.name } is {self.age}"
+    def __len__(self):
+        return len(self.name)
+
+mybook = Book("samim", 45)
+print(mybook)
+print(str(mybook))
+
+print(len(mybook))
+
+
+samim is 45
+ samim is 45
+5
+============================================================
+class Book():
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+    def __str__(self):
+        return f" {self.name } is {self.age}"
+    def __len__(self):
+        return len(self.name)
+    def __del__(self):
+        return "object deleted"
+
+mybook = Book("samim", 45)
+print(mybook)
+print(str(mybook))
+
+print(len(mybook))
+
+del mybook   # delete object book
+
+
+
+samim is 45
+ samim is 45
+5
+=========================================================
