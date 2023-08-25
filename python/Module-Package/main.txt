@@ -1,0 +1,60 @@
+PyPi is repo of open source 3rd party python packages.
+==================================================================
+pip install requests
+
+pip install colorama
+
+from colorama import init
+init()
+from colorama import Fore
+print(Fore.RED + "hello sam")   # seen in red
+=================================================================
+pip install openpyxl
+
+import openpyxl
+==============================================================
+myprogram.py
+------------
+def fun():
+  print("hello")
+
+
+mymodule.py
+-----------
+from mymodule import fun
+fun()
+
+--------
+#python3 myprogram.py
+hello
+
+
+mymainpackage, myprogram.py, mymodule.py
+
+subpackage , __init__.py, main_script.py
+
+subpackage, __init__.py , subscript.py
+
+main_script.py
+--------------
+def report():
+  print("report")
+
+subscript.py
+------------
+def report2():
+  print("report2")
+
+now mymodule.py
+---------------
+from mymainpackage import main_script
+from mymainpackage.subpackage import subscript
+
+main_script.report()
+subscript.report2()
+
+#python3 myprogram.py
+hello
+report
+report2
+=======================================================================================
