@@ -1,0 +1,44 @@
+if __name__ == "__main__":
+
+sometimes when importing from a  module, you would like to know
+whether a module function is being used as import , or if you are using original 
+.py file of that module.
+========================================================================================
+one.py
+------
+def fun(}:
+  print("func() in one.py")
+  
+print("TOP LEVEL IN ONE.PY")
+
+if __iname__ == "__main__":
+  print("one.py run directly")
+else:
+  print("one.py is being imported")
+
+
+two.py
+------
+import one
+
+print("TOP LEVEL TWO.PY")
+
+one.fun()
+
+if __name__ == "__main__":
+  print("two.py run directly")
+else:
+  print("two.py is being imported")
+
+------------------------------------------------------------
+#python3 one.py
+TOP LEVEL IN ONE.PY
+one.py run directly
+
+#python3 two.py
+TOP LEVEL IN ONE.PY
+one.py is being imported
+TOP LEVEL TWO.PY
+func() in one.py
+two.py run directly
+================================================================
