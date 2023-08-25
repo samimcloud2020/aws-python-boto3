@@ -73,3 +73,33 @@ withdraw accepted 300 and balance is 1200
 
 
 ===============================================================================
+class Account():
+    def __init__(self,owner,balance=0):
+        self.owner = owner
+        self.balance = balance
+    def deposit(self,dep_amt):
+        self.balance += dep_amt
+        print(f"Added amount is {dep_amt} & balance is {self.balance}")
+    def withdraw(self,wd_amt):
+        if self.balance >= wd_amt:
+            self.balance -= wd_amt
+            print(f"withdraw accepted {wd_amt} and balance is {self.balance}")
+        else:
+            print(f"withdraw amt {wd_amt} is more than balance {self.balance}")
+    def __str__(self):
+        return f" owner: {self.owner} \n balance: {self.balance}"
+myacc = Account("sam",500)
+
+print(myacc.owner)
+print(myacc.balance)
+print(myacc.deposit(1000))
+print(myacc.withdraw(300))
+print(myacc)
+
+sam
+500
+Added amount is 1000 & balance is 1500
+withdraw accepted 300 and balance is 1200
+ owner: sam 
+ balance: 1200
+====================================================================================
