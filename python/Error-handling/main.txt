@@ -1,0 +1,287 @@
+if any error due to code, python stop executing and give error.
+
+how we handle?
+======================================================================
+try:
+  This is the block of code to be attempted.
+  may lead to a error.
+except:
+  block of code will execute in case there is an error in try block.
+finally:
+  a final block of code to be executed, regardless of error.
+====================================================================
+a = 10
+b = input("Enter number b:  ")   # as input fun take as string
+
+try:
+    #want to attempt the code
+    #may lead error
+    sum = a +b                   # as a is int, b is string, error in code
+except:
+    print("error in code")
+
+
+Enter number b:  20
+error in code
+=================================================================
+
+a = 10
+b = input("Enter number b:  ")
+
+try:
+    #want to attempt the code
+    #may lead error
+    sum = a + int(b)
+except:
+    print("error in code")
+else:
+    print("added sucessfully")
+    print(sum)
+
+
+Enter number b:  20
+added sucessfully
+30
+===================================================================
+try:
+    f = open("testfile.txt", 'w')
+    f.write("hello samim added")
+except TypeError:
+    print("There is a TypeError")
+except OSError:
+    print("There is a OSError")
+finally:
+    print("I always run")
+
+
+
+I always run
+==================================================================
+try:
+    f = open("testfile.txt", 'r')
+    f.write("hello samim added")
+except TypeError:
+    print("There is a TypeError")
+except OSError:
+    print("There is a OSError")
+finally:
+    print("I always run")
+
+
+
+There is a OSError
+I always run
+===================================================================
+try:
+    f = open("testfile.txt", 'r')
+    f.write("hello samim added")
+except TypeError:
+    print("There is a TypeError")
+except :
+    print("All other Exceptions")
+finally:
+    print("I always run")
+
+
+
+All other Exceptions
+I always run
+==================================================================
+try:
+    f = open("testfile.txt", 'r')
+    f.write("hello samim added")
+except :
+    print("All other Exceptions")
+finally:
+    print("I always run")
+
+All other Exceptions
+I always run
+=================================================================
+def ask_for_int():
+    try:
+        result = int(input("Enter number a:   "))
+    except:
+        print("That is not a number")
+    finally:
+        print("End of try/except/finally")
+        
+x = ask_for_int()
+
+
+
+Enter number a:   30
+End of try/except/finally
+======================================================================
+def ask_for_int():
+    try:
+        result = int(input("Enter number a:   "))
+    except:
+        print("That is not a number")
+    finally:
+        print("End of try/except/finally")
+        
+x = ask_for_int()
+
+
+Enter number a:   sam
+That is not a number
+End of try/except/finally
+=====================================================================
+def ask_for_int():
+    while True:
+        try:
+            result = int(input("Enter number a:   "))
+        except:
+            print("That is not a number")
+            continue
+        else:
+            print("Thank you")
+            break
+        finally:
+            print("End of try/except/finally")
+        
+x = ask_for_int()
+
+
+
+Enter number a:   20
+Thank you
+End of try/except/finally
+===================================================================
+def ask_for_int():
+    while True:
+        try:
+            result = int(input("Enter number a:   "))
+        except:
+            print("That is not a number")
+            continue
+        else:
+            print("Thank you")
+            break
+        finally:
+            print("End of try/except/finally")
+        
+x = ask_for_int()
+
+
+Enter number a:   sam
+That is not a number
+End of try/except/finally
+Enter number a:   ram
+That is not a number
+End of try/except/finally
+Enter number a:   10
+Thank you
+End of try/except/finally
+====================================================================
+def fun():
+    try:
+        for i in ['a','b','c']:
+            print(i ** 2)
+    except:
+        print("All exception error")
+    else:
+        print("Work done, thank you")
+    finally:
+        print("I always run")
+x = fun()
+
+
+All exception error
+I always run
+=============================================================================
+def fun():
+    while True:
+        try:
+            n = int(input("Enter a number n:  "))
+        except:
+            print("All exception error")
+            continue
+        else:
+            print("Work done, thank you")
+            break
+        finally:
+            print("I always run")
+    print("Your result")
+    print(n**2)
+x = fun()
+
+
+
+Enter a number n:  20
+Work done, thank you
+I always run
+Your result
+400
+===========================================================
+Enter a number n:  q
+All exception error
+I always run
+Enter a number n:  e
+All exception error
+I always run
+Enter a number n:  5
+Work done, thank you
+I always run
+Your result
+25
+===================================================================
+def fun():
+    waiting = True
+    while waiting:
+        try:
+            n = int(input("Enter a number n:  "))
+        except:
+            print("All exception error")
+            continue
+        else:
+            print("Work done, thank you")
+            break
+        finally:
+            print("I always run")
+    print("Your result")
+    print(n ** 2)
+
+
+x = fun()
+
+
+Enter a number n:  a
+All exception error
+I always run
+Enter a number n:  3
+Work done, thank you
+I always run
+Your result
+9
+========================================================================
+def fun():
+    waiting = True
+    while waiting:
+        try:
+            n = int(input("Enter a number n:  "))
+        except:
+            print("All exception error")
+            continue
+        else:
+            print("Work done, thank you")
+            waiting = False
+        finally:
+            print("I always run")
+    print("Your result")
+    print(n ** 2)
+
+
+x = fun()
+
+Enter a number n:  a
+All exception error
+I always run
+Enter a number n:  3
+Work done, thank you
+I always run
+Your result
+9
+==================================================================
+
