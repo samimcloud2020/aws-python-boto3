@@ -1,0 +1,42 @@
+class Line():
+    def __init__(self,co1,co2):
+        self.co1 = co1
+        self.co2 = co2
+    def distance(self):
+        x1,y1 = self.co1
+        x2,y2 = self.co2
+        return ((x2-x1)**2 + (y2-y1)**2) **0.5
+    def scope(self):
+        x1,y1 = self.co1
+        x2,y2 = self.co2
+        return (y2-y1)/ (x2-x1)
+c1 = (6,4)
+c2 = (8,2)
+myline = Line(c1,c2)
+
+print(myline.distance())
+print(myline.scope())
+
+
+2.8284271247461903
+-1.0
+===================================================================
+class Cylinder():
+    def __init__(self,height=1,radius=1):
+        self.height = height
+        self.radius = radius
+    def volume(self):
+        return 3.14 * self.height * (self.radius)**2
+    def surface_area(self):
+        top = 3.14 * (self.radius ** 2)
+        return (2*top) + (2 * 3.14 * self.radius * self.height)
+        
+mycylinder = Cylinder(2,3)
+
+print(mycylinder.volume())
+print(mycylinder.surface_area())
+
+
+56.52
+94.2
+===================================================================
