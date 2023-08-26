@@ -1,0 +1,18 @@
+class Card:
+  def __init__(self, suit, rank):
+    self.suit = suit
+    self.rank = rank
+  def __str__(self):
+    return self.suit + " of " + self.rank
+
+p1 = Card("Hearts", "two")
+
+print(p1.suit)
+print(p1.rank)
+print(p1)
+
+
+Hearts
+two
+Hearts of two
+====================================================================
