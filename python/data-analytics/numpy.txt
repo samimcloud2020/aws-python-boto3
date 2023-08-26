@@ -1,0 +1,261 @@
+analyzing numerical data with NumPy, 
+
+Tabular data with Pandas,
+
+data visualization Matplotlib, 
+
+and Exploratory data analysis.
+=========================================================================
+There are six steps for Data Analysis. They are: 
+
+Ask or Specify Data Requirements.
+Prepare or Collect Data.
+Clean and Process.
+Analyze.
+Share.
+Act or Report.
+========================================================================
+=========Analyzing Numerical Data with NumPy============================
+NumPy is an array processing package in Python and provides a high-performance multidimensional array object 
+and tools for working with these arrays. 
+
+It is the fundamental package for scientific computing with Python.
+
+NumPy Array is a table of elements (usually numbers), all of the same types, 
+indexed by a tuple of positive integers.
+
+NumPy arrays can be created in multiple ways, with various ranks. 
+It can also be created with the use of different data types like lists, tuples, etc.
+============================================================================
+import numpy as np
+
+b = np.empty(2, dtype = int)
+print("Matrix b : \n", b)
+
+a = np.empty([2, 2], dtype = int)
+print("\nMatrix a : \n", a)
+
+c = np.empty([3, 3])
+print("\nMatrix c : \n", c)
+
+
+
+
+Matrix b : 
+[-4611686018427387904      140721811259391]
+
+Matrix a : 
+ [[      93856202921584                    0]
+ [   72321708840780016 -1137716353995622907]]
+
+Matrix c : 
+ [[4.63711268e-310 0.00000000e+000 8.16712496e-302]
+ [2.08922014e-236 1.04335908e-096 3.65891495e-304]
+ [8.16712496e-302 2.85520680e-315 3.95252517e-322]]
+==================================================================================
+import numpy as np
+
+b = np.zeros(2, dtype = int)
+print("Matrix b : \n", b)
+
+a = np.zeros([2, 2], dtype = int)
+print("\nMatrix a : \n", a)
+
+c = np.zeros([3, 3])
+print("\nMatrix c : \n", c)
+
+
+
+Matrix b : 
+[0 0]
+
+Matrix a : 
+ [[0 0]
+ [0 0]]
+
+Matrix c : 
+ [[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+=========================================================================
+import numpy as np
+
+# Defining both the matrices
+a = np.array([5, 72, 13, 100])
+b = np.array([2, 5, 10, 30])
+
+# Performing addition using arithmetic operator
+add_ans = a+b
+print(add_ans)
+
+# Performing addition using numpy function
+add_ans = np.add(a, b)
+print(add_ans)
+
+# The same functions and operations can be used for
+# multiple matrices
+c = np.array([1, 2, 3, 4])
+add_ans = a+b+c
+print(add_ans)
+
+add_ans = np.add(a, b, c)
+print(add_ans)
+
+
+
+[  7  77  23 130]
+[  7  77  23 130]
+[  8  79  26 134]
+[  7  77  23 130]
+===================================================================
+import numpy as np
+
+# Defining both the matrices
+a = np.array([5, 72, 13, 100])
+b = np.array([2, 5, 10, 30])
+
+# Performing subtraction using arithmetic operator
+sub_ans = a-b
+print(sub_ans)
+
+# Performing subtraction using numpy function
+sub_ans = np.subtract(a, b)
+print(sub_ans)
+
+
+
+[ 3 67  3 70]
+[ 3 67  3 70]
+===================================================================
+import numpy as np
+
+# Defining both the matrices
+a = np.array([5, 72, 13, 100])
+b = np.array([2, 5, 10, 30])
+
+# Performing multiplication using arithmetic
+# operator
+mul_ans = a*b
+print(mul_ans)
+
+# Performing multiplication using numpy function
+mul_ans = np.multiply(a, b)
+print(mul_ans)
+
+
+
+[  10  360  130 3000]
+[  10  360  130 3000]
+============================
+import numpy as np
+
+# Defining both the matrices
+a = np.array([5, 72, 13, 100])
+b = np.array([2, 5, 10, 30])
+
+# Performing division using arithmetic operators
+div_ans = a/b
+print(div_ans)
+
+# Performing division using numpy functions
+div_ans = np.divide(a, b)
+print(div_ans)
+
+
+[ 2.5        14.4         1.3         3.33333333]
+[ 2.5        14.4         1.3         3.33333333]
+============================================
+# Python program to demonstrate
+# the use of index arrays.
+import numpy as np
+
+# Create a sequence of integers from
+# 10 to 1 with a step of -2
+a = np.arange(10, 1, -2)
+print("\n A sequential array with a negative step: \n",a)
+
+# Indexes are specified inside the np.array method.
+newarr = a[np.array([3, 1, 2 ])]
+print("\n Elements at these indices are:\n",newarr)
+
+
+
+A sequential array with a negative step: 
+[10  8  6  4  2]
+
+ Elements at these indices are:
+ [4 8 6]
+ =========================================================
+ # Python program for basic slicing.
+import numpy as np
+
+# Arrange elements from 0 to 19
+a = np.arange(20)
+print("\n Array is:\n ",a)
+
+# a[start:stop:step]
+print("\n a[-8:17:1] = ",a[-8:17:1])
+
+# The : operator means all elements till the end.
+print("\n a[10:] = ",a[10:])
+
+
+
+Array is:
+  [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19]
+
+ a[-8:17:1] =  [12 13 14 15 16]
+a[10:] =  [10 11 12 13 14 15 16 17 18 19]
+================================================================
+# Python program for indexing using basic slicing with ellipsis
+import numpy as np
+
+# A 3 dimensional array.
+b = np.array([[[1, 2, 3],[4, 5, 6]],
+			[[7, 8, 9],[10, 11, 12]]])
+
+print(b[...,0]) #Equivalent to b[: ,: ,1 ]
+
+
+[[ 1  4]
+ [ 7 10]]
+================================================================
+import numpy as np
+
+macros = np.array([
+[0.8, 2.9, 3.9],
+[52.4, 23.6, 36.5],
+[55.2, 31.7, 23.9],
+[14.4, 11, 4.9]
+])
+
+print(macros.shape[0])                     # macros.shape()   [4,3]
+# Create a new array filled with zeros,
+# of the same shape as macros.
+result = np.zeros_like(macros)
+print(result)
+
+cal_per_macro = np.array([3, 3, 8])
+
+# Now multiply each row of macros by
+# cal_per_macro. In Numpy, `*` is
+# element-wise multiplication between two arrays.
+for i in range(macros.shape[0]):   # i in range(4):    means 0,1,2,3
+	result[i, :] = macros[i, :] * cal_per_macro
+
+print(result)
+
+
+
+Output:
+
+4
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+[[  2.4   8.7  31.2]
+ [157.2  70.8 292. ]
+ [165.6  95.1 191.2]
+ [ 43.2  33.   39.2]]
+==============================================================================
