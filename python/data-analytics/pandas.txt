@@ -1,0 +1,58 @@
+Python Pandas Is used for relational or labeled data and provides various data structures
+for manipulating such data and time series.
+
+This library is built on top of the NumPy library.
+=================================================================================================
+import pandas as pd
+================================================================================================
+Pandas generally provide two data structures for manipulating data, They are: 
+
+Series
+Dataframe
+================================================================================================
+Series: 
+
+Pandas Series is a one-dimensional labeled array capable of holding data of any type (integer, string, float, python objects, etc.).
+
+The axis labels are collectively called indexes. 
+
+Pandas Series is nothing but a column in an excel sheet.
+
+Labels need not be unique but must be a hashable type. 
+=============================================================================================
+It can be created using the Series() function by loading the dataset from the existing storage
+like SQL, Database, CSV Files, Excel Files, etc., or from data structures like lists, dictionaries, etc.
+=============================================================================================
+import pandas as pd 
+import numpy as np 
+
+#creating empty series
+ser = pd.Series()
+print(ser)      # o/p is:    Series([], dtype: float64)
+
+# simple array
+data = np.array(['a','b','c','d','e'])
+
+ser = pd.Series(data)
+print(ser)
+
+
+
+Series([], dtype: float64)
+0    a
+1    b
+2    c
+3    d
+4    e
+dtype: object
+============================================================================================
+Dataframe:
+
+Pandas DataFrame is a two-dimensional size-mutable, potentially heterogeneous tabular data structure
+with labeled axes (rows and columns). 
+
+A Data frame is a two-dimensional data structure, i.e., data is aligned in a tabular fashion in rows and columns.
+
+Pandas DataFrame consists of three principal components, the data, rows, and columns.
+================================================================================================
+
