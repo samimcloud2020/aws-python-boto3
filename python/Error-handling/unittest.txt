@@ -1,0 +1,208 @@
+one.py
+------
+'''
+INPUT A TEXT AND RETURN AS CAPITALIZE TEXT
+'''
+def cap_text(text):
+    return text.capitalize()
+
+
+two.py
+-----
+import unittest
+import one
+
+class TestCap(unittest.TestCase):
+    def test_one_word(self):
+        text = 'python'
+        result = one.cap_text(text)
+        self.assertEquals(result,'python')
+    def test_multiple_words(self):
+        text = 'monty python'
+        result = one.cap_text(text)
+        self.assertEquals(result,'monty Python')
+if __name__ == "__main__":
+    unittest.main()
+
+
+#python3 two.py
+Ran 2 tests in 0.008s
+
+FAILED (failures=1)
+
+
+Monty Python != Monty python
+
+Expected :Monty python
+Actual   :Monty Python
+<Click to see difference>
+
+Traceback (most recent call last):
+  File "C:\Users\BSNL\PycharmProjects\pythonProject\two.py", line 15, in test_multiple_words
+    self.assertEqual(result, 'Monty Python')
+AssertionError: 'Monty python' != 'Monty Python'
+- Monty python
+?       ^
++ Monty Python
+?       ^
+
+
+
+Process finished with exit code 1
+
+
+
+--------------------------------------------------------
+one.py
+-----
+def cap_text(text):
+    return text.title()  # replace .capitalize() with .title()
+
+two.py
+-----
+import unittest
+import one
+
+class TestCap(unittest.TestCase):
+    
+    def test_one_word(self):
+        text = 'python'
+        result = one.cap_text(text)
+        self.assertEqual(result, 'Python')
+        
+    def test_multiple_words(self):
+        text = 'monty python'
+        result = one.cap_text(text)
+        self.assertEqual(result, 'Monty Python')
+        
+    def test_with_apostrophes(self):
+        text = "monty python's flying circus"
+        result = one.cap_text(text)
+        self.assertEqual(result, "Monty Python's Flying Circus")
+        
+if __name__ == '__main__':
+    unittest.main()
+
+
+
+#python3 two.py
+Ran 2 tests in 0.003s
+
+OK
+
+------------------------------------------------------------------------------
+import unittest
+
+# Our code to be tested
+class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def get_area(self):
+        return self.width * self.height
+
+    def set_width(self, width):
+        self.width = width
+
+    def set_height(self, height):
+        self.height = height
+
+# The test based on unittest module
+class TestGetAreaRectangle(unittest.TestCase):
+    def runTest(self):
+        rectangle = Rectangle(2, 3)
+        self.assertEqual(rectangle.get_area(), 7, "incorrect area")
+
+# run the test
+if __name__ == "__main__":
+    unittest.main()
+
+
+
+Ran 1 test in 0.081s
+
+FAILED (failures=1)
+
+incorrect area
+7 != 6
+
+Expected :6
+Actual   :7
+<Click to see difference>
+
+Traceback (most recent call last):
+  File "C:\Users\BSNL\PycharmProjects\pythonProject\two.py", line 22, in runTest
+    self.assertEqual(rectangle.get_area(), 7, "incorrect area")
+AssertionError: 6 != 7 : incorrect area
+
+
+Process finished with exit code 1
+=======================================================================================
+import unittest
+
+# Our code to be tested
+class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def get_area(self):
+        return self.width * self.height
+
+    def set_width(self, width):
+        self.width = width
+
+    def set_height(self, height):
+        self.height = height
+
+# The test based on unittest module
+class TestGetAreaRectangle(unittest.TestCase):
+    def test_normal_case(self):
+        rectangle = Rectangle(2, 3)
+        self.assertEqual(rectangle.get_area(), 4, "incorrect area")
+
+    def test_negative_case(self):
+        """expect -1 as output to denote error when looking at negative area"""
+        rectangle = Rectangle(-1, 2)
+        self.assertEqual(rectangle.get_area(), -1, "incorrect negative output")
+
+# run the test
+if __name__ == "__main__":
+    unittest.main()
+
+
+
+
+Ran 2 tests in 0.009s
+
+FAILED (failures=2)
+
+incorrect negative output
+-1 != -2
+
+Expected :-2
+Actual   :-1
+<Click to see difference>
+
+Traceback (most recent call last):
+  File "C:\Users\BSNL\PycharmProjects\pythonProject\two.py", line 27, in test_negative_case
+    self.assertEqual(rectangle.get_area(), -1, "incorrect negative output")
+AssertionError: -2 != -1 : incorrect negative output
+
+
+incorrect area
+4 != 6
+
+Expected :6
+Actual   :4
+<Click to see difference>
+
+Traceback (most recent call last):
+  File "C:\Users\BSNL\PycharmProjects\pythonProject\two.py", line 22, in test_normal_case
+    self.assertEqual(rectangle.get_area(), 4, "incorrect area")
+AssertionError: 6 != 4 : incorrect area
+
+
+Process finished with exit code 1
+============================================================================================
