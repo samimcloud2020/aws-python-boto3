@@ -55,4 +55,258 @@ A Data frame is a two-dimensional data structure, i.e., data is aligned in a tab
 
 Pandas DataFrame consists of three principal components, the data, rows, and columns.
 ================================================================================================
+It can be created using the Dataframe() method and just like a series, it can also be from 
+different file types and data structures.
+=================================================================================================
+import pandas as pd 
+
+
+#calling dataframe constructor
+df = pd.DataFrame()
+print(df)
+
+#list of strings
+lst = ["id","name","salary"]
+
+#calling dataframe constructor on list
+df = pd.DataFrame(lst)
+print(df)
+
+
+
+Empty DataFrame
+Columns: []
+Index: []
+        0
+0      id
+1    name
+2  salary
+=================================================================
+import requests
+
+link = "https://datahub.io/machine-learning/iris/r/iris.csv"
+f = requests.get(link)
+print(f.text)
+===================================================================
+from urllib.request import urlopen
+
+# if has Chinese, apply decode()
+html = urlopen("https://datahub.io/machine-learning/iris/r/iris.csv").read().decode('utf-8')
+print(html)
+========================================================================
+import pandas as pd
+
+#read csv file
+df = pd.read_csv("Iris.csv")
+
+
+#printing top 5 rows
+print(df.head())
+
+
+
+ sepallength  sepalwidth  petallength  petalwidth        class
+0          5.1         3.5          1.4         0.2  Iris-setosa
+1          4.9         3.0          1.4         0.2  Iris-setosa
+2          4.7         3.2          1.3         0.2  Iris-setosa
+3          4.6         3.1          1.5         0.2  Iris-setosa
+4          5.0         3.6          1.4         0.2  Iris-setosa
+=========================================================================
+The StringIO module is an in-memory file-like object. 
+
+This object can be used as input or output to the most function that would expect a standard file object. 
+
+When the StringIO object is created it is initialized by passing a string to the constructor.
+
+import pandas as pd
+import requests
+from io import StringIO
+
+#Downloading the CSV File
+url = 'https://datahub.io/machine-learning/iris/r/iris.csv'
+response = requests.get(url)
+print(response.text)
+
+#Converting the CSV File to a DataFrame
+data = StringIO(response.text)
+df = pd.read_csv(data)
+print(df)
+
+#read top 5 rows
+print(df.head())
+
+
+5.1,3.5,1.4,0.2,Iris-setosa
+4.9,3.0,1.4,0.2,Iris-setosa
+4.7,3.2,1.3,0.2,Iris-setosa
+4.6,3.1,1.5,0.2,Iris-setosa
+5.0,3.6,1.4,0.2,Iris-setosa
+5.4,3.9,1.7,0.4,Iris-setosa
+4.6,3.4,1.4,0.3,Iris-setosa
+5.0,3.4,1.5,0.2,Iris-setosa
+4.4,2.9,1.4,0.2,Iris-setosa
+4.9,3.1,1.5,0.1,Iris-setosa
+5.4,3.7,1.5,0.2,Iris-setosa
+4.8,3.4,1.6,0.2,Iris-setosa
+4.8,3.0,1.4,0.1,Iris-setosa
+
+
+
+sepallength  sepalwidth  petallength  petalwidth           class
+0            5.1         3.5          1.4         0.2     Iris-setosa
+1            4.9         3.0          1.4         0.2     Iris-setosa
+2            4.7         3.2          1.3         0.2     Iris-setosa
+3            4.6         3.1          1.5         0.2     Iris-setosa
+4            5.0         3.6          1.4         0.2     Iris-setosa
+..           ...         ...          ...         ...             ...
+145          6.7         3.0          5.2         2.3  Iris-virginica
+146          6.3         2.5          5.0         1.9  Iris-virginica
+147          6.5         3.0          5.2         2.0  Iris-virginica
+148          6.2         3.4          5.4         2.3  Iris-virginica
+149          5.9         3.0          5.1         1.8  Iris-virginica
+
+[150 rows x 5 columns]
+
+
+  sepallength  sepalwidth  petallength  petalwidth        class
+0          5.1         3.5          1.4         0.2  Iris-setosa
+1          4.9         3.0          1.4         0.2  Iris-setosa
+2          4.7         3.2          1.3         0.2  Iris-setosa
+3          4.6         3.1          1.5         0.2  Iris-setosa
+4          5.0         3.6          1.4         0.2  Iris-setosa
+
+
+=======================================================================================
+======how StringIo  works==============================================================
+# Importing the StringIO module.
+from io import StringIO
+
+
+# The arbitrary string.
+string ='This is initial string.'
+
+# Using the StringIO method to set
+# as file object. Now we have an
+# object file that we will able to
+# treat just like a file.
+file = StringIO(string)
+print(file)
+
+# this will read the file
+print(file.read())
+
+# We can also write this file.
+file.write(" Welcome to geeksforgeeks.")
+
+# This will make the cursor at
+# index 0.
+file.seek(0)
+
+# This will print the file after
+# writing in the initial string.
+print('The string after writing is:', file.read())
+
+
+
+
+<_io.StringIO object at 0x00000214A0C63F40>
+This is initial string.
+The string after writing is: This is initial string. Welcome to geeksforgeeks.
+=============================================================================================
+import pandas as pd
+
+#read csv file
+df = pd.read_csv("Iris.csv")
+
+#filter columns, top 5 rows
+df = df.filter(["sepallength","class"]).head()
+print(df)
+
+
+
+sepallength        class
+0          5.1  Iris-setosa
+1          4.9  Iris-setosa
+2          4.7  Iris-setosa
+3          4.6  Iris-setosa
+4          5.0  Iris-setosa
+=======================================================================================
+import pandas as pd
+
+#read csv file
+df = pd.read_csv("Iris.csv")
+
+#filter columns
+df = df.sort_values(by='sepallength', ascending=True).head()
+print(df)
+
+
+  sepallength  sepalwidth  petallength  petalwidth        class
+13          4.3         3.0          1.1         0.1  Iris-setosa
+42          4.4         3.2          1.3         0.2  Iris-setosa
+38          4.4         3.0          1.3         0.2  Iris-setosa
+8           4.4         2.9          1.4         0.2  Iris-setosa
+41          4.5         2.3          1.3         0.3  Iris-setosa
+========================================================================================
+import pandas as pd
+
+#read csv file
+df = pd.read_csv("Iris.csv")
+
+#filter columns
+df = df.sort_values(by=['sepallength', 'sepalwidth']).head()
+print(df)
+
+
+ sepallength  sepalwidth  petallength  petalwidth        class
+13          4.3         3.0          1.1         0.1  Iris-setosa
+8           4.4         2.9          1.4         0.2  Iris-setosa
+38          4.4         3.0          1.3         0.2  Iris-setosa
+42          4.4         3.2          1.3         0.2  Iris-setosa
+41          4.5         2.3          1.3         0.3  Iris-setosa
+=================================================================================
+import pandas as pd
+
+#read csv file
+df = pd.read_csv("Iris.csv")
+
+#filter columns
+df = df.sort_values(by=['sepallength']).head()
+print(df)
+
+
+ sepallength  sepalwidth  petallength  petalwidth        class
+13          4.3         3.0          1.1         0.1  Iris-setosa
+42          4.4         3.2          1.3         0.2  Iris-setosa
+38          4.4         3.0          1.3         0.2  Iris-setosa
+8           4.4         2.9          1.4         0.2  Iris-setosa
+41          4.5         2.3          1.3         0.3  Iris-setosa
+======================================================================================
+import pandas as pd
+
+#read csv file
+df = pd.read_csv("Iris.csv")
+
+#filter columns
+df = df.sort_values(by='sepallength', ascending=False).head()
+print(df)
+
+
+
+  sepallength  sepalwidth  petallength  petalwidth           class
+131          7.9         3.8          6.4         2.0  Iris-virginica
+135          7.7         3.0          6.1         2.3  Iris-virginica
+122          7.7         2.8          6.7         2.0  Iris-virginica
+117          7.7         3.8          6.7         2.2  Iris-virginica
+118          7.7         2.6          6.9         2.3  Iris-virginica
+================================================================================================
+
+
+
+
+
+
+
+
+
 
