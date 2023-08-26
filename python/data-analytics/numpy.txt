@@ -52,6 +52,27 @@ Matrix c :
  [[4.63711268e-310 0.00000000e+000 8.16712496e-302]
  [2.08922014e-236 1.04335908e-096 3.65891495e-304]
  [8.16712496e-302 2.85520680e-315 3.95252517e-322]]
+
+
+
+import numpy as np
+
+a = np.empty(2,dtype=int)
+print(f"matrix a is {a}")
+
+b = np.empty([2,2], dtype=int)
+print(f"matrix b is  {b} ")
+
+c = np.empty([3,3],dtype=float)
+print(f"matrix c is {c}")
+
+
+matrix a is [-4611686018427387904      140723070271487]
+matrix b is  [[94614657658912              0]
+ [             0             49]] 
+matrix c is [[6.91428207e-310 6.91428207e-310 0.00000000e+000]
+ [0.00000000e+000 9.88124923e-237 2.72329053e-166]
+ [1.43866613e+191 3.13618211e-266 6.56596740e-218]]
 ==================================================================================
 import numpy as np
 
@@ -107,6 +128,33 @@ print(add_ans)
 [  7  77  23 130]
 [  8  79  26 134]
 [  7  77  23 130]
+
+
+
+import numpy as np
+
+a = np.array([1,2,3])
+b = np.array([4,5,6])
+
+add_ans = a + b
+print(add_ans)
+
+add_ans = np.add(a,b)
+print(add_ans)
+
+c = np.array([7,8,9])
+add_ans = a + b + c
+print(add_ans)
+
+add_ans = np.add(a,b,c)
+print(add_ans)
+
+
+
+[5 7 9]
+[5 7 9]
+[12 15 18]
+[5 7 9]
 ===================================================================
 import numpy as np
 
@@ -126,6 +174,32 @@ print(sub_ans)
 
 [ 3 67  3 70]
 [ 3 67  3 70]
+
+
+import numpy as np
+
+a = np.array([1,2,3])
+b = np.array([4,5,6])
+
+add_ans = a - b
+print(add_ans)
+
+add_ans = np.subtract(a,b)
+print(add_ans)
+
+c = np.array([7,8,9])
+add_ans = a - b - c
+print(add_ans)
+
+add_ans = np.subtract(a,b,c)
+print(add_ans)
+
+
+
+[-3 -3 -3]
+[-3 -3 -3]
+[-10 -11 -12]
+[-3 -3 -3]
 ===================================================================
 import numpy as np
 
@@ -185,6 +259,20 @@ A sequential array with a negative step:
 
  Elements at these indices are:
  [4 8 6]
+
+
+
+import numpy as np
+
+a = np.arange(10,2,-1)
+print(a)
+
+
+newarr = a[np.array([3, 1, 2 ])]
+print(newarr)
+
+[10  9  8  7  6  5  4  3]
+[7 9 8]
  =========================================================
  # Python program for basic slicing.
 import numpy as np
@@ -206,6 +294,22 @@ Array is:
 
  a[-8:17:1] =  [12 13 14 15 16]
 a[10:] =  [10 11 12 13 14 15 16 17 18 19]
+
+
+
+import numpy as np
+
+a = np.arange(20)
+print(a)
+
+print(a[-8:17:1])
+
+print(a[10:])
+
+
+[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19]
+[12 13 14 15 16]
+[10 11 12 13 14 15 16 17 18 19]
 ================================================================
 # Python program for indexing using basic slicing with ellipsis
 import numpy as np
@@ -219,6 +323,28 @@ print(b[...,0]) #Equivalent to b[: ,: ,1 ]
 
 [[ 1  4]
  [ 7 10]]
+
+
+
+import numpy as np
+
+b = np.array([[[1, 2, 3],[4, 5, 6]],
+			[[7, 8, 9],[10, 11, 12]]])
+			
+print(b[...,0])
+
+print(b[...,1])
+
+print(b[...,2])
+
+
+
+[[ 1  4]
+ [ 7 10]]
+[[ 2  5]
+ [ 8 11]]
+[[ 3  6]
+ [ 9 12]]
 ================================================================
 import numpy as np
 
@@ -250,6 +376,43 @@ print(result)
 Output:
 
 4
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+[[  2.4   8.7  31.2]
+ [157.2  70.8 292. ]
+ [165.6  95.1 191.2]
+ [ 43.2  33.   39.2]]
+
+
+import numpy as np
+
+macros = np.array([
+[0.8, 2.9, 3.9],
+[52.4, 23.6, 36.5],
+[55.2, 31.7, 23.9],
+[14.4, 11, 4.9]
+])
+
+print(macros.shape)    
+
+result = np.zeros_like(macros) #zeros_like same as the defined array
+print(result)
+
+cal_per_macro = np.array([3, 3, 8])
+
+
+for i in range(macros.shape[0]):   # i in range(4):    means 0,1,2,3
+	result[i, :] = macros[i, :] * cal_per_macro
+
+print(result)
+
+
+
+Output:
+
+(4, 3)
 [[0. 0. 0.]
  [0. 0. 0.]
  [0. 0. 0.]
