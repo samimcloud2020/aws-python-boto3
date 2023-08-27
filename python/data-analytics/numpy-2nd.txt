@@ -1,0 +1,137 @@
+import numpy as np
+
+my_list1 = [1,2,3,4]
+my_list2 = [5,6,7,8]
+my_array = np.array([my_list1,my_list2])
+print(type(my_array))
+print(my_array)
+
+print(my_array.shape)
+print(my_array.size)
+print(my_array.dtype)
+
+
+
+<class 'numpy.ndarray'>
+[[1 2 3 4]
+ [5 6 7 8]]
+(2, 4)
+8
+int32
+=======================================================================
+np.identity()
+To create a square 2d array with 1's across the diagonal.
+========================================================================
+import numpy as np
+
+data = np.identity(n=5)   #n=5 is the size of array
+
+print(data)
+
+
+[[1. 0. 0. 0. 0.]
+ [0. 1. 0. 0. 0.]
+ [0. 0. 1. 0. 0.]
+ [0. 0. 0. 1. 0.]
+ [0. 0. 0. 0. 1.]]
+=====================================================================
+np.eye()
+To create a 2d array with 1's across specified diagonal.
+=================================================================
+import numpy as np
+
+data = np.eye(N = 3,
+              M = 5,
+              k = 1)
+#N number of rows, M num of columns, k index of diagonal(k=0 default)
+
+print(data)
+
+
+[[0. 1. 0. 0. 0.]
+ [0. 0. 1. 0. 0.]
+ [0. 0. 0. 1. 0.]]
+==============================================================
+np.ones()
+To create array filled with 1's.
+==============================================================
+import numpy as np
+
+data = np.ones(shape = [2,4])
+#N number of rows, M num of columns, k index of diagonal(k=0 default)
+
+print(data)
+
+
+[[1. 1. 1. 1.]
+ [1. 1. 1. 1.]]
+===================================================================
+np.zeros()
+To create array filled with 0's.
+===================================================================
+import numpy as np
+
+data = np.zeros(shape = [2,4])
+#N number of rows, M num of columns, k index of diagonal(k=0 default)
+
+print(data)
+
+
+[[0. 0. 0. 0.]
+ [0. 0. 0. 0.]]
+=================================================================
+import numpy as np
+
+one_d_array = np.array([1,2,3,4,5,6])
+
+print(one_d_array[3])  # indexing
+
+print(one_d_array[3:])  #slicing
+print(one_d_array[::-1])  #slicing
+
+
+
+4
+[4 5 6]
+[6 5 4 3 2 1]
+==============TO CREATE A 2d ARRAY=====================================================
+import numpy as np
+
+one_d_array = np.array([1,2,3,4,5,6])
+
+two_d_array = np.array([one_d_array,one_d_array +6,one_d_array+12])
+print(two_d_array)
+
+
+[[ 1  2  3  4  5  6]
+ [ 7  8  9 10 11 12]
+ [13 14 15 16 17 18]]
+========================================================================
+import numpy as np
+
+one_d_array = np.array([1,2,3,4,5,6])
+
+two_d_array = np.array([one_d_array,one_d_array +6,one_d_array+12])
+print(two_d_array)
+
+print(two_d_array[1,4]) # row index 1, columns index 4
+
+print(two_d_array[1:, 4:]) #slicing 1:,4: then 2:,4:
+
+print(two_d_array[::-1, ::-1])
+
+
+
+[[ 1  2  3  4  5  6]
+ [ 7  8  9 10 11 12]
+ [13 14 15 16 17 18]]
+11
+[[11 12]
+ [17 18]]
+[[18 17 16 15 14 13]
+ [12 11 10  9  8  7]
+ [ 6  5  4  3  2  1]]
+====================np.reshape()========================================================
+
+
+
