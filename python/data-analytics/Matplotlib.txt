@@ -1,0 +1,562 @@
+Matplotlib is easy to use and an amazing visualizing library in Python.
+
+It is built on NumPy arrays and designed to work with the broader SciPy stack 
+and consists of several plots like line, bar, scatter, histogram, etc. 
+==========================================================================================
+Pyplot
+Pyplot is a Matplotlib module that provides a MATLAB-like interface. Pyplot provides functions 
+that interact with the figure i.e. creates a figure, decorates the plot with labels, 
+and creates a plotting area
+============================================================================================
+pip install matplotlib
+============================================================================================
+import matplotlib.pyplot as plt
+
+
+x =[1, 2, 3, 4, 5]
+y =[2, 4, 6, 8, 10]
+
+# Plotting the graph
+plt.plot(x, y)
+
+# Setting the x-axis to 1-10
+# and y-axis to 1-15
+plt.axis([0, 10, 1, 15])
+
+# Showing the graph with updated axis
+plt.show()
+
+================================AXIS OFF, NO X-AXIS AND Y-AXIS=========================================
+import matplotlib.pyplot as plt
+
+x =[1, 2, 3, 4, 5]
+y =[2, 4, 6, 8, 10]
+
+plt.plot(x, y)
+
+# we can turn off the axis and display
+# only the line by passing the
+# optional parameter 'off' to it
+plt.axis('off')
+
+plt.show()
+==============================VLINES==============================================================
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.vlines(4, 0, 5, linestyles ="dotted", colors ="k")
+plt.vlines(3, 0, 5, linestyles ="solid", colors ="g")
+plt.vlines(5, 0, 5, linestyles ="dashed", colors ="r")
+
+plt.xlim(0, 10)
+plt.ylim(0, 10)
+
+plt.show()
+===========================BAR CHART===============================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv("Iris.csv")
+print(df)
+
+# This will plot a simple bar chart
+plt.bar(df['sepallength'], df['sepalwidth'])
+
+# Title to the plot
+plt.title("Iris Dataset")
+
+# Adding the legends
+plt.legend(["bar"])
+plt.show()
+==================================READ EXCEL AND PLOT=============================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+import openpyxl
+
+df = pd.read_excel("ftth.xlsx")
+print(df)
+
+# This will plot a simple bar chart
+plt.bar(df['fr'], df['exch'])
+
+# Title to the plot
+plt.title("FTTH Dataset")
+
+# Adding the legends
+plt.legend(["bar"])
+plt.show()
+=================================================================================================
+Histograms
+A histogram is basically used to represent data in the form of some groups.
+
+It is a type of bar plot where the X-axis represents the bin ranges while the Y-axis gives information about frequency.
+
+
+To create a histogram the first step is to create a bin of the ranges, 
+then distribute the whole range of the values into a series of intervals, 
+and count the values which fall into each of the intervals. 
+
+Bins are clearly identified as consecutive, non-overlapping intervals of variables. 
+The hist() function is used to compute and create a histogram of x.
+======================================================================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv("Iris.csv")
+print(df)
+
+plt.hist(df["sepallength"])
+
+# Title to the plot
+plt.title("Histogram")
+
+# Adding the legends
+plt.legend(["SepalLengthCm"])
+plt.show()
+=======================================================================================================
+Scatter Plot
+Scatter plots are used to observe relationship between variables and uses dots to represent
+the relationship between them. 
+
+The scatter() method in the matplotlib library is used to draw a scatter plot.
+======================================================================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv("Iris.csv")
+print(df)
+
+plt.scatter(df["sepallength"], df["sepalwidth"])
+
+# Title to the plot
+plt.title("Scatter Plot")
+
+# Adding the legends
+plt.legend(["sepallength"])
+plt.show()
+========================================================================================================
+Box Plot
+A boxplot,Correlation also known as a box and whisker plot. 
+It is a very good visual representation when it comes to measuring the data distribution.
+Clearly plots the median values, outliers and the quartiles.
+==========================================================================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv("Iris.csv")
+print(df)
+
+plt.boxplot(df["sepalwidth"])
+
+# Title to the plot
+plt.title("Box Plot")
+
+# Adding the legends
+plt.legend(["sepalwidth"])
+plt.show()
+==============================================================================================================
+Correlation Heatmaps
+A 2-D Heatmap is a data visualization tool that helps to represent the magnitude 
+of the phenomenon in form of colors.
+A correlation heatmap is a heatmap that shows a 2D correlation matrix between two discrete dimensions,
+using colored cells to represent data from usually a monochromatic scale.
+
+The values of the first dimension appear as the rows of the table while the second dimension is a column. 
+==========================================================================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv("Iris.csv")
+print(df)
+plt.imshow(df.corr() , cmap = 'autumn' , interpolation = 'nearest' )
+
+plt.title("Heat Map")
+plt.show()
+==================================df.shape()================================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv("Iris.csv")
+print(df)
+plt.imshow(df.corr() , cmap = 'autumn' , interpolation = 'nearest' )
+
+plt.title("Heat Map")
+plt.show()
+print(df.shape)  #(150,4)  150 rows, 4 cloumns
+#[150 rows x 4 columns]
+#(150, 4)
+===================================df.info()===================================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv("Iris.csv")
+#print(df)
+plt.imshow(df.corr() , cmap = 'autumn' , interpolation = 'nearest' )
+
+plt.title("Heat Map")
+plt.show()
+print(df.info())
+
+
+
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 150 entries, 0 to 149
+Data columns (total 4 columns):
+ #   Column       Non-Null Count  Dtype  
+---  ------       --------------  -----  
+ 0   sepallength  150 non-null    float64
+ 1   sepalwidth   150 non-null    float64
+ 2   petallength  150 non-null    float64
+ 3   petalwidth   150 non-null    float64
+dtypes: float64(4)
+memory usage: 4.8 KB
+None
+====================================df.describe()==========================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv("Iris.csv")
+#print(df)
+plt.imshow(df.corr() , cmap = 'autumn' , interpolation = 'nearest' )
+
+plt.title("Heat Map")
+plt.show()
+print(df.describe())
+
+
+
+sepallength  sepalwidth  petallength  petalwidth
+count   150.000000  150.000000   150.000000  150.000000
+mean      5.843333    3.054000     3.758667    1.198667
+std       0.828066    0.433594     1.764420    0.763161
+min       4.300000    2.000000     1.000000    0.100000
+25%       5.100000    2.800000     1.600000    0.300000
+50%       5.800000    3.000000     4.350000    1.300000
+75%       6.400000    3.300000     5.100000    1.800000
+max       7.900000    4.400000     6.900000    2.500000
+=========================================================================================================
+Mean is an average of all data sets 
+
+Standard deviation is the deviation from the mean, and a standard deviation is nothing but
+the square root of the variance.
+
+Standard deviation plays a vital role in finance as it is used to measure the volatility of a stock.
+=============================================================================================================
+Checking Missing Values
+We will check if our data contains any missing values or not. 
+
+Missing values can occur when no information is provided for one or more items or for a whole unit. 
+We will use the isnull() method.
+===========================================================================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv("Iris.csv")
+#print(df)
+plt.imshow(df.corr() , cmap = 'autumn' , interpolation = 'nearest' )
+
+plt.title("Heat Map")
+plt.show()
+print(df.isnull().sum())
+
+
+
+sepallength    0
+sepalwidth     0
+petallength    0
+petalwidth     0
+dtype: int64
+==================================================================================================
+Checking Duplicates
+Let’s see if our dataset contains any duplicates or not. Pandas drop_duplicates() method 
+helps in removing duplicates from the data frame.
+==================================================================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv("Iris.csv")
+#print(df)
+plt.imshow(df.corr() , cmap = 'autumn' , interpolation = 'nearest' )
+
+plt.title("Heat Map")
+plt.show()
+data = df.drop_duplicates(subset ="sepallength",)
+print(data)
+====================================================================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv("Iris.csv")
+#print(df)
+plt.imshow(df.corr() , cmap = 'autumn' , interpolation = 'nearest' )
+
+plt.title("Heat Map")
+plt.show()
+
+data = df.value_counts("sepallength")
+print(data)
+
+
+
+
+sepallength
+5.0    10
+6.3     9
+5.1     9
+5.7     8
+6.7     8
+6.4     7
+5.8     7
+5.5     7
+5.4     6
+6.1     6
+5.6     6
+6.0     6
+4.9     6
+4.8     5
+6.5     5
+6.2     4
+5.2     4
+Name: count, dtype: int64
+============================================================================================
+Relation between variables
+===========================================================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+df = pd.read_csv("ftth.csv")
+print(df)
+
+sns.scatterplot(x="total_bill", y="tip", hue="time",
+                 data=df)
+
+# Placing Legend outside the Figure
+plt.legend(bbox_to_anchor=(1, 1), loc=2)
+
+plt.show()
+
+
+
+total_bill    tip   sex  smoker day time    size
+0           0  16.99  1.01  Female  No  Sun  Dinner
+1           1  10.34  1.66    Male  No  Sun   Lunch
+2           2  21.01  3.50    Male  No  Sun  Dinner
+3           3  23.68  3.31    Male  No  Sun  Dinner
+4           4  24.59  3.61  Female  No  Sun   Lunch
+5           5  10.50  0.90  Female  No  Tue  Dinner
+6           6   9.80  3.44    Male  No  Mon   Lunch
+7           7   7.80  2.55    Male  No  Sun  Dinner
+8           8   6.40  1.44    Male  No  Wed   Lunch
+9           9   4.50  2.34  Female  No  Fri   Lunch
+=====================================================================================
+
+Let’s plot all the column’s relationships using a pairplot. It can be used for multivariate analysis.
+
+Python code for pairplot 
+=====================================================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+df = pd.read_csv("penguins.csv")
+print(df)
+
+
+sns.pairplot(df)
+
+plt.show()
+
+
+===========================================================================================
+Assigning a hue variable adds a semantic mapping and changes the default marginal plot to a 
+layered kernel density estimate (KDE):
+
+
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+df = pd.read_csv("penguins.csv")
+print(df)
+
+
+sns.pairplot(df, hue="species")
+
+
+plt.legend(loc='upper center')
+plt.show()
+=======================================================================================
+It’s possible to force marginal histograms:
+
+
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+df = pd.read_csv("penguins.csv")
+print(df)
+
+
+sns.pairplot(df, hue="species", diag_kind="hist")
+
+
+plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+plt.show()
+=======================================================================================
+The kind parameter determines both the diagonal and off-diagonal plotting style.
+
+
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+df = pd.read_csv("penguins.csv")
+print(df)
+
+
+sns.pairplot(df, hue="species", kind="kde")
+
+
+plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+plt.show()
+==========================================================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+df = pd.read_csv("penguins.csv")
+print(df)
+
+
+sns.pairplot(df, hue="species", kind="hist")
+
+
+plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+plt.show()
+=========================================================================================
+The markers parameter applies a style mapping on the off-diagonal axes. 
+
+
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+df = pd.read_csv("penguins.csv")
+print(df)
+
+
+sns.pairplot(df, hue="species", markers=["o", "s", "D"])
+
+
+plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+plt.show()
+========================================================================================
+the size of the figure is controlled by setting the height of each individual subplot:
+
+
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+df = pd.read_csv("penguins.csv")
+print(df)
+
+
+sns.pairplot(df, hue="species", height=1.5)
+
+
+plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+plt.show()
+=====================================================================================
+Use vars or x_vars and y_vars to select the variables to plot:
+
+
+
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+df = pd.read_csv("penguins.csv")
+print(df)
+
+sns.pairplot(
+    df,
+    x_vars=["culmen_length_mm", "culmen_depth_mm", "flipper_length_mm"],
+    y_vars=["culmen_length_mm", "culmen_depth_mm"],
+)
+
+plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+plt.show()
+=======================================================================================
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+df = pd.read_csv("penguins.csv")
+print(df)
+
+sns.pairplot(
+    df,
+    plot_kws=dict(marker="+", linewidth=1),
+    diag_kws=dict(fill=False),
+)
+
+plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+plt.show()
+=======================================================================================
+Handling Correlation
+Pandas dataframe.corr() is used to find the pairwise correlation of all columns in the dataframe.
+Any NA values are automatically excluded. Any non-numeric data type columns in the dataframe are ignored.
+===========================================================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+df = pd.read_csv("Iris.csv")
+#print(df)
+
+df = df.corr(method='pearson')
+print(df)
+
+#plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+#plt.show()
+
+
+
+sepallength  sepalwidth  petallength  petalwidth
+sepallength     1.000000   -0.109369     0.871754    0.817954
+sepalwidth     -0.109369    1.000000    -0.420516   -0.356544
+petallength     0.871754   -0.420516     1.000000    0.962757
+petalwidth      0.817954   -0.356544     0.962757    1.000000
+==================================================================================
+Heatmaps
+The heatmap is a data visualization technique that is used to analyze the dataset as colors in two dimensions. 
+Basically, it shows a correlation between all numerical variables in the dataset.
+In simpler terms, we can plot the above-found correlation using the heatmaps.
+===================================================================================
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+df = pd.read_csv("Iris.csv")
+#print(df)
+
+sns.heatmap(df.corr(method='pearson').drop(
+  ['sepallength'], axis=1).drop(['sepallength'], axis=0),
+            annot = True);
+
+
+plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+plt.show()
+===================================================================================
+
+
+
