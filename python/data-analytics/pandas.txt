@@ -545,11 +545,415 @@ depending on which rows must retain their data.
 
 =================================================================================================
 
+# importing pandas module
+import pandas as pd
+
+# Define a dictionary containing employee data
+data1 = {'key': ['K0', 'K1', 'K2', 'K3'],
+         'Name': ['Jai', 'Princi', 'Gaurav', 'Anuj'],
+         'Age': [27, 24, 22, 32], }
+
+# Define a dictionary containing employee data
+data2 = {'key': ['K0', 'K1', 'K2', 'K3'],
+         'Address': ['Nagpur', 'Kanpur', 'Allahabad', 'Kannuaj'],
+         'Qualification': ['Btech', 'B.A', 'Bcom', 'B.hons']}
+
+# Convert the dictionary into DataFrame
+df1 = pd.DataFrame(data1)
+print("############DATA FRAME1 ##########################")
+print(df1)
+
+# Convert the dictionary into DataFrame
+df2 = pd.DataFrame(data2)
+print("############DATA FRAME2 ##########################")
+print(df2)
+
+
+# using .merge() function
+res = pd.merge(df1, df2, on='key')
+print("#############AFTER MERGING###################")
+print(res)
+
+
+
+############DATA FRAME1 ##########################
+  key    Name  Age
+0  K0     Jai   27
+1  K1  Princi   24
+2  K2  Gaurav   22
+3  K3    Anuj   32
+############DATA FRAME2 ##########################
+  key    Address Qualification
+0  K0     Nagpur         Btech
+1  K1     Kanpur           B.A
+2  K2  Allahabad          Bcom
+3  K3    Kannuaj        B.hons
+#############AFTER MERGING###################
+  key    Name  Age    Address Qualification
+0  K0     Jai   27     Nagpur         Btech
+1  K1  Princi   24     Kanpur           B.A
+2  K2  Gaurav   22  Allahabad          Bcom
+3  K3    Anuj   32    Kannuaj        B.hons
+============================================================================================
+# importing pandas module
+import pandas as pd
+
+# Define a dictionary containing employee data
+data1 = {'Name': ['Jai', 'Princi', 'Gaurav', 'Anuj'],
+         'Age': [27, 24, 22, 32]}
+
+# Define a dictionary containing employee data
+data2 = {'Address': ['Allahabad', 'Kannuaj', 'Allahabad', 'Kannuaj'],
+         'Qualification': ['MCA', 'Phd', 'Bcom', 'B.hons']}
+
+# Convert the dictionary into DataFrame
+df1 = pd.DataFrame(data1, index=['K0', 'K1', 'K2', 'K3'])
+print("############DATA FRAME1 ##########################")
+print(df1)
+
+# Convert the dictionary into DataFrame
+df2 = pd.DataFrame(data2, index=['K0', 'K2', 'K3', 'K4'])
+print("############DATA FRAME2 ##########################")
+print(df2)
+
+
+
+# joining dataframe
+res = df1.join(df2)
+print("#############AFTER JOINING###################")
+print(res)
+
+
+
+
+############DATA FRAME1 ##########################
+      Name  Age
+K0     Jai   27
+K1  Princi   24
+K2  Gaurav   22
+K3    Anuj   32
+############DATA FRAME2 ##########################
+      Address Qualification
+K0  Allahabad           MCA
+K2    Kannuaj           Phd
+K3  Allahabad          Bcom
+K4    Kannuaj        B.hons
+#############AFTER JOINING###################
+      Name  Age    Address Qualification
+K0     Jai   27  Allahabad           MCA
+K1  Princi   24        NaN           NaN
+K2  Gaurav   22    Kannuaj           Phd
+K3    Anuj   32  Allahabad          Bcom
+=========================================================================================
+=====================INNER JOIN(COMMON IN BOTH)=========================================
+# importing pandas
+import pandas as pd
+
+# Creating dataframe a
+a = pd.DataFrame()
+
+# Creating Dictionary
+d = {'id': [1, 2, 10, 12],
+	'val1': ['a', 'b', 'c', 'd']}
+
+a = pd.DataFrame(d)
+print(a)
+
+# Creating dataframe b
+b = pd.DataFrame()
+
+# Creating dictionary
+d = {'id': [1, 2, 9, 8],
+	'val1': ['p', 'q', 'r', 's']}
+b = pd.DataFrame(d)
+print(b)
+
+# inner join
+df = pd.merge(a, b, on='id', how='inner')
+
+# display dataframe
+print(df)
 
 
 
 
 
+ id val1
+0   1    a
+1   2    b
+2  10    c
+3  12    d
+   id val1
+0   1    p
+1   2    q
+2   9    r
+3   8    s
+   id val1_x val1_y
+0   1      a      p
+1   2      b      q
+====================================================================================
+========================INNER JOIN=================================================
+# importing pandas
+import pandas as pd
+
+# Creating dataframe a
+a = pd.DataFrame()
+
+# Creating Dictionary
+d = {'id': [1, 2, 10, 12],
+	'val1': ['a', 'b', 'p', 'q']}
+
+a = pd.DataFrame(d)
+print(a)
+
+# Creating dataframe b
+b = pd.DataFrame()
+
+# Creating dictionary
+d = {'id': [1, 2, 9, 8],
+	'val1': ['p', 'q', 'r', 's']}
+b = pd.DataFrame(d)
+print(b)
+
+# inner join
+df = pd.merge(a, b, on='val1', how='inner')
+
+# display dataframe
+print(df)
+
+
+
+
+ id val1
+0   1    a
+1   2    b
+2  10    p
+3  12    q
+   id val1
+0   1    p
+1   2    q
+2   9    r
+3   8    s
+   id_x val1  id_y
+0    10    p     1
+1    12    q     2
+======================================================================================
+Pandas Left Join
+With a left outer join, all the records from the first Dataframe will be displayed, 
+irrespective of whether the keys in the first Dataframe can be found in the second Dataframe.
+
+Whereas, for the second Dataframe, only the records with the keys in the second Dataframe that
+can be found in the first Dataframe will be displayed.
+
+==========================================================================================
+# importing pandas
+import pandas as pd
+
+# Creating dataframe a
+a = pd.DataFrame()
+
+# Creating Dictionary
+d = {'id': [1, 2, 10, 12],
+	'val1': ['a', 'b', 'c', 'd']}
+
+a = pd.DataFrame(d)
+print(a)
+
+# Creating dataframe b
+b = pd.DataFrame()
+
+# Creating dictionary
+d = {'id': [1, 2, 9, 8],
+	'val1': ['p', 'q', 'r', 's']}
+b = pd.DataFrame(d)
+print(b)
+
+# inner join
+df = pd.merge(a, b, on='id', how='left')
+
+# display dataframe
+print(df)
+
+
+
+
+  id val1
+0   1    a
+1   2    b
+2  10    c
+3  12    d
+   id val1
+0   1    p
+1   2    q
+2   9    r
+3   8    s
+   id val1_x val1_y
+0   1      a      p
+1   2      b      q
+2  10      c    NaN
+3  12      d    NaN
+============================================================================================
+Pandas Right Outer Join
+For a right join, all the records from the second Dataframe will be displayed.
+However, only the records with the keys in the first Dataframe that can be found in the second Dataframe will be displayed.
+================================================================================================
+# importing pandas
+import pandas as pd
+
+# Creating dataframe a
+a = pd.DataFrame()
+
+# Creating Dictionary
+d = {'id': [1, 2, 10, 12],
+	'val1': ['a', 'b', 'c', 'd']}
+
+a = pd.DataFrame(d)
+print(a)
+
+# Creating dataframe b
+b = pd.DataFrame()
+
+# Creating dictionary
+d = {'id': [1, 2, 9, 8],
+	'val1': ['p', 'q', 'r', 's']}
+b = pd.DataFrame(d)
+print(b)
+
+# inner join
+df = pd.merge(a, b, on='id', how='right')
+
+# display dataframe
+print(df)
+
+
+
+
+
+   id val1
+0   1    a
+1   2    b
+2  10    c
+3  12    d
+   id val1
+0   1    p
+1   2    q
+2   9    r
+3   8    s
+   id val1_x val1_y
+0   1      a      p
+1   2      b      q
+2   9    NaN      r
+3   8    NaN      s
+=======================================================================================
+Pandas Full Outer Join
+A full outer join returns all the rows from the left Dataframe, and 
+all the rows from the right Dataframe, and matches up rows where possible,
+with NaNs elsewhere. But if the Dataframe is complete, then we get the same output.
+
+==========================================================================================
+# importing pandas
+import pandas as pd
+
+# Creating dataframe a
+a = pd.DataFrame()
+
+# Creating Dictionary
+d = {'id': [1, 2, 10, 12],
+	'val1': ['a', 'b', 'c', 'd']}
+
+a = pd.DataFrame(d)
+print(a)
+
+# Creating dataframe b
+b = pd.DataFrame()
+
+# Creating dictionary
+d = {'id': [1, 2, 9, 8],
+	'val1': ['p', 'q', 'r', 's']}
+b = pd.DataFrame(d)
+print(b)
+
+# inner join
+df = pd.merge(a, b, on='id', how='outer')
+
+# display dataframe
+print(df)
+
+
+
+
+
+
+ id val1
+0   1    a
+1   2    b
+2  10    c
+3  12    d
+   id val1
+0   1    p
+1   2    q
+2   9    r
+3   8    s
+   id val1_x val1_y
+0   1      a      p
+1   2      b      q
+2  10      c    NaN
+3  12      d    NaN
+4   9    NaN      r
+5   8    NaN      s
+==============================================================================================
+Pandas Index Join
+To merge the Dataframe on indices pass the left_index and right_index arguments as True
+i.e. both the Dataframes are merged on an index using default Inner Join.
+==============================================================================================
+# importing pandas
+import pandas as pd
+
+# Creating dataframe a
+a = pd.DataFrame()
+
+# Creating Dictionary
+d = {'id': [1, 2, 10, 12],
+	'val1': ['a', 'b', 'c', 'd']}
+
+a = pd.DataFrame(d)
+print(a)
+
+# Creating dataframe b
+b = pd.DataFrame()
+
+# Creating dictionary
+d = {'id': [1, 2, 9, 8],
+	'val1': ['p', 'q', 'r', 's']}
+b = pd.DataFrame(d)
+print(b)
+
+# index join
+df = pd.merge(a, b, left_index=True, right_index=True)
+
+# display dataframe
+print(df)
+
+
+
+
+
+  id val1
+0   1    a
+1   2    b
+2  10    c
+3  12    d
+   id val1
+0   1    p
+1   2    q
+2   9    r
+3   8    s
+   id_x val1_x  id_y val1_y
+0     1      a     1      p
+1     2      b     2      q
+2    10      c     9      r
+3    12      d     8      s
+==============================================================================================
 
 
 
