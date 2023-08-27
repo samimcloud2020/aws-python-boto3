@@ -300,7 +300,250 @@ print(df)
 117          7.7         3.8          6.7         2.2  Iris-virginica
 118          7.7         2.6          6.9         2.3  Iris-virginica
 ================================================================================================
+# importing pandas module
+import pandas as pd
 
+# Define a dictionary containing employee data
+data1 = {'Name': ['Jai', 'Anuj', 'Jai', 'Princi',
+                  'Gaurav', 'Anuj', 'Princi', 'Abhi'],
+         'Age': [27, 24, 22, 32,
+                 33, 36, 27, 32],
+         'Address': ['Nagpur', 'Kanpur', 'Allahabad', 'Kannuaj',
+                     'Jaunpur', 'Kanpur', 'Allahabad', 'Aligarh'],
+         'Qualification': ['Msc', 'MA', 'MCA', 'Phd',
+                           'B.Tech', 'B.com', 'Msc', 'MA']}
+
+# Convert the dictionary into DataFrame
+df = pd.DataFrame(data1)
+
+print("Original Dataframe")
+print(df)
+
+# applying groupby() function to
+# group the data on Name value.
+gk = df.groupby('Name')
+print(gk)
+
+# Let's print the first entries
+# in all the groups formed.
+print("After Creating Groups")
+print(gk.first())
+
+
+Original Dataframe
+     Name  Age    Address Qualification
+0     Jai   27     Nagpur           Msc
+1    Anuj   24     Kanpur            MA
+2     Jai   22  Allahabad           MCA
+3  Princi   32    Kannuaj           Phd
+4  Gaurav   33    Jaunpur        B.Tech
+5    Anuj   36     Kanpur         B.com
+6  Princi   27  Allahabad           Msc
+7    Abhi   32    Aligarh            MA
+<pandas.core.groupby.generic.DataFrameGroupBy object at 0x000002992BC51C00>
+After Creating Groups
+        Age  Address Qualification
+Name                              
+Abhi     32  Aligarh            MA
+Anuj     24   Kanpur            MA
+Gaurav   33  Jaunpur        B.Tech
+Jai      27   Nagpur           Msc
+Princi   32  Kannuaj           Phd
+
+======================================================================================
+
+# importing pandas module
+import pandas as pd
+
+# importing numpy as np
+import numpy as np
+
+# Define a dictionary containing employee data
+data1 = {'Name': ['Jai', 'Anuj', 'Jai', 'Princi',
+				'Gaurav', 'Anuj', 'Princi', 'Abhi'],
+		'Age': [27, 24, 22, 32,
+				33, 36, 27, 32],
+		'Address': ['Nagpur', 'Kanpur', 'Allahabad', 'Kannuaj',
+					'Jaunpur', 'Kanpur', 'Allahabad', 'Aligarh'],
+		'Qualification': ['Msc', 'MA', 'MCA', 'Phd',
+								'B.Tech', 'B.com', 'Msc', 'MA']}
+
+
+# Convert the dictionary into DataFrame
+df = pd.DataFrame(data1)
+print("#####################dataframe#####################")
+print(df)
+
+# performing aggregation using
+# aggregate method
+#group by name
+grp1 = df.groupby('Name')
+
+print("##################agg sum#########################")
+print(grp1.aggregate(np.sum))
+print("#################agg max##########################")
+print(grp1.aggregate(np.max))
+print("######################agg min######################")
+print(grp1.aggregate(np.min))
+
+
+
+
+#####################dataframe#####################
+     Name  Age    Address Qualification
+0     Jai   27     Nagpur           Msc
+1    Anuj   24     Kanpur            MA
+2     Jai   22  Allahabad           MCA
+3  Princi   32    Kannuaj           Phd
+4  Gaurav   33    Jaunpur        B.Tech
+5    Anuj   36     Kanpur         B.com
+6  Princi   27  Allahabad           Msc
+7    Abhi   32    Aligarh            MA
+##################agg sum#########################
+        Age           Address Qualification
+Name                                       
+Abhi     32           Aligarh            MA
+Anuj     60      KanpurKanpur       MAB.com
+Gaurav   33           Jaunpur        B.Tech
+Jai      49   NagpurAllahabad        MscMCA
+Princi   59  KannuajAllahabad        PhdMsc
+#################agg max##########################
+        Age  Address Qualification
+Name                              
+Abhi     32  Aligarh            MA
+Anuj     36   Kanpur            MA
+Gaurav   33  Jaunpur        B.Tech
+Jai      27   Nagpur           Msc
+Princi   32  Kannuaj           Phd
+######################agg min######################
+        Age    Address Qualification
+Name                                
+Abhi     32    Aligarh            MA
+Anuj     24     Kanpur         B.com
+Gaurav   33    Jaunpur        B.Tech
+Jai      22  Allahabad           MCA
+Princi   27  Allahabad           Msc
+
+============================================================================================
+# importing pandas module
+import pandas as pd
+
+# Define a dictionary containing employee data
+data1 = {'key': ['K0', 'K1', 'K2', 'K3'],
+		 'Name': ['Jai', 'Princi', 'Gaurav', 'Anuj'],
+		 'Age': [27, 24, 22, 32], }
+
+# Define a dictionary containing employee data
+data2 = {'key': ['K0', 'K1', 'K2', 'K3'],
+		 'Address': ['Nagpur', 'Kanpur', 'Allahabad', 'Kannuaj'],
+		 'Qualification': ['Btech', 'B.A', 'Bcom', 'B.hons']}
+
+# Convert the dictionary into DataFrame
+df1 = pd.DataFrame(data1)
+print("###############data frame1#############")
+print(df1)
+
+# Convert the dictionary into DataFrame
+df2 = pd.DataFrame(data2)
+print("#################data frame2#################")
+print(df2)
+
+
+
+# combining series and dataframe
+res = pd.concat([df1, df2], axis=1)
+print("########concat df1 and df2 ############################")
+print(res)
+
+
+
+
+###############data frame1#############
+  key    Name  Age
+0  K0     Jai   27
+1  K1  Princi   24
+2  K2  Gaurav   22
+3  K3    Anuj   32
+#################data frame2#################
+  key    Address Qualification
+0  K0     Nagpur         Btech
+1  K1     Kanpur           B.A
+2  K2  Allahabad          Bcom
+3  K3    Kannuaj        B.hons
+########concat df1 and df2 ############################
+  key    Name  Age key    Address Qualification
+0  K0     Jai   27  K0     Nagpur         Btech
+1  K1  Princi   24  K1     Kanpur           B.A
+2  K2  Gaurav   22  K2  Allahabad          Bcom
+3  K3    Anuj   32  K3    Kannuaj        B.hons
+=====================================================================================================
+# importing pandas module
+import pandas as pd
+
+# Define a dictionary containing employee data
+data1 = {'key': ['K0', 'K1', 'K2', 'K3'],
+		 'Name': ['Jai', 'Princi', 'Gaurav', 'Anuj'],
+		 'Age': [27, 24, 22, 32], }
+
+# Define a dictionary containing employee data
+data2 = {'key': ['K0', 'K1', 'K2', 'K3'],
+		 'Address': ['Nagpur', 'Kanpur', 'Allahabad', 'Kannuaj'],
+		 'Qualification': ['Btech', 'B.A', 'Bcom', 'B.hons']}
+
+# Convert the dictionary into DataFrame
+df1 = pd.DataFrame(data1)
+print("###############data frame1#############")
+print(df1)
+
+# Convert the dictionary into DataFrame
+df2 = pd.DataFrame(data2)
+print("#################data frame2#################")
+print(df2)
+
+
+
+# combining series and dataframe
+res = pd.concat([df1, df2], axis=0)   #if axis=0
+print("########concat df1 and df2 ############################")
+print(res)
+
+
+
+
+###############data frame1#############
+  key    Name  Age
+0  K0     Jai   27
+1  K1  Princi   24
+2  K2  Gaurav   22
+3  K3    Anuj   32
+#################data frame2#################
+  key    Address Qualification
+0  K0     Nagpur         Btech
+1  K1     Kanpur           B.A
+2  K2  Allahabad          Bcom
+3  K3    Kannuaj        B.hons
+########concat df1 and df2 ############################
+  key    Name   Age    Address Qualification
+0  K0     Jai  27.0        NaN           NaN
+1  K1  Princi  24.0        NaN           NaN
+2  K2  Gaurav  22.0        NaN           NaN
+3  K3    Anuj  32.0        NaN           NaN
+0  K0     NaN   NaN     Nagpur         Btech
+1  K1     NaN   NaN     Kanpur           B.A
+2  K2     NaN   NaN  Allahabad          Bcom
+3  K3     NaN   NaN    Kannuaj        B.hons
+=================================================================================================
+================================MERGING DATAFRAME===============================================
+The key is the common column that the two DataFrames will be joined on. 
+
+It’s a good practice to use keys that have unique values throughout the column 
+to avoid unintended duplication of row values. Pandas provide a single function, merge().
+
+
+There are four basic ways to handle the join (inner, left, right, and outer),
+depending on which rows must retain their data.
+
+=================================================================================================
 
 
 
