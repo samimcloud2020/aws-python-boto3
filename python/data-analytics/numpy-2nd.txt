@@ -1,3 +1,5 @@
+numpy:homogeneous of same data type
+
 import numpy as np
 
 my_list1 = [1,2,3,4]
