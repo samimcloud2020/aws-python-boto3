@@ -132,6 +132,151 @@ print(two_d_array[::-1, ::-1])
  [12 11 10  9  8  7]
  [ 6  5  4  3  2  1]]
 ====================np.reshape()========================================================
+import numpy as np
+
+one_d_array = np.array([1,2,3,4,5,6])
+
+two_d_array = np.array([one_d_array,one_d_array +6,one_d_array+12])
+print(two_d_array)
+
+new_two_d_array = np.reshape(a=two_d_array,newshape=(6,3))
+print(new_two_d_array)
+
+
+[[ 1  2  3  4  5  6]
+ [ 7  8  9 10 11 12]
+ [13 14 15 16 17 18]]
+[[ 1  2  3]
+ [ 4  5  6]
+ [ 7  8  9]
+ [10 11 12]
+ [13 14 15]
+ [16 17 18]]
+===============================.flatten()==================================================================
+import numpy as np
+
+one_d_array = np.array([1,2,3,4,5,6])
+
+two_d_array = np.array([one_d_array,one_d_array +6,one_d_array+12])
+print(two_d_array)
+
+new_two_d_array = two_d_array.flatten()
+print(new_two_d_array)
+
+
+[[ 1  2  3  4  5  6]
+ [ 7  8  9 10 11 12]
+ [13 14 15 16 17 18]]
+[ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18]
+============================================================================================================
+import numpy as np
+
+one_d_array = np.array([1,2,3,4,5,6])
+
+two_d_array = np.array([one_d_array,one_d_array +6,one_d_array+12])
+print(two_d_array)
+
+new_two_d_array = two_d_array.T  # rows into col & col into row
+print(new_two_d_array)
+
+
+[[ 1  2  3  4  5  6]
+ [ 7  8  9 10 11 12]
+ [13 14 15 16 17 18]]
+[[ 1  7 13]
+ [ 2  8 14]
+ [ 3  9 15]
+ [ 4 10 16]
+ [ 5 11 17]
+ [ 6 12 18]]
+==================================np.concatenate()=======================================================================
+import numpy as np
+
+one_d_array = np.array([1,2,3,4,5,6])
+
+two_d_array = np.array([one_d_array,one_d_array +6,one_d_array+12])
+print(two_d_array)
+
+array_to_join = np.array([[10,20,30],[40,50,60],[70,80,90]])
+print(array_to_join)
+
+joined_array = np.concatenate((two_d_array,array_to_join), axis=1)
+print(joined_array)
+
+
+
+[[ 1  2  3  4  5  6]
+ [ 7  8  9 10 11 12]
+ [13 14 15 16 17 18]]
+[[10 20 30]
+ [40 50 60]
+ [70 80 90]]
+[[ 1  2  3  4  5  6 10 20 30]
+ [ 7  8  9 10 11 12 40 50 60]
+ [13 14 15 16 17 18 70 80 90]]
+==========================================================================================================
+iimport numpy as np
+
+one_d_array = np.array([1,2,3,4,5,6])
+
+two_d_array = np.array([one_d_array,one_d_array +6,one_d_array+12])
+print(two_d_array)
+
+new_array = two_d_array * 2
+print(new_array)
+
+new_array = two_d_array ** 2
+print(new_array)
+
+new_array = two_d_array % 2
+print(new_array)
+
+[[ 1  2  3  4  5  6]
+ [ 7  8  9 10 11 12]
+ [13 14 15 16 17 18]]
+[[ 2  4  6  8 10 12]
+ [14 16 18 20 22 24]
+ [26 28 30 32 34 36]]
+[[  1   4   9  16  25  36]
+ [ 49  64  81 100 121 144]
+ [169 196 225 256 289 324]]
+[[1 0 1 0 1 0]
+ [1 0 1 0 1 0]
+ [1 0 1 0 1 0]]
+
+=========================================================================================================
+import numpy as np
+
+one_d_array = np.array([1,2,3,4,5,6])
+
+print(one_d_array + one_d_array)
+print(one_d_array * one_d_array)
+print(one_d_array ** one_d_array)
+
+
+[ 2  4  6  8 10 12]
+[ 1  4  9 16 25 36]
+[    1     4    27   256  3125 46656]
+=======================================================================================================
+import numpy as np
+
+one_d_array = np.array([1,2,3,4,5,6])
+
+two_d_array = np.array([one_d_array,one_d_array +6,one_d_array+12])
+print(two_d_array)
+
+two_d_array = np.mean(two_d_array)
+print(two_d_array)
+
+two_d_array = np.std(two_d_array, axis=1) # get std each columns
+print(two_d_array)
+
+two_d_array = np.sum(two_d_array,axis=1) #get rows sum
+print(two_d_array)
+
+two_d_array = np.sum(two_d_array,axis=0) #get columns  sum
+print(two_d_array)
+=================================================================================================
 
 
 
