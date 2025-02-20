@@ -1,0 +1,19 @@
+    from flask import Flask
+    app = Flask(__name__)
+    
+    @app.route('/')
+    def home():
+        return 'Hello, World!'
+***************************************************************
+Internally, @app.route('/') is equivalent to:
+**************************************************************
+def home():
+    return 'Hello, World!'
+
+app.route('/')(home)
+*****************************************************************
+Here’s what happens:
+
+app.route('/') is a function call that takes '/' as an argument.
+It wraps the home() function, registering it in Flask’s routing system.
+When a request is made to /, Flask executes home().
