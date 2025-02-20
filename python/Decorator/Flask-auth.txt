@@ -1,0 +1,41 @@
+from flask import Flask, request, jsonify, abort
+import functools
+
+app = Flask(__name__)
+
+# Custom Decorator for Authentication
+def require_api_key(func):
+    @functools.wraps(func)  # Preserves function metadata
+    def wrapper(*args, **kwargs):
+        api_key = request.headers.get('X-API-KEY')  # Check for API key in request headers
+        if api_key == "mysecretkey":  # Example check
+            return func(*args, **kwargs)
+        else:
+            abort(401, description="Unauthorized")  # Return 401 if the key is invalid
+    return wrapper
+
+@app.route('/')
+def home():
+    return "Welcome to the Flask App!"
+
+@app.route('/secure-data')
+@require_api_key
+def secure_data():
+    return jsonify({"message": "This is protected data!"})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+********************************************************************************
+How It Works
+require_api_key(func) is a custom decorator:
+
+It wraps the route function.
+It checks for an API key in the request headers.
+If the key is correct, it allows access.
+If the key is wrong or missing, it returns a 401 Unauthorized error.
+Usage of the Decorator:
+
+@require_api_key is added above secure_data().
+When a request is made to /secure-data, the decorator runs first.
+If authentication passes, the original function (secure_data()) runs.
+**************************************************************************************
