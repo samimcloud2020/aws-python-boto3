@@ -1,0 +1,40 @@
+A decorator is essentially a function that takes another function as an argument and 
+returns a new function with enhanced functionality.
+
+Decorators are often used in scenarios such as logging, authentication and memorization, 
+allowing us to aA decorator is essentially a function that takes another function as an 
+argument and returns a new function with enhanced functionality.
+
+Decorators are often used in scenarios such as logging, authentication and memorization, 
+allowing us to add additional functionality to existing functions or methods in a clean, 
+reusable way.dd additional functionality to existing functions or methods in a clean, 
+reusable way.
+
+*********************************************************************************
+# A simple decorator function
+def decorator(func):
+  
+    def wrapper():
+        print("Before calling the function.")
+        func()
+        print("After calling the function.")
+    return wrapper
+
+# Applying the decorator to a function
+@decorator
+
+def greet():
+    print("Hello, World!")
+
+greet()
+*****************************************************************************************
+Before calling the function.
+Hello, World!
+After calling the function.
+*****************************************************************************************
+Explanation:
+
+decorator takes the greet function as an argument.
+It returns a new function (wrapper) that first prints a message, calls greet() and then prints another message.
+The @decorator syntax is a shorthand for greet = decorator(greet).
+*****************************************************************************************************
