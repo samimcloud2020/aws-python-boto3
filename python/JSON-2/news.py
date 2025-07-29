@@ -24,7 +24,7 @@ def fetch_news_data(api_key: str, country: str="us", category: str="business"):
             raise NewsAPIError("Invalid news data format or status is not ok")
         
         processed_articles=[]
-        for article in news_data.get("articles", []):
+        for article in news_data.get("articles", []):   #For the first article in the list, i will be 1, For the second article, i will be 2.
             processed_articles.append({
                 "source_name": article.get("source", {}).get("name"),
                 "author": article.get("author"),
