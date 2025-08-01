@@ -42,7 +42,7 @@ The __exit__ method is called to clean up the resource (e.g., closing a file) wh
 # Custom Context Manager
 You can create your own context manager using a class with __enter__ and __exit__ methods.
 
-class MyContextManager:
+### class MyContextManager:
 
     def __enter__(self):
     
