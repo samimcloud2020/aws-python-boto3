@@ -43,18 +43,31 @@ The __exit__ method is called to clean up the resource (e.g., closing a file) wh
 You can create your own context manager using a class with __enter__ and __exit__ methods.
 
 class MyContextManager:
+
     def __enter__(self):
+    
         print("Entering the context")
+        
         return self  # Return object to be used in the 'as' clause
+        
     def __exit__(self, exc_type, exc_value, traceback):
+    
         print("Exiting the context")
+        
         # Handle exceptions if needed
+        
         if exc_type:
+        
             print(f"An error occurred: {exc_value}")
+            
         return False  # Let exceptions propagate
 
 # Using the custom context manager
+
 with MyContextManager() as cm:
+
     print("Inside the with block")
+    
     # Simulate an error
+    
     raise ValueError("Something went wrong!")
